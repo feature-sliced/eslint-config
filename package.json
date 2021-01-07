@@ -1,6 +1,6 @@
 {
   "name": "@feature-driven/eslint-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "📓 Lint feature-driven rules by standard eslint plugins",
   "main": "index.js",
   "repository": "https://github.com/feature-driven/eslint-config.git",
