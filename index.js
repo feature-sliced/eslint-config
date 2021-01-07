@@ -29,6 +29,7 @@ module.exports = {
     ],
     rules: {
         "import/first": 2,
+        "import/no-unresolved": 0, // experimental
         "import/order": [
             2,
             {

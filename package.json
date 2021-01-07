@@ -22,6 +22,6 @@
     "publish:major": "npm version major && npm publish"
   },
   "peerDependencies": {
-		"eslint": ">=6"
-	}
+    "eslint": ">=6"
+  }
 }
