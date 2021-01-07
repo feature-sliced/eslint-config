@@ -1,11 +1,20 @@
 {
   "name": "eslint-config",
   "version": "0.0.0",
-  "description": "Shareable feature-based config powered by standard eslint plugins",
+  "description": "📓 Lint feature-driven rules by standard eslint plugins",
   "main": "index.js",
   "repository": "https://github.com/feature-driven/eslint-config.git",
   "author": "Ilya Azin <martis.azin@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "feature-driven",
+    "feature-based",
+    "fdd",
+    "ddd"
+  ],
   "scripts": {
     "publish:prepatch": "npm version prepatch && npm publish",
     "publish:patch": "npm version patch && npm publish",
