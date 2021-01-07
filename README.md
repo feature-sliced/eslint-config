@@ -4,20 +4,17 @@
 
 Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
 
-<br/>
-
 - Control **Co-location**
 - Control **Decoupling && isolating**
 
-<br/>
-
-> But unfortunately, it can't allow you
+> But unfortunately, *while* it can't allow you
 > - to control *Decentralization*
 > - to control *Explicit sharing*
 > - to control *Disposability*
 >
+> Also, strict level limited by plugins API
+>
 > **More power** - in our [@feature-driven/eslint-plugin](https://github.com/feature-driven/eslint-plugin)
-<!-- TODO [**Propose or contribute a new rule ➡**](.github/contributing.md) -->
 
 ## Table of contents
 
@@ -26,7 +23,7 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
    * [Installation](#installation)
    * [Usage](#usage)
    * [Supported Rules](#supported-rules)
-   <!-- * [Also](#also) -->
+   * [Also](#also)
 <!--te-->
 
 <!-- TODO: ## Overview -->
@@ -49,24 +46,24 @@ $ npm install -D @feature-driven/eslint-config
 
 ## Usage
 
-Add config to the *extends* section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
 
 ```json
 {
     "extends": [
-        "@feature-driven"
+        "@feature-driven",
     ]
 }
 ```
 
-
+Further, you can override / disable some rules if needed.
 ## Supported Rules
 
 - See [supported rules](/docs/README.md)
 
-<!-- ## Also (in TOC also!!!) -->
-<!-- - You want to participate in the development of the project? Have a look at our [contributing](./CONTRIBUTING.md) guide! -->
-   <!-- > Commit like nobody sees, Push like nobody hears -->
-<!-- - [FAQ](./FAQ.md) -->
+## Also
+- You want to participate in the development of the project? Have a look at our [contributing](./CONTRIBUTING.md) guide!
+   > Commit like nobody sees, Push like nobody hears
+- [FAQ](./FAQ.md)
 
 
