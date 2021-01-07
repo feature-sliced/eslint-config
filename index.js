@@ -24,31 +24,11 @@ const RELATIVE_PATHS = [
 ];
 
 module.exports = {
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-        ecmaVersion: 2020,
-        ecmaFeatures: {
-            jsx: true,
-            modules: true,
-        },
-        sourceType: "module",
-    },
-    env: {
-        browser: true,
-        es6: true,
-    },
-    extends: [
-        "eslint:recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:import/typescript",
-    ],
     plugins: [
-        "@typescript-eslint",
+        "import",
     ],
     rules: {
         "import/first": 2,
-        "import/no-unresolved": 0,
         "import/order": [
             2,
             {
@@ -64,6 +44,11 @@ module.exports = {
             },
         ],
         // TODO: with messages
-        "no-restricted-imports": [2, { patterns: [...PRIVATE_PATHS, ...RELATIVE_PATHS] }],
+        "no-restricted-imports": [
+            2, 
+            { 
+                patterns: [...PRIVATE_PATHS, ...RELATIVE_PATHS] 
+            }
+        ],
     },
 };
