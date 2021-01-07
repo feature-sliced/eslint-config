@@ -21,7 +21,7 @@ First of all, thanks for taking the time to contribute! :+1:
 
 ## Workflow
 1. Fork repository
-2. Add your changes with
+2. Add your changes
     - Ensure commits messages conforms to [Conventional Commits](https://www.conventionalcommits.org) spec.
     - Later will be added tests and maybe inner linting
-3. Propose your pull-request by *your forked branch*
+3. Propose your pull-request by *your forked branch* and specify related issues, if they are exist
