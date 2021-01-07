@@ -1,6 +1,7 @@
 # [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 
-<img src="https://avatars3.githubusercontent.com/u/74538205?s=120&v=4" align="right">
+<!-- TODO: set later size as 120px -->
+<img src="https://avatars3.githubusercontent.com/u/74538205?s=76&v=4" align="right">
 
 Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
 
@@ -22,7 +23,7 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
    <!-- TODO* [Overview](#overview) -->
    * [Installation](#installation)
    * [Usage](#usage)
-   * [Supported Rules](#supported-rules)
+   * [Rules](#rules)
    * [Also](#also)
 <!--te-->
 
@@ -57,9 +58,9 @@ Add config to the `extends` section of your eslint configuration file. You can o
 ```
 
 Further, you can override / disable some rules if needed.
-## Supported Rules
+## Rules
 
-- See [supported rules](/docs/README.md)
+- See [included rules](/index.js)
 
 ## Also
 - You want to participate in the development of the project? Have a look at our [contributing](./CONTRIBUTING.md) guide!
