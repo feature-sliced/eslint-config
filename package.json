@@ -1,0 +1,15 @@
+{
+  "name": "eslint-config",
+  "version": "0.0.0",
+  "description": "Shareable feature-based config powered by standard eslint plugins",
+  "main": "index.js",
+  "repository": "https://github.com/feature-driven/eslint-config.git",
+  "author": "Ilya Azin <martis.azin@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "publish:prepatch": "npm version prepatch && npm publish",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
+  }
+}
