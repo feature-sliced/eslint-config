@@ -1,2 +1,72 @@
-# eslint-config
-Shareable feature-based config powered by standard eslint plugins
+# [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
+
+<img src="https://avatars3.githubusercontent.com/u/74538205?s=120&v=4" align="right">
+
+Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
+
+<br/>
+
+- Control **Co-location**
+- Control **Decoupling && isolating**
+
+<br/>
+
+> But unfortunately, it can't allow you
+> - to control *Decentralization*
+> - to control *Explicit sharing*
+> - to control *Disposability*
+>
+> **More power** - in our [@feature-driven/eslint-plugin](https://github.com/feature-driven/eslint-plugin)
+<!-- TODO [**Propose or contribute a new rule ➡**](.github/contributing.md) -->
+
+## Table of contents
+
+<!--ts-->
+   <!-- TODO* [Overview](#overview) -->
+   * [Installation](#installation)
+   * [Usage](#usage)
+   * [Supported Rules](#supported-rules)
+   <!-- * [Also](#also) -->
+<!--te-->
+
+<!-- TODO: ## Overview -->
+
+
+## Installation
+
+You'll first need to install [ESLint](http://eslint.org):
+
+```sh
+$ npm i eslint -D
+```
+
+Next, install `@feature-driven/eslint-config`:
+
+```sh
+$ npm install -D @feature-driven/eslint-config
+```
+
+
+## Usage
+
+Add config to the *extends* section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+
+```json
+{
+    "extends": [
+        "@feature-driven"
+    ]
+}
+```
+
+
+## Supported Rules
+
+- See [supported rules](/docs/README.md)
+
+<!-- ## Also (in TOC also!!!) -->
+<!-- - You want to participate in the development of the project? Have a look at our [contributing](./CONTRIBUTING.md) guide! -->
+   <!-- > Commit like nobody sees, Push like nobody hears -->
+<!-- - [FAQ](./FAQ.md) -->
+
+
