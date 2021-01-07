@@ -31,16 +31,16 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
+You'll first need to install [ESLint](http://eslint.org) (with default plugins):
 
 ```sh
-$ npm i eslint -D
+$ npm install --save-dev eslint
 ```
 
 Next, install `@feature-driven/eslint-config`:
 
 ```sh
-$ npm install -D @feature-driven/eslint-config
+$ npm install --save-dev @feature-driven/eslint-config
 ```
 
 
