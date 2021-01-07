@@ -1,7 +1,7 @@
 # [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 
 <!-- TODO: set later size as 120px -->
-<img src="https://avatars3.githubusercontent.com/u/74538205?s=76&v=4" align="right">
+<img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
 
 Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
 
