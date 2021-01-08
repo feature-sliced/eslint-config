@@ -13,7 +13,7 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
 > - to control *Explicit sharing*
 > - to control *Disposability*
 >
-> Also, strict level limited by plugins API
+> Also, strictness level limited by plugins API
 >
 > **More power** - in our [@feature-driven/eslint-plugin](https://github.com/feature-driven/eslint-plugin)
 
