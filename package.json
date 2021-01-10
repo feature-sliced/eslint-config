@@ -23,12 +23,18 @@
     "publish:prepatch": "npm version prepatch && npm publish",
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
-    "publish:major": "npm version major && npm publish"
+    "publish:major": "npm version major && npm publish",
+    "test": "mocha test/**.test.js"
   },
   "peerDependencies": {
     "eslint": ">=6"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "mocha": "^8.2.1"
+  },
+  "dependencies": {}
 }
