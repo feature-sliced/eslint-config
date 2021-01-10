@@ -3,6 +3,10 @@
   "version": "0.0.3",
   "description": "📓 Lint feature-driven rules by standard eslint plugins",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
   "repository": "https://github.com/feature-driven/eslint-config.git",
   "author": "Ilya Azin <martis.azin@gmail.com>",
   "license": "MIT",
