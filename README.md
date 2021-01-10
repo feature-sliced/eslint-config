@@ -35,9 +35,61 @@ Uncomment if will be needed
 > See [included rules](/index.js)
 
 This config help you
-- to **restrict imports** (not private paths, only public API)
-- to **order imports** (app > pages > features > shared > models)
-- to **use only absolute imports** (relative - only for module internal using)
+
+<details>
+<summary>to <b>restrict imports</b> (not private paths, only public API)</summary>
+
+```ts
+// Fail
+import { Issues } from "pages/issues";
+import { IssueDetails } from "features/issue-details"
+import { Button } from "shared/components/button";
+
+// Pass
+import Routing from "pages"; // specific pages shouldn't be reexported
+import { IssueDetails } from "features" // all features should be reexported, for usage
+import { Button } from "shared/components"; // all components should be reexported, for usage
+```
+
+</details>
+<details>
+<summary>to <b>order imports</b> (app > pages > features > shared > models)</summary>
+
+```ts
+// Fail
+import { Helper } from "./helpers";
+import axios from "axios";
+import { data } from "../fixtures";
+import { Button } from "shared/components"
+import { IssueDetails, RepoList } from "features"
+import { debounce } from "shared/helpers"
+
+// Pass
+import axios from "axios"; // 1) external libs
+import { IssueDetails, RepoList } from "features" // 2) features
+import { Button } from "shared/components" // 3) shared/**
+import { debounce } from "shared/helpers"
+import { data } from "../fixtures"; // 4) parent
+import { Helper } from "./helpers"; // 5) sibling
+```
+
+</details>
+<details>
+<summary>to <b>use only absolute imports</b> (relative - only for module internal using)</summary>
+
+```ts
+// Fail
+import Routing from "../../pages"
+import { IssueDetails } from "../features";
+import { Button } from "./shared/components";
+
+// Pass
+import Routing from "pages"
+import { IssueDetails } from "features";
+import { Button } from "shared/components";
+```
+
+</details>
 
 ## Get started
 
