@@ -1,9 +1,4 @@
-# `wip` [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
-
-> **DISCLAIMER**: Work in process, and accordingly:
-> - For a while - here is **approximate** description
-> - First stable version will be signed as **0.1.0**
-
+# [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 <!-- TODO: set later size as 120px (without overlapping!) -->
 <img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
 
@@ -83,7 +78,7 @@ import { Helper } from "./helpers"; // 5) sibling
 // Fail
 import Routing from "../../pages"
 import { IssueDetails } from "../features";
-import { Button } from "./shared/components";
+import { Button } from "../shared/components";
 
 // Pass
 import Routing from "pages"
