@@ -37,6 +37,7 @@ Uncomment if will be needed
 This config help you
 - to **restrict imports** (not private paths, only public API)
 - to **order imports** (app > pages > features > shared > models)
+- to **use only absolute imports** (relative - only for module internal using)
 
 ## Get started
 

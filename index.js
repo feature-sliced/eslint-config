@@ -44,7 +44,7 @@ module.exports = {
                 groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
             },
         ],
-        // TODO: with messages
+        // TODO: with messages (https://github.com/feature-driven/eslint-config/issues/3)
         "no-restricted-imports": [
             2, 
             { 
