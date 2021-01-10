@@ -27,7 +27,8 @@
     "test": "mocha test/**.test.js"
   },
   "peerDependencies": {
-    "eslint": ">=6"
+    "eslint": ">=6",
+    "eslint-plugin-import": ">=2"
   },
   "publishConfig": {
     "access": "public"
