@@ -5,13 +5,13 @@
 
 Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
 
-- Control **Co-location**
-- Control **Decoupling && isolating**
+- Control [**Co-location**](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#679ac063d0a448eb88ea97b712ff2d76)
+- Control [**Decoupling && isolating**](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#095ab6032c2542ebbc18fb48f57e4037)
 
 > But unfortunately, *while* it can't allow you
-> - to control *Decentralization*
-> - to control *Explicit sharing*
-> - to control *Disposability*
+> - to control [*Decentralization*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#200c3a0b57ac4f238d2b96015cdbc5e8)
+> - to control [*Explicit sharing*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#f0cb101913d04704ad540ebe1c5164e7)
+> - to control [*Disposability*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#58991e6707c84a7f92e5740134ffc26c)
 >
 > Also, strictness level limited by plugins API
 >
@@ -20,47 +20,41 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
 ## Table of contents
 
 <!--ts-->
-   <!-- TODO* [Overview](#overview) -->
-   * [Installation](#installation)
+   * [Overview](#overview)
+   * [Get started](#get-started)
    * [Usage](#usage)
-   * [Rules](#rules)
    * [Also](#also)
 <!--te-->
 
 <!-- TODO: ## Overview -->
 
+## Overview
+> See [included rules](/index.js)
 
-## Installation
+This config provide you
+- to restrict imports (not private paths, only public API)
+- to order imports (app > pages > features > shared > models)
 
-You'll first need to install [ESLint](http://eslint.org) (with default plugins):
+## Get started
 
-```sh
-$ npm install --save-dev eslint
-```
+1. You'll first need to install [ESLint](http://eslint.org) (with default plugins):
+    ```sh
+    $ npm install --save-dev eslint
+    ```
 
-Next, install `@feature-driven/eslint-config`:
+2. Next, install `@feature-driven/eslint-config`:
+    ```sh
+    $ npm install --save-dev @feature-driven/eslint-config
+    ```
 
-```sh
-$ npm install --save-dev @feature-driven/eslint-config
-```
+3. Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+    ```json
+    {
+        "extends": ["@feature-driven"]
+    }
+    ```
 
-
-## Usage
-
-Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
-
-```json
-{
-    "extends": [
-        "@feature-driven",
-    ]
-}
-```
-
-Further, you can override / disable some rules if needed.
-## Rules
-
-- See [included rules](/index.js)
+> Further, you can override / disable some rules if needed.
 
 ## Also
 - You want to participate in the development of the project? Have a look at our [contributing](./CONTRIBUTING.md) guide!
