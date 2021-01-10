@@ -1,11 +1,11 @@
 # [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 
-![Version](https://img.shields.io/github/package-json/v/feature-driven/eslint-config)
-![npm](https://img.shields.io/npm/dw/@feature-driven/eslint-config)
-![npm bundle size](https://img.shields.io/bundlephobia/min/@feature-driven/eslint-config)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%feature-driven/eslint-config&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-driven/eslint-config/Test%20current%20build?label=tests)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/feature-driven/eslint-config)
+![npm](https://img.shields.io/npm/v/@feature-driven/eslint-config?style=flat-square)
+![npm](https://img.shields.io/npm/dw/@feature-driven/eslint-config?style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@feature-driven/eslint-config?style=flat-square)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%feature-driven/eslint-config&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-driven/eslint-config/Test%20current%20build?label=tests&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/feature-driven/eslint-config?style=flat-square)
 
 <!-- TODO: set later size as 120px (without overlapping!) -->
 <img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
