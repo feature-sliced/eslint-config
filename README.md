@@ -21,16 +21,15 @@ Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Ar
 >
 > **More power** - in our [@feature-driven/eslint-plugin](https://github.com/feature-driven/eslint-plugin)
 
+<!--
+Uncomment if will be needed
+
 ## Table of contents
-
-<!--ts-->
-   * [Overview](#overview)
-   * [Get started](#get-started)
-   * [Usage](#usage)
-   * [Also](#also)
-<!--te-->
-
-<!-- TODO: ## Overview -->
+* [Overview](#overview)
+* [Get started](#get-started)
+* [Usage](#usage)
+* [Also](#also)
+-->
 
 ## Overview
 > See [included rules](/index.js)
