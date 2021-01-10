@@ -77,6 +77,8 @@ import { Helper } from "./helpers"; // 5) sibling
 <details>
 <summary>to <b>use only absolute imports</b> (relative - only for module internal using)</summary>
 
+> **NOTE:** Be sure, that your tsconfig allows you to use absolute imports
+> - `baseUrl: "./src"`
 ```ts
 // Fail
 import Routing from "../../pages"
