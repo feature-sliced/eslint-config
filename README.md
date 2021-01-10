@@ -12,15 +12,15 @@
 <!-- TODO: set later size as 120px (without overlapping!) -->
 <img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
 
-Linting of [Feature Driven Architecture](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532) principles *by standard eslint-plugins*
+Linting of [Feature Driven Architecture](https://github.com/feature-driven/wiki) principles *by standard eslint-plugins*
 
-- Control [**Co-location**](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#679ac063d0a448eb88ea97b712ff2d76)
-- Control [**Decoupling && isolating**](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#095ab6032c2542ebbc18fb48f57e4037)
+- Control [**Co-location**](https://github.com/feature-driven/wiki#concepts)
+- Control [**Decoupling && isolating**](https://github.com/feature-driven/wiki#concepts)
 
 > But unfortunately, *while* it can't allow you
-> - to control [*Decentralization*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#200c3a0b57ac4f238d2b96015cdbc5e8)
-> - to control [*Explicit sharing*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#f0cb101913d04704ad540ebe1c5164e7)
-> - to control [*Disposability*](https://www.notion.so/Feature-Driven-Architecture-dfe306d664ae4780bcf999ccdd15e532#58991e6707c84a7f92e5740134ffc26c)
+> - to control [*Decentralization*](https://github.com/feature-driven/wiki#concepts)
+> - to control [*Explicit sharing*](https://github.com/feature-driven/wiki#concepts)
+> - to control [*Disposability*](https://github.com/feature-driven/wiki#concepts)
 >
 > Also, strictness level limited by plugins API
 >
