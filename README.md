@@ -34,9 +34,9 @@ Uncomment if will be needed
 ## Overview
 > See [included rules](/index.js)
 
-This config provide you
-- to restrict imports (not private paths, only public API)
-- to order imports (app > pages > features > shared > models)
+This config help you
+- to **restrict imports** (not private paths, only public API)
+- to **order imports** (app > pages > features > shared > models)
 
 ## Get started
 
