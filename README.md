@@ -1,4 +1,4 @@
-# [eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
+# [@feature-driven/eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 
 [npm]: https://www.npmjs.com/package/@feature-driven/eslint-config
 
