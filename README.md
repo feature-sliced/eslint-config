@@ -121,6 +121,7 @@ import { Button } from "shared/components";
 
 ## Also
 - [FAQ](./FAQ.md)
+- [Releases & Changelog](https://github.com/feature-driven/eslint-config/releases)
 - **How can you help?**
   - ⭐ Rate us on GitHub, if it's worth on your opinion 
     > And if this solution must keep to developing
