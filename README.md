@@ -131,8 +131,7 @@ import { Button } from "shared/components";
     > *Commit like nobody sees, Push like nobody hears*
 
 
-<!--
-
--->
-
+⠀
+⠀
+⠀
 > *Repo organizing inspired by [feature-driven/template-github](https://github.com/feature-driven/template-github)*
