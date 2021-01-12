@@ -9,15 +9,17 @@ First of all, thanks for taking the time to contribute! :+1:
 [pr]: https://github.com/feature-driven/eslint-config/pulls
 [pr-new]: https://github.com/feature-driven/eslint-config/compare
 
-- [Report bugs, suggest improvements][issues-new]
+<!-- If weel be needed 💬 👁️ :D -->
+
+- 💡 [Report bugs, suggest improvements][issues-new]
    > If something doesn't work well for you or can be done better, please let us know! 
-- Estimate [issues][issues] 
+- 💬 Estimate & discuss [issues][issues] 
    > Share your opinion, evaluate given problem context from author
-- Repeat difficult [issues][issues]
+- 🔩 Repeat difficult [issues][issues]
    > Some issues hard to repeat
-- Review [pull requests][pr]
+- 🛡️ Review [pull requests][pr]
    > Share your opinion and help us with others' suggestions!
-- Suggest [your own pull-requests!][pr-new]
+- ⚒️ Suggest [your own pull-requests!][pr-new]
 
 ## Workflow
 1. Fork repository
