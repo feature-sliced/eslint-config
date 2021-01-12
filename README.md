@@ -124,7 +124,7 @@ import { Button } from "shared/components";
 - **How can you help?**
   - ⭐ Rate us on GitHub, if it's worth on your opinion 
     > And if this solution must keep to developing
-  - 💫 Have a look at our [contributing](./CONTRIBUTING.md) guide!
+  - 💫 Have a look at our [contributing](./CONTRIBUTING.md) guide
     > **Everything is matter** - from *feedback* to *participating* in development!
     >
     > *Commit like nobody sees, Push like nobody hears*
