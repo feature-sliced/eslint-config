@@ -22,6 +22,11 @@ First of all, thanks for taking the time to contribute! :+1:
 ## Workflow
 1. Fork repository
 2. Add your changes
-    - Ensure commits messages conforms to [Conventional Commits](https://www.conventionalcommits.org) spec.
-    - Later will be added tests and maybe inner linting
+    - Ensure that **commits messages conforms** to [Conventional Commits](https://www.conventionalcommits.org) spec.
+    - Ensure that **all tests are passing**
+      ```sh
+      $ npm run test   # mocha will be started
+      ```
 3. Propose your pull-request by *your forked branch* and specify related issues, if they are exist
+    - Ensure that **[CI](https://github.com/feature-driven/eslint-config/actions)** is passing for your PR
+      > Our goal - to dev good-quality solution in every sense
