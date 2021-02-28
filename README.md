@@ -1,3 +1,7 @@
+> `BREAKING CHANGES:` We've collabed into [@feature-slices](https://github.com/feature-slices) and about closest future - there are a lot of ambitious plans =)
+> 
+> **Keep in touch!**
+
 # [@feature-driven/eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
 
 [npm]: https://www.npmjs.com/package/@feature-driven/eslint-config
