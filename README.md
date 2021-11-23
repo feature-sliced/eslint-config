@@ -1,34 +1,32 @@
-> `BREAKING CHANGES:` We've collabed into [@feature-slices](https://github.com/feature-slices) and about closest future - there are a lot of ambitious plans =)
-> 
-> **Keep in touch!**
+> `WIP:` For a while - not production ready
 
-# [@feature-driven/eslint-config](https://www.npmjs.com/package/@feature-driven/eslint-config)
+# [@feature-sliced/eslint-config](https://www.npmjs.com/package/@feature-sliced/eslint-config)
 
-[npm]: https://www.npmjs.com/package/@feature-driven/eslint-config
+[npm]: https://www.npmjs.com/package/@feature-sliced/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@feature-driven/eslint-config?style=flat-square)][npm]
-[![npm](https://img.shields.io/npm/dw/@feature-driven/eslint-config?style=flat-square)][npm]
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@feature-driven/eslint-config?style=flat-square)][npm]
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ffeature-driven%2Feslint-plugin&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-driven/eslint-config/Test%20current%20build?label=tests&style=flat-square)](https://github.com/feature-driven/eslint-config/actions)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feature-driven/eslint-config?style=flat-square)](https://github.com/feature-driven/eslint-config/commits)
+[![npm](https://img.shields.io/npm/v/@feature-sliced/eslint-config?style=flat-square)][npm]
+[![npm](https://img.shields.io/npm/dw/@feature-sliced/eslint-config?style=flat-square)][npm]
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@feature-sliced/eslint-config?style=flat-square)][npm]
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ffeature-sliced%2Feslint-plugin&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-sliced/eslint-config/Test%20current%20build?label=tests&style=flat-square)](https://github.com/feature-sliced/eslint-config/actions)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feature-sliced/eslint-config?style=flat-square)](https://github.com/feature-sliced/eslint-config/commits)
 
 <!-- TODO: set later size as 120px (without overlapping!) -->
 <img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
 
-Linting of [Feature Driven Architecture](https://github.com/feature-driven/wiki) principles *by standard eslint-plugins*
+Linting of [Feature Driven Architecture](https://github.com/feature-sliced/wiki) principles *by standard eslint-plugins*
 
-- Control [**Co-location**](https://github.com/feature-driven/wiki#concepts)
-- Control [**Decoupling && isolating**](https://github.com/feature-driven/wiki#concepts)
+- Control [**Co-location**](https://github.com/feature-sliced/wiki#concepts)
+- Control [**Decoupling && isolating**](https://github.com/feature-sliced/wiki#concepts)
 
 > But unfortunately, *while* it can't allow you
-> - to control [*Decentralization*](https://github.com/feature-driven/wiki#concepts)
-> - to control [*Explicit sharing*](https://github.com/feature-driven/wiki#concepts)
-> - to control [*Disposability*](https://github.com/feature-driven/wiki#concepts)
+> - to control [*Decentralization*](https://github.com/feature-sliced/wiki#concepts)
+> - to control [*Explicit sharing*](https://github.com/feature-sliced/wiki#concepts)
+> - to control [*Disposability*](https://github.com/feature-sliced/wiki#concepts)
 >
 > Also, strictness level limited by plugins API
 >
-> **More power** - in our [@feature-driven/eslint-plugin](https://github.com/feature-driven/eslint-plugin)
+> **More power** - in our [@feature-sliced/eslint-plugin](https://github.com/feature-sliced/eslint-plugin)
 
 <!--
 Uncomment if will be needed
@@ -109,15 +107,15 @@ import { Button } from "shared/components";
     $ npm install --save-dev eslint
     ```
 
-2. Next, install `@feature-driven/eslint-config`:
+2. Next, install `@feature-sliced/eslint-config`:
     ```sh
-    $ npm install --save-dev @feature-driven/eslint-config
+    $ npm install --save-dev @feature-sliced/eslint-config
     ```
 
 3. Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
     ```json
     {
-        "extends": ["@feature-driven"]
+        "extends": ["@feature-sliced"]
     }
     ```
 
@@ -125,7 +123,7 @@ import { Button } from "shared/components";
 
 ## Also
 - [FAQ](./FAQ.md)
-- [Releases & Changelog](https://github.com/feature-driven/eslint-config/releases)
+- [Releases & Changelog](https://github.com/feature-sliced/eslint-config/releases)
 - **How can you help?**
   - ⭐ Rate us on GitHub, if it's worth on your opinion 
     > And if this solution must keep to developing
@@ -138,4 +136,4 @@ import { Button } from "shared/components";
 ⠀
 ⠀
 ⠀
-> *Repo organizing inspired by [feature-driven/template-github](https://github.com/feature-driven/template-github)*
+> *Repo organizing inspired by [feature-sliced/template-github](https://github.com/feature-sliced/template-github)*
