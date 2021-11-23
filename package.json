@@ -1,14 +1,14 @@
 {
   "name": "@feature-sliced/eslint-config",
-  "version": "0.1.1",
-  "description": "📓 Lint feature-sliced rules by standard eslint plugins",
+  "version": "0.0.0-concept",
+  "description": "🍰 Lint feature-sliced concepts by existing eslint plugins",
   "main": "index.js",
   "files": [
     "index.js",
     "README.md"
   ],
   "repository": "https://github.com/feature-sliced/eslint-config.git",
-  "author": "Ilya Azin <martis.azin@gmail.com>",
+  "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
   "license": "MIT",
   "keywords": [
     "eslint",
