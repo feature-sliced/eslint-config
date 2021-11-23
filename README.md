@@ -13,7 +13,7 @@
 
 <img src="https://avatars.githubusercontent.com/u/60469024?s=120&v=4" align="right">
 
-Linting of [FeatureSliced](https://github.com/feature-sliced/wiki) concepts *by existing eslint-plugins*
+Linting of [FeatureSliced](https://github.com/feature-sliced/documentation) concepts *by existing eslint-plugins*
 
 - Control [**Isolation**](#)
 - Control [**Decomposition**](#)
