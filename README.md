@@ -12,21 +12,12 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feature-sliced/eslint-config?style=flat-square)](https://github.com/feature-sliced/eslint-config/commits)
 
 <!-- TODO: set later size as 120px (without overlapping!) -->
-<img src="https://avatars3.githubusercontent.com/u/74538205?s=92&v=4" align="right">
+<img src="https://avatars.githubusercontent.com/u/60469024?s=92&v=4" align="right">
 
 Linting of [Feature Driven Architecture](https://github.com/feature-sliced/wiki) principles *by standard eslint-plugins*
 
 - Control [**Co-location**](https://github.com/feature-sliced/wiki#concepts)
 - Control [**Decoupling && isolating**](https://github.com/feature-sliced/wiki#concepts)
-
-> But unfortunately, *while* it can't allow you
-> - to control [*Decentralization*](https://github.com/feature-sliced/wiki#concepts)
-> - to control [*Explicit sharing*](https://github.com/feature-sliced/wiki#concepts)
-> - to control [*Disposability*](https://github.com/feature-sliced/wiki#concepts)
->
-> Also, strictness level limited by plugins API
->
-> **More power** - in our [@feature-sliced/eslint-plugin](https://github.com/feature-sliced/eslint-plugin)
 
 <!--
 Uncomment if will be needed
