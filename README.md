@@ -11,13 +11,15 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-sliced/eslint-config/Test%20current%20build?label=tests&style=flat-square)](https://github.com/feature-sliced/eslint-config/actions)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feature-sliced/eslint-config?style=flat-square)](https://github.com/feature-sliced/eslint-config/commits)
 
-<!-- TODO: set later size as 120px (without overlapping!) -->
-<img src="https://avatars.githubusercontent.com/u/60469024?s=92&v=4" align="right">
+<img src="https://avatars.githubusercontent.com/u/60469024?s=120&v=4" align="right">
 
-Linting of [Feature Driven Architecture](https://github.com/feature-sliced/wiki) principles *by standard eslint-plugins*
+Linting of [FeatureSliced](https://github.com/feature-sliced/wiki) concepts *by existing eslint-plugins*
 
-- Control [**Co-location**](https://github.com/feature-sliced/wiki#concepts)
-- Control [**Decoupling && isolating**](https://github.com/feature-sliced/wiki#concepts)
+- Control [**Isolation**](#)
+- Control [**Decomposition**](#)
+- Control [**Public API**](#)
+- Control [**Layered dependencies**](#)
+- Control [**Naming**](#)
 
 <!--
 Uncomment if will be needed
@@ -30,8 +32,10 @@ Uncomment if will be needed
 -->
 
 ## Overview
+
 > See [included rules](/index.js)
 
+<!--
 This config help you
 
 <details>
@@ -39,36 +43,36 @@ This config help you
 
 ```ts
 // Fail
-import { Issues } from "pages/issues";
-import { IssueDetails } from "features/issue-details"
-import { Button } from "shared/components/button";
+import { IssuesPage } from "pages/issues/ui";
+import { addToCart } from "features/add-to-cart/model/actions"
+import { Button } from "shared/ui/button/button";
 
 // Pass
-import Routing from "pages"; // specific pages shouldn't be reexported
-import { IssueDetails } from "features" // all features should be reexported, for usage
-import { Button } from "shared/components"; // all components should be reexported, for usage
+import { Issues } from "pages/issues";
+import { addToCartModel } from "features/add-to-cart"
+import { Button } from "shared/ui/button";
 ```
 
 </details>
 <details>
-<summary>to <b>order imports</b> (app > pages > features > shared > models)</summary>
+<summary>to <b>order imports</b> (app > pages > features > entities > shared)</summary>
 
 ```ts
 // Fail
-import { Helper } from "./helpers";
+import { getSmth } from "./lib";
 import axios from "axios";
 import { data } from "../fixtures";
-import { Button } from "shared/components"
-import { IssueDetails, RepoList } from "features"
-import { debounce } from "shared/helpers"
+import { Button } from "shared/ui";
+import { LoginForm } from "features/login-form";
+import { debounce } from "shared/lib";
 
 // Pass
 import axios from "axios"; // 1) external libs
-import { IssueDetails, RepoList } from "features" // 2) features
-import { Button } from "shared/components" // 3) shared/**
-import { debounce } from "shared/helpers"
+import { LoginForm } from "features/login-form"; // 2) features
+import { Button } from "shared/ui"; // 3) shared/**
+import { debounce } from "shared/lib";
 import { data } from "../fixtures"; // 4) parent
-import { Helper } from "./helpers"; // 5) sibling
+import { getSmth } from "./lib"; // 5) sibling
 ```
 
 </details>
@@ -76,34 +80,41 @@ import { Helper } from "./helpers"; // 5) sibling
 <summary>to <b>use only absolute imports</b> (relative - only for module internal using)</summary>
 
 > **NOTE:** Be sure, that your tsconfig allows you to use absolute imports
+>
 > - `baseUrl: "./src"`
+>
 ```ts
 // Fail
 import Routing from "../../pages"
-import { IssueDetails } from "../features";
-import { Button } from "../shared/components";
+import { LoginForm } from "../features/login-form";
+import { Button } from "../shared/ui";
 
 // Pass
 import Routing from "pages"
-import { IssueDetails } from "features";
-import { Button } from "shared/components";
+import { LoginForm } from "features/login-form";
+import { Button } from "shared/ui";
 ```
 
 </details>
 
+-->
+
 ## Get started
 
 1. You'll first need to install [ESLint](http://eslint.org) (with default plugins):
+
     ```sh
-    $ npm install --save-dev eslint
+    npm install --save-dev eslint
     ```
 
 2. Next, install `@feature-sliced/eslint-config`:
+
     ```sh
-    $ npm install --save-dev @feature-sliced/eslint-config
+    npm install --save-dev @feature-sliced/eslint-config
     ```
 
 3. Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+
     ```json
     {
         "extends": ["@feature-sliced"]
@@ -113,18 +124,9 @@ import { Button } from "shared/components";
 > Further, you can override / disable some rules if needed.
 
 ## Also
+
 - [FAQ](./FAQ.md)
 - [Releases & Changelog](https://github.com/feature-sliced/eslint-config/releases)
-- **How can you help?**
-  - ⭐ Rate us on GitHub, if it's worth on your opinion 
-    > And if this solution must keep to developing
-  - 💫 Have a look at our [contributing](./CONTRIBUTING.md) guide
-    > **Everything is matter** - from *feedback* to *participating* in development!
-    >
-    > *Commit like nobody sees, Push like nobody hears*
-
-
-⠀
-⠀
-⠀
-> *Repo organizing inspired by [feature-sliced/template-github](https://github.com/feature-sliced/template-github)*
+- [**How can I help?**](./CONTRIBUTING.md)
+  - ⭐ Rate us on GitHub
+  - 💫 Any assistance is important - from feedback to participation in the development of the methodology!
