@@ -1,6 +1,6 @@
-> `WIP:` For a while - not production ready
-
 # [@feature-sliced/eslint-config](https://www.npmjs.com/package/@feature-sliced/eslint-config)
+
+> `WIP:` For a while - not production ready
 
 [npm]: https://www.npmjs.com/package/@feature-sliced/eslint-config
 
