@@ -4,11 +4,11 @@ First of all, thanks for taking the time to contribute! :+1:
 
 ## How Can I Contribute?
 
-[issues]: https://github.com/feature-driven/eslint-config/issues
-[issues-new]: https://github.com/feature-driven/eslint-config/issues/new
-[pr]: https://github.com/feature-driven/eslint-config/pulls
-[pr-new]: https://github.com/feature-driven/eslint-config/compare
-[disc]: https://github.com/feature-driven/eslint-config/discussions/7
+[issues]: https://github.com/feature-sliced/eslint-config/issues
+[issues-new]: https://github.com/feature-sliced/eslint-config/issues/new
+[pr]: https://github.com/feature-sliced/eslint-config/pulls
+[pr-new]: https://github.com/feature-sliced/eslint-config/compare
+[disc]: https://github.com/feature-sliced/eslint-config/discussions/7
 
 <!-- If weel be needed 👁️ :D -->
 
@@ -34,5 +34,5 @@ First of all, thanks for taking the time to contribute! :+1:
       $ npm run test   # mocha will be started
       ```
 3. Propose your pull-request by *your forked branch* and specify related issues, if they are exist
-    - Ensure that **[CI](https://github.com/feature-driven/eslint-config/actions)** is passing for your PR
+    - Ensure that **[CI](https://github.com/feature-sliced/eslint-config/actions)** is passing for your PR
       > Our goal - to dev good-quality solution in every sense

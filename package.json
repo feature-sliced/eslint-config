@@ -1,23 +1,23 @@
 {
-  "name": "@feature-driven/eslint-config",
+  "name": "@feature-sliced/eslint-config",
   "version": "0.1.1",
-  "description": "📓 Lint feature-driven rules by standard eslint plugins",
+  "description": "📓 Lint feature-sliced rules by standard eslint plugins",
   "main": "index.js",
   "files": [
     "index.js",
     "README.md"
   ],
-  "repository": "https://github.com/feature-driven/eslint-config.git",
+  "repository": "https://github.com/feature-sliced/eslint-config.git",
   "author": "Ilya Azin <martis.azin@gmail.com>",
   "license": "MIT",
   "keywords": [
     "eslint",
     "eslintconfig",
     "eslint-config",
+    "feature-sliced",
+    "feature-slices",
     "feature-driven",
-    "feature-based",
-    "fdd",
-    "ddd"
+    "feature-based"
   ],
   "scripts": {
     "publish:prepatch": "npm version prepatch && npm publish",
