@@ -29,7 +29,9 @@ module.exports = {
         "boundaries/elements":
             FS_LAYERS.map((layer) => ({
                 type: layer,
-                pattern: `${layer}`,
+                pattern: `${layer}/*`,
+                mode: "folder",
+                capture: ["slices"]
             }))
     },
     rules: {
