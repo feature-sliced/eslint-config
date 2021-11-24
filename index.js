@@ -11,13 +11,11 @@ const FS_LAYERS = [
 const lowerThenLayer = (type, layers) => layers.slice(layers.indexOf(type) + 1)
 
 module.exports = {
-    parser: "@typescript-eslint/parser",
     parserOptions: {
-        ecmaVersion: 2015,
-        project: "tsconfig.json",
+        ecmaVersion: "2015",
         sourceType: "module",
     },
-    plugins: ["boundaries"],
+    plugins: ["boundaries", "import"],
     extends: ["plugin:boundaries/recommended"],
     ignorePatterns: ['.eslintrc.js'],
     settings: {
@@ -35,6 +33,8 @@ module.exports = {
             }))
     },
     rules: {
+        // FIXME: debug only
+        "import/first": 2,
         "boundaries/element-types": [
             2,
             {
