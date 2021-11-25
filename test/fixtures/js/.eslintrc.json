@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extenstions": [
+          ".js",
+          ".jsx"
+        ],
+        "moduleDirectory": [
+          "./src"
+        ]
+      }
+    }
+  }
+}
