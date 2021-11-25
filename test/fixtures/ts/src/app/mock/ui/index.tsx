@@ -6,6 +6,12 @@ import {EntitiesMock} from "entities/mock";
 import {SharedMock} from "shared/mock";
 
 
+
+
+interface App {
+  app: () => void;
+}
+
 function App() {
 }
 

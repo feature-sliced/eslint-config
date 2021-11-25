@@ -9,8 +9,15 @@ const eslint = new ESLint({
 })
 
 describe("lint projects", () => {
+
+
     it('should lint js project with errors', async () => {
         const { stdout } = await lintProject('js');
+        assert.notStrictEqual(stdout.match(/error/ig).length, 0);
+    })
+
+    it('should lint ts project with errors', async () => {
+        const { stdout } = await lintProject('ts');
         assert.notStrictEqual(stdout.match(/error/ig).length, 0);
     })
 })
