@@ -7,6 +7,10 @@ const isNumber = (val) => typeof val === "number";
 const isOptional = (val) => val === undefined;
 const eslintPath = path.resolve(__dirname, "../node_modules/.bin/eslint")
 
+function getFullFilePath(file){
+    return path.resolve(__dirname, file);
+}
+
 async function lintProject(projectName) {
     const projectPath = path.resolve(__dirname, "fixtures", projectName)
     const filesToLint = path.resolve(projectPath, "**")
@@ -20,11 +24,11 @@ async function lintProject(projectName) {
     }
 }
 
-async function lintFileInProject(filePath, projectName) {
+async function lintFileInProject(file, projectName) {
     const projectPath = path.resolve(__dirname, "fixtures", projectName)
 
     try {
-        return await execa(eslintPath, [`${filePath}`], {
+        return await execa(eslintPath, [`${getFullFilePath(file)}`], {
             cwd: projectPath
         })
     } catch (e) {
