@@ -40,7 +40,6 @@
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-boundaries": "^2.6.0",
     "eslint-plugin-import": "^2.25.3",
-    "execa": "^4.0.3",
     "mocha": "^8.2.1"
   },
   "dependencies": {}
