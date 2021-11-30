@@ -1,8 +1,8 @@
 const FS_LAYERS = [
     'app',
     'processes',
-    'widgets',
     'pages',
+    'widgets',
     'features',
     'entities',
     'shared',
