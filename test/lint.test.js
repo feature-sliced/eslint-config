@@ -1,30 +1,10 @@
-const { ESLint } = require("eslint");
+const {ESLint} = require("eslint");
 const assert = require("assert");
 const cfg = require("..");
+
 const eslint = new ESLint({
     useEslintrc: false,
-    // @ts-ignore
-    baseConfig: cfg,
-})
-
-// Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
-describe.skip("restrict imports", () => {
-    it("invalid", async () => {
-        const report = await eslint.lintText(`
-        import { Issues } from "pages/issues";
-        import { IssueDetails } from "features/issue-details"
-        import { Button } from "shared/components/button";
-        `);
-        assert.strictEqual(report[0].errorCount, 3);
-    })
-    it("valid", async () => {
-        const report = await eslint.lintText(`
-        import Routing from "pages"; // specific pages shouldn't be reexported
-        import { IssueDetails } from "features" // all features should be reexported, for usage
-        import { Button } from "shared/components"; // all components should be reexported, for usage
-        `);
-        assert.strictEqual(report[0].errorCount, 0);
-    })
+    baseConfig:  cfg
 })
 
 // Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
@@ -72,18 +52,3 @@ describe.skip("absolute imports", () => {
         assert.strictEqual(report[0].errorCount, 0);
     })
 })
-
-describe("import boundaries", () => {
-    it("[debug] import/first should work", async () => {
-        const report = await eslint.lintText(`
-        const smth = 13;
-
-        import Routing from "pages"
-        import { AuthForm } from "features/auth-form";
-        import { userModel } from "entities/user";
-        `, { filePath: 'src/shared/lib/i18n' });
-        assert.strictEqual(report[0].errorCount, 3);
-    })
-    // TODO: restrict import between layers
-    // TODO: restrict import between slices from same layer
-});
