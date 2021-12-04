@@ -5,7 +5,7 @@ module.exports = {
         "ecmaVersion": "2015",
         "sourceType": "module",
     },
-    plugins: ["boundaries", "import"],
+    plugins: ["boundaries"],
     extends: ["plugin:boundaries/recommended"],
     ignorePatterns: [".eslintrc.js"],
     settings: {
@@ -16,7 +16,7 @@ module.exports = {
             2,
             {
                 "default": "disallow",
-                "message": "${file.type} is not allowed to import ${dependency.type}",
+                "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
                 "rules": getLayersRules(),
             }
         ],
