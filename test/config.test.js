@@ -1,6 +1,6 @@
 const assert = require("assert");
 const cfg = require("../");
-const utils = require("./utils");
+const utils = require("./utils/tools");
 
 describe("config is valid", () => {
     it("parserOptions ~ Record<string, string>", () => {
@@ -18,8 +18,8 @@ describe("config is valid", () => {
         Object.entries(cfg.rules).forEach(([ruleName, ruleOptions]) => {
             assert.ok(utils.isString(ruleName));
             assert.ok(
-                utils.isNumber(ruleOptions) || 
-                utils.isArray(ruleOptions) || 
+                utils.isNumber(ruleOptions) ||
+                utils.isArray(ruleOptions) ||
                 utils.isObj(ruleOptions)
             );
         })

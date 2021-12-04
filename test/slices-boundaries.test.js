@@ -1,25 +1,15 @@
-const {ESLint} = require("eslint");
+const { ESLint } = require("eslint");
 const assert = require("assert");
-const path = require("path");
+const { getRandomImportByLayerName } = require("./utils/tools");
+const { mockImports } = require("./utils/mock-import");
 const cfg = require("..");
-const { getRandomImportByLayerName } = require("./utils");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: {
-        ...cfg, settings: {
-            ...cfg.settings,
-            'import/resolver': {
-                [path.resolve(__dirname, './mock-resolver.js')]: {
-                    extension: "js",
-                }
-            }
-        }
-    }
+    baseConfig: mockImports(cfg),
 })
 
 describe("Import boundaries between slices", () => {
-
 
     it("should lint with cross-import errors between pages.", async () => {
         const wrongImports = [
