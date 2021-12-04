@@ -8,6 +8,26 @@ const eslint = new ESLint({
 })
 
 // Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
+describe.skip("restrict imports", () => {
+    it("invalid", async () => {
+        const report = await eslint.lintText(`
+        import { Issues } from "pages/issues";
+        import { IssueDetails } from "features/issue-details"
+        import { Button } from "shared/components/button";
+        `);
+        assert.strictEqual(report[0].errorCount, 3);
+    })
+    it("valid", async () => {
+        const report = await eslint.lintText(`
+        import Routing from "pages"; // specific pages shouldn't be reexported
+        import { IssueDetails } from "features" // all features should be reexported, for usage
+        import { Button } from "shared/components"; // all components should be reexported, for usage
+        `);
+        assert.strictEqual(report[0].errorCount, 0);
+    })
+})
+
+// Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
 describe.skip("order imports", () => {
     it("invalid", async () => {
         const report = await eslint.lintText(`
