@@ -72,18 +72,3 @@ describe.skip("absolute imports", () => {
         assert.strictEqual(report[0].errorCount, 0);
     })
 })
-
-describe("import boundaries", () => {
-    it("[debug] import/first should work", async () => {
-        const report = await eslint.lintText(`
-        const smth = 13;
-
-        import Routing from "pages"
-        import { AuthForm } from "features/auth-form";
-        import { userModel } from "entities/user";
-        `, { filePath: 'src/shared/lib/i18n' });
-        assert.strictEqual(report[0].errorCount, 3);
-    })
-    // TODO: restrict import between layers
-    // TODO: restrict import between slices from same layer
-});
