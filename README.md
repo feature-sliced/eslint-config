@@ -123,6 +123,35 @@ import { Button } from "shared/ui";
 
 > Further, you can override / disable some rules if needed.
 
+## Usage with TypeScript
+
+This plugin can be used also in TypeScript projects using @typescript-eslint/eslint-plugin. Follow next steps to configure it:
+
+Install dependencies:
+
+```shell
+npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+```
+or:
+```shell
+yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+```
+
+Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc.json` config file:
+```json
+{
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}
+```
+
+
 ## Also
 
 - [FAQ](./FAQ.md)

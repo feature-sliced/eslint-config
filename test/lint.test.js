@@ -7,7 +7,8 @@ const eslint = new ESLint({
     baseConfig: cfg,
 })
 
-describe("restrict imports", () => {
+// Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
+describe.skip("restrict imports", () => {
     it("invalid", async () => {
         const report = await eslint.lintText(`
         import { Issues } from "pages/issues";
@@ -26,7 +27,8 @@ describe("restrict imports", () => {
     })
 })
 
-describe("order imports", () => {
+// Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
+describe.skip("order imports", () => {
     it("invalid", async () => {
         const report = await eslint.lintText(`
         import { Helper } from "./helpers"; // 1
@@ -51,7 +53,8 @@ describe("order imports", () => {
     })
 })
 
-describe("absolute imports", () => {
+// Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
+describe.skip("absolute imports", () => {
     it("invalid", async () => {
         const report = await eslint.lintText(`
         import Routing from "../../pages"

@@ -29,14 +29,17 @@
   },
   "peerDependencies": {
     "eslint": ">=6",
-    "eslint-plugin-import": ">=2"
+    "eslint-plugin-import": ">=2",
+    "eslint-plugin-boundaries": ">=2"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^8.3.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-plugin-boundaries": "^2.6.0",
+    "eslint-plugin-import": "^2.25.3",
     "mocha": "^8.2.1"
   },
   "dependencies": {}
