@@ -1,10 +1,10 @@
-const { ESLint } = require("eslint");
+const {ESLint} = require("eslint");
 const assert = require("assert");
 const cfg = require("..");
+
 const eslint = new ESLint({
     useEslintrc: false,
-    // @ts-ignore
-    baseConfig: cfg,
+    baseConfig:  cfg
 })
 
 // Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
