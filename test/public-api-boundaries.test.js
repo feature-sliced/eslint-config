@@ -7,7 +7,6 @@ const eslint = new ESLint({
     useEslintrc: false,
     baseConfig:
         mockImports(cfg),
-
 });
 
 describe("PublicAPI import boundaries:", () => {
@@ -24,7 +23,6 @@ describe("PublicAPI import boundaries:", () => {
 
         const report = await eslint.lintText(wrongImports.join("\n"),
             { filePath: "src/app/ui/index.js" });
-        console.log(wrongImports, report[0]);
         assert.strictEqual(report[0].errorCount, wrongImports.length);
     });
 
@@ -41,7 +39,6 @@ describe("PublicAPI import boundaries:", () => {
         ].join("\n");
 
         const report = await eslint.lintText(validCodeSnippet, { filePath: "src/app/ui/index.js" });
-        console.log(validCodeSnippet, report[0]);
         assert.strictEqual(report[0].errorCount, 0);
     });
 
@@ -52,7 +49,6 @@ describe("PublicAPI import boundaries:", () => {
         ].join("\n");
 
         const report = await eslint.lintText(validCodeSnippet, { filePath: "src/app/ui/index.js" });
-        console.log(validCodeSnippet, report[0]);
         assert.strictEqual(report[0].errorCount, 0);
     });
 
