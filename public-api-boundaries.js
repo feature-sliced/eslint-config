@@ -15,7 +15,7 @@ module.exports = {
                     /* Allow sub-slices from slices */
                     `**/*(${FS_LAYERS.join("|")})/!(${FS_SEGMENTS.join("|")})/!(${FS_SEGMENTS.join("|")})`,
                     /* Allow not segments import in shared segments */
-                    `**/shared/!(${FS_SEGMENTS.join("|")})/*`,
+                    `**/shared/*(${FS_SEGMENTS.join("|")})/!(${FS_SEGMENTS.join("|")})`,
                     /* Allow import from segments in shared */
                     `**/shared/*(${FS_SEGMENTS.join("|")})`,
                 ],
