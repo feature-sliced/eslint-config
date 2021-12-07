@@ -1,4 +1,4 @@
-const { getUpperLayers, FS_SEGMENTS } = require("./helpers");
+const { getUpperLayers, FS_SEGMENTS, FS_LAYERS } = require("./helpers");
 
 module.exports = {
     parserOptions: {
@@ -9,17 +9,15 @@ module.exports = {
     rules: {
         "import/no-internal-modules": [
             "error", {
-                "forbid": [
-                    /* Forbid segments import from sub-slices (layer/form/ui) */
-                    ...getUpperLayers("shared").
-                        map(layer => `${layer}/!(${FS_SEGMENTS.join("|")})/?(${FS_SEGMENTS.join("|")})/*`),
-
-                    /* Forbid import from slices segments (ui|lib|model|etc) */
-                    ...getUpperLayers("shared").
-                        map(layer => `**/${layer}/!(${FS_SEGMENTS.join("|")})/**/*`),
-
-                    /* Forbid not segment imports from shared */
-                    `/shared/!(${FS_SEGMENTS.join("|")})/**/*`,
+                "allow": [
+                    /* Allow not segments import from slices ex: entities/form */
+                    `**/*(${getUpperLayers("shared").join("|")})/!(${FS_SEGMENTS.join("|")})`,
+                    /* Allow sub-slices from slices */
+                    `**/*(${FS_LAYERS.join("|")})/!(${FS_SEGMENTS.join("|")})/!(${FS_SEGMENTS.join("|")})`,
+                    /* Allow not segments import in shared segments */
+                    `**/shared/!(${FS_SEGMENTS.join("|")})/*`,
+                    /* Allow import from segments in shared */
+                    `**/shared/*(${FS_SEGMENTS.join("|")})`,
                 ],
             }],
     },
