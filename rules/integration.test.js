@@ -45,4 +45,37 @@ describe("Integration tests:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+
+    it("Global config should lint only with import-order error", async () => {
+        const report = await eslint.lintText(`
+        import { LoginAPI } from "shared/api";
+        import { getRoute } from "pages/auth";
+        `, { filePath: "src/app/ui/index.js" });
+
+        assert.strictEqual(report[0].errorCount, 1);
+    });
+
+    it("Global config should lint only with layer error", async () => {
+        const report = await eslint.lintText(`
+        import { LoginForm } from "features/login-form";
+        `, { filePath: "src/entities/ui/index.js" });
+
+        assert.strictEqual(report[0].errorCount, 1);
+    });
+
+    it("Global config should lint only with slice error", async () => {
+        const report = await eslint.lintText(`
+        import { Article } from "entities/article";
+        `, { filePath: "src/entities/avatar/ui/index.js" });
+
+        assert.strictEqual(report[0].errorCount, 1);
+    });
+
+    it("Global config should lint only with PublicAPI error", async () => {
+        const report = await eslint.lintText(`
+        import { orderModel } from "entities/order/model";
+        `, { filePath: "src/features/profile/ui/index.js" });
+
+        assert.strictEqual(report[0].errorCount, 1);
+    });
 });
