@@ -7,6 +7,7 @@ module.exports = {
     },
     extends: [
         path.resolve(__dirname, "./rules/public-api-boundaries"),
-        path.resolve(__dirname, "./rules/layers-slices-boundaries")
+        path.resolve(__dirname, "./rules/layers-slices-boundaries"),
+        path.resolve(__dirname, "./rules/import-order")
     ],
 };
