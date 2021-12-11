@@ -1,6 +1,7 @@
 const { getUpperLayers, FS_SEGMENTS, FS_LAYERS } = require("./helpers");
 
-const FS_SEGMENTS_REG = FS_SEGMENTS.join("|")
+const FS_SEGMENTS_REG = FS_SEGMENTS.join("|");
+const FS_LAYERS_REG = FS_LAYERS.join("|");
 
 module.exports = {
     parserOptions: {
@@ -25,7 +26,7 @@ module.exports = {
                      * @example
                      * 'features/auth/form' // Pass
                      */
-                    `**/*(${FS_LAYERS.join("|")})/!(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
+                    `**/*(${FS_LAYERS_REG})/!(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
 
                     /**
                      * Allow not segments import in shared segments
