@@ -1,14 +1,14 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { mockImports } = require("../../utils/mock-import");
+const { setConfigParser, mockImports } = require("../../utils/config");
 const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: mockImports(cfg),
+    baseConfig: setConfigParser(mockImports(cfg)),
 });
 
-describe("Import boundaries between slices", () => {
+describe("Import boundaries between slices and layers", () => {
 
     it("should lint with cross-import errors between pages.", async () => {
         const wrongImports = [
@@ -62,16 +62,4 @@ describe("Import boundaries between slices", () => {
         assert.strictEqual(report[0].errorCount, wrongImports.length);
     });
 
-    it("should lint without errors", async () => {
-        const codeSnippet = [
-            `import { getAuthCtx } from "entities/session";`,
-            `import { UserAvatar } from "entities/user";`,
-        ].join("\n");
-
-        const report = await eslint.lintText(codeSnippet, {
-            filePath: "src/features/auth-form/index.js",
-        });
-
-        assert.strictEqual(report[0].errorCount, 0);
-    });
 });
