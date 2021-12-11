@@ -1,6 +1,6 @@
 const assert = require("assert");
 const cfg = require("../");
-const utils = require("./utils/tools");
+const utils = require("../utils/tools");
 
 describe("config is valid", () => {
     it("parserOptions ~ Record<string, string>", () => {

@@ -1,13 +1,14 @@
-const { getLowerLayers, FS_LAYERS } = require("../../utils/helpers");
+const { layersLib } = require("../../utils/layers");
 
 const getLayersRules = () =>
-    FS_LAYERS.map((layer) => ({
+
+    layersLib.FS_LAYERS.map((layer) => ({
         from: layer,
-        allow: getLowerLayers(layer),
+        allow: layersLib.getLowerLayers(layer),
     }));
 
 const getLayersBoundariesElements = () =>
-    FS_LAYERS.map((layer) => ({
+    layersLib.FS_LAYERS.map((layer) => ({
         type: layer,
         pattern: `${layer}/*`,
         mode: "folder",
