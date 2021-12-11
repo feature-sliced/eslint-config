@@ -14,16 +14,18 @@ describe("Integration tests:", () => {
         import { getSmth } from "./lib"; // import-order
         import axios from "axios";
         import { data } from "../fixtures"; // import-order
-        import { authModel } from "entities/auth"; 
+        import { authModel } from "entities/auth"; // import-order
         import { Button } from "shared/ui"; // import-order
         import { LoginForm } from "features/login-form"; // import-order
         import { Header } from "widgets/header"; // import-order, import-boundaries
-        import { debounce } from "shared/lib/fp";
+        import { debounce } from "shared/lib/fp"; // import-order
         import { AuthPage } from "pages/auth"; // import-boundaries
         import { IssueDetails } from "widgets/issue-details/ui/details"; // import-order, publicAPI
         `, {
             filePath: "src/widgets/mock/index.js",
         });
+
+        console.log(report[0]);
 
         assert.strictEqual(report[0].errorCount, 11);
     });
