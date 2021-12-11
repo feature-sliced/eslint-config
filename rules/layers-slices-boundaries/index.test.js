@@ -1,15 +1,14 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { getRandomImportByLayerName } = require("./utils/tools");
-const { mockImports } = require("./utils/mock-import");
-const cfg = require("..");
+const { mockImports } = require("../../utils/mock-import");
+const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
     baseConfig: mockImports(cfg),
 });
 
-describe("Import boundaries between slices", () => {
+describe("Import boundaries between slices and layers", () => {
 
     it("should lint with cross-import errors between pages.", async () => {
         const wrongImports = [
@@ -75,4 +74,29 @@ describe("Import boundaries between slices", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+
+    it("should lint with cross-import errors.", async () => {
+        const wrongImports = [
+            `import { getRoute } from "pages/auth";`,
+            `import { getStore } from "app/store";`,
+        ];
+
+        const report = await eslint.lintText(wrongImports.join("\n"), {
+            filePath: "src/shared/lib/index.js",
+        });
+        assert.strictEqual(report[0].errorCount, wrongImports.length);
+    });
+
+    it("should lint without errors.", async () => {
+        const validCodeSnippet = [
+            `import { sessionModel } from "entities/session";`,
+            `import { Form, Button } from "shared/ui";`,
+        ].join("\n");
+
+        const report = await eslint.lintText(validCodeSnippet, {
+            filePath: "src/app/ui/app.js",
+        });
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
 });

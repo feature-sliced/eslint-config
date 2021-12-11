@@ -1,4 +1,4 @@
-const { getLowerLayers, FS_LAYERS } = require("./helpers");
+const { getLowerLayers, FS_LAYERS } = require("../../utils/helpers");
 
 const getLayersRules = () =>
     FS_LAYERS.map((layer) => ({

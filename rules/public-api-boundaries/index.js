@@ -1,4 +1,4 @@
-const { getUpperLayers, FS_SEGMENTS, FS_LAYERS } = require("./helpers");
+const { getUpperLayers, FS_SEGMENTS, FS_LAYERS } = require("../../utils/helpers");
 
 const FS_SEGMENTS_REG = FS_SEGMENTS.join("|");
 const FS_LAYERS_REG = FS_LAYERS.join("|");
