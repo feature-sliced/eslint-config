@@ -4,10 +4,6 @@ const FS_SEGMENTS_REG = layersLib.FS_SEGMENTS.join("|");
 const FS_LAYERS_REG = layersLib.FS_LAYERS.join("|");
 
 module.exports = {
-    parserOptions: {
-        "ecmaVersion": "2015",
-        "sourceType": "module",
-    },
     plugins: ["import"],
     rules: {
         "import/no-internal-modules": [

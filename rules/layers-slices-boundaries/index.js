@@ -16,10 +16,6 @@ const getLayersBoundariesElements = () =>
     }));
 
 module.exports = {
-    parserOptions: {
-        "ecmaVersion": "2015",
-        "sourceType": "module",
-    },
     plugins: ["boundaries"],
     extends: ["plugin:boundaries/recommended"],
     ignorePatterns: [".eslintrc.js"],

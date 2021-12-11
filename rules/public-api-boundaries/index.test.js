@@ -5,7 +5,7 @@ const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: mockImports(cfg),
+    baseConfig: setConfigParser(mockImports(cfg)),
 });
 
 describe("PublicAPI import boundaries:", () => {
