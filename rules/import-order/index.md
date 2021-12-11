@@ -1,6 +1,6 @@
 # @feature-sliced/import-order
 
-Reference: [Layers](https://feature-sliced.design/docs/concepts/app-splitting#group-layers)
+Reference: [Layers](https://feature-sliced.design/docs/reference/layers)
 
 ```js
 // 👎 Fail
