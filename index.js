@@ -6,7 +6,7 @@ module.exports = {
         "sourceType": "module",
     },
     extends: [
-        path.resolve(__dirname, "./public-api-boundaries.js"),
-        path.resolve(__dirname, "./layers-slices-boundaries.js")
+        path.resolve(__dirname, "./rules/public-api-boundaries"),
+        path.resolve(__dirname, "./rules/layers-slices-boundaries")
     ],
 };

@@ -1,8 +1,7 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { getRandomImportByLayerName } = require("./utils/tools");
-const { mockImports } = require("./utils/mock-import");
-const cfg = require("..");
+const { mockImports } = require("../../utils/mock-import");
+const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,

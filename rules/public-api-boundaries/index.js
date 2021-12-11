@@ -1,7 +1,7 @@
-const { getUpperLayers, FS_SEGMENTS, FS_LAYERS } = require("./helpers");
+const { layersLib } = require("../../utils/layers");
 
-const FS_SEGMENTS_REG = FS_SEGMENTS.join("|");
-const FS_LAYERS_REG = FS_LAYERS.join("|");
+const FS_SEGMENTS_REG = layersLib.FS_SEGMENTS.join("|");
+const FS_LAYERS_REG = layersLib.FS_LAYERS.join("|");
 
 module.exports = {
     parserOptions: {
@@ -19,7 +19,7 @@ module.exports = {
                      * 'entities/form/ui' // Fail
                      * 'entities/form' // Pass
                      */
-                    `**/*(${getUpperLayers("shared").join("|")})/!(${FS_SEGMENTS_REG})`,
+                    `**/*(${layersLib.getUpperLayers("shared").join("|")})/!(${FS_SEGMENTS_REG})`,
 
                     /**
                      * Allow slices with structure grouping
