@@ -62,41 +62,4 @@ describe("Import boundaries between slices and layers", () => {
         assert.strictEqual(report[0].errorCount, wrongImports.length);
     });
 
-    it("should lint without errors", async () => {
-        const codeSnippet = [
-            `import { getAuthCtx } from "entities/session";`,
-            `import { UserAvatar } from "entities/user";`,
-        ].join("\n");
-
-        const report = await eslint.lintText(codeSnippet, {
-            filePath: "src/features/auth-form/index.js",
-        });
-
-        assert.strictEqual(report[0].errorCount, 0);
-    });
-
-    it("should lint with cross-import errors.", async () => {
-        const wrongImports = [
-            `import { getRoute } from "pages/auth";`,
-            `import { getStore } from "app/store";`,
-        ];
-
-        const report = await eslint.lintText(wrongImports.join("\n"), {
-            filePath: "src/shared/lib/index.js",
-        });
-        assert.strictEqual(report[0].errorCount, wrongImports.length);
-    });
-
-    it("should lint without errors.", async () => {
-        const validCodeSnippet = [
-            `import { sessionModel } from "entities/session";`,
-            `import { Form, Button } from "shared/ui";`,
-        ].join("\n");
-
-        const report = await eslint.lintText(validCodeSnippet, {
-            filePath: "src/app/ui/app.js",
-        });
-        assert.strictEqual(report[0].errorCount, 0);
-    });
-
 });
