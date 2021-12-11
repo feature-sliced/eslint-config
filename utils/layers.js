@@ -12,7 +12,6 @@ const FS_SEGMENTS = [
     "ui",
     "model",
     "lib",
-    "styles",
     "api",
     "config",
 ];
