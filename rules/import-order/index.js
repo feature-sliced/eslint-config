@@ -1,4 +1,4 @@
-const { FS_LAYERS } = require("../../utils/helpers");
+const { layersLib } = require("../../utils/layers");
 
 module.exports = {
     plugins: [
@@ -8,7 +8,7 @@ module.exports = {
         "import/order": [
             2,
             {
-                pathGroups: FS_LAYERS.map(
+                pathGroups: layersLib.FS_LAYERS.map(
                     (layer) => ({
                         pattern: `${layer}/**` ,
                         group: "internal",
