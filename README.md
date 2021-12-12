@@ -107,10 +107,10 @@ import { Button } from "shared/ui";
     npm install --save-dev eslint
     ```
 
-2. Next, install `@feature-sliced/eslint-config`:
+2. Next, install `@feature-sliced/eslint-config` and dependencies:
 
     ```sh
-    npm install --save-dev @feature-sliced/eslint-config
+    npm install --save-dev @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
 
 3. Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
