@@ -49,7 +49,7 @@ describe("PublicAPI import boundaries:", () => {
     });
 
     describe("Allow not segments import from slices:", () => {
-        it("Not segments import from slices: should lint without errors", async () => {
+        it("should lint without errors", async () => {
             const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth";
         import { model } from "../model";
@@ -59,7 +59,7 @@ describe("PublicAPI import boundaries:", () => {
             assert.strictEqual(report[0].errorCount, 0);
         });
 
-        it("Not segments import from slices: should lint with errors", async () => {
+        it("should lint with errors", async () => {
             const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/ui";
         import { Button } from "shared/button";
