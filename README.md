@@ -117,7 +117,7 @@ import { Button } from "shared/ui";
 
     ```json
     {
-        "extends": ["@feature-sliced/eslint-config"]
+        "extends": ["@feature-sliced"]
     }
     ```
 
