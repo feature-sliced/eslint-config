@@ -1,4 +1,4 @@
-const { layersLib } = require("../../utils/layers");
+const { layersLib } = require("../../utils");
 
 const getLayersRules = () =>
 

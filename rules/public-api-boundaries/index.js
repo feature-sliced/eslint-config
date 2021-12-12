@@ -1,4 +1,4 @@
-const { layersLib } = require("../../utils/layers");
+const { layersLib } = require("../../utils");
 
 const FS_SEGMENTS_REG = layersLib.FS_SEGMENTS.join("|");
 const FS_LAYERS_NOT_SHARED_REG = layersLib.getUpperLayers("shared").join("|");

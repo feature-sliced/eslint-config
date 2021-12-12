@@ -1,6 +1,6 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { setConfigParser, mockImports } = require("../../utils/config");
+const { setConfigParser, mockImports } = require("../../utils");
 const cfg = require("./");
 
 const eslint = new ESLint({

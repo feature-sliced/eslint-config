@@ -1,11 +1,11 @@
-const {ESLint} = require("eslint");
+const { ESLint } = require("eslint");
 const assert = require("assert");
 const cfg = require("..");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig:  cfg
-})
+    baseConfig: cfg,
+});
 
 // Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
 describe.skip("restrict imports", () => {
@@ -16,7 +16,7 @@ describe.skip("restrict imports", () => {
         import { Button } from "shared/components/button";
         `);
         assert.strictEqual(report[0].errorCount, 3);
-    })
+    });
     it("valid", async () => {
         const report = await eslint.lintText(`
         import Routing from "pages"; // specific pages shouldn't be reexported
@@ -24,8 +24,8 @@ describe.skip("restrict imports", () => {
         import { Button } from "shared/components"; // all components should be reexported, for usage
         `);
         assert.strictEqual(report[0].errorCount, 0);
-    })
-})
+    });
+});
 
 // Should be actualized (https://github.com/feature-sliced/eslint-config/issues/17)
 describe.skip("absolute imports", () => {
@@ -36,7 +36,7 @@ describe.skip("absolute imports", () => {
         import { Button } from "../shared/components";
         `);
         assert.strictEqual(report[0].errorCount, 3);
-    })
+    });
     it("valid", async () => {
         const report = await eslint.lintText(`
         import Routing from "pages"
@@ -44,5 +44,5 @@ describe.skip("absolute imports", () => {
         import { Button } from "shared/components";
         `);
         assert.strictEqual(report[0].errorCount, 0);
-    })
-})
+    });
+});

@@ -1,5 +1,5 @@
 const assert = require("assert");
-const utils = require("../utils/tools");
+const { utils } = require("../utils");
 const cfg = require("../");
 
 describe("config is valid", () => {
