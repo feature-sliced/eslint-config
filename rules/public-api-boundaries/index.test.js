@@ -6,7 +6,7 @@ const cfg = require("./");
 const eslint = new ESLint({
     useEslintrc: false,
     baseConfig: configLib.setParser(
-        configLib.mockImports(cfg)
+        configLib.mockImports(cfg),
     ),
 });
 
@@ -47,51 +47,50 @@ describe("PublicAPI import boundaries:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
-});
 
-describe("Allow not segments import from slices:", () => {
-    it("Not segments import from slices: should lint without errors", async () => {
-        const report = await eslint.lintText(`
+    describe("Allow not segments import from slices:", () => {
+        it("Not segments import from slices: should lint without errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth";
         import { model } from "../model";
         import { styles } from "./styles.module.scss";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 0);
-    });
+            assert.strictEqual(report[0].errorCount, 0);
+        });
 
-    it("Not segments import from slices: should lint with errors", async () => {
-        const report = await eslint.lintText(`
+        it("Not segments import from slices: should lint with errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/ui";
         import { Button } from "shared/button";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 2);
+            assert.strictEqual(report[0].errorCount, 2);
+        });
     });
-});
 
-describe("Allow slices with structure grouping:", () => {
-    it("Slices with structure grouping: should lint with errors", async () => {
-        const report = await eslint.lintText(`
+    describe("Allow slices with structure grouping:", () => {
+        it("should lint with errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/form";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 0);
-    });
+            assert.strictEqual(report[0].errorCount, 0);
+        });
 
-    it("Slices with structure grouping: should lint without errors", async () => {
-        const report = await eslint.lintText(`
+        it("should lint without errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/ui";
         import { Form } from "shared/button/form";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 2);
+            assert.strictEqual(report[0].errorCount, 2);
+        });
     });
-});
 
-describe("Allow not segments import in shared segments:", () => {
-    it("Not segments import in shared segments: should lint without errors", async () => {
-        const report = await eslint.lintText(`
+    describe("Allow not segments import in shared segments:", () => {
+        it("should lint without errors", async () => {
+            const report = await eslint.lintText(`
         import { Form } from "shared/ui/form";
         import { AuthAPI } from "shared/api/auth";
         import { useGeo } from "shared/lib/hooks";
@@ -99,50 +98,51 @@ describe("Allow not segments import in shared segments:", () => {
         import { CONNECT_ATTEMPTS } from "shared/config";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 0);
-    });
+            assert.strictEqual(report[0].errorCount, 0);
+        });
 
-    it("Not segments import in shared segments: should lint with errors", async () => {
-        const report = await eslint.lintText(`
+        it("should lint with errors", async () => {
+            const report = await eslint.lintText(`
         import { Hex } from "shared/api/ui";
         import { Form } from "shared/ui/lib";
         import { AuthForm } from "shared/api/ui";
         import { model } from "shared/ui/model";
         `, { filePath: "src/features/form/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 4);
-    });
+            assert.strictEqual(report[0].errorCount, 4);
+        });
 
-    it("Not segments import in shared segments: should lint without errors", async () => {
-        const report = await eslint.lintText(`
+        it("should lint without errors", async () => {
+            const report = await eslint.lintText(`
         import { FancyLabel } from "../../label";
         import { model } from "../model";
         `, { filePath: "src/shared/ui/button/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 0);
+            assert.strictEqual(report[0].errorCount, 0);
+        });
     });
-});
 
-describe("Import from segments in shared:", () => {
-    it("Import from segments in shared: should lint without errors", async () => {
-        const report = await eslint.lintText(`
+    describe("Import from segments in shared:", () => {
+        it("should lint without errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthAPI } from "shared/api";
         import { FancyLabel } from 'shared/ui';
         import { convertToken } from 'shared/lib';
         import { CONNECT_ATTEMPTS } from "shared/config";
         `, { filePath: "src/pages/main/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 0);
-    });
+            assert.strictEqual(report[0].errorCount, 0);
+        });
 
-    it("Import from segments in shared: should lint with errors", async () => {
-        const report = await eslint.lintText(`
+        it("should lint with errors", async () => {
+            const report = await eslint.lintText(`
         import { AuthAPI } from "shared/auth";
         import { FancyLabel } from 'shared/label';
         import { convertToken } from 'shared/token';
         import { CONNECT_ATTEMPTS } from "shared/const";
         `, { filePath: "src/pages/main/ui/index.js" });
 
-        assert.strictEqual(report[0].errorCount, 4);
+            assert.strictEqual(report[0].errorCount, 4);
+        });
     });
 });
