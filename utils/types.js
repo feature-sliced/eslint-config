@@ -4,7 +4,7 @@ const isString = (val) => typeof val === "string";
 const isNumber = (val) => typeof val === "number";
 const isOptional = (val) => val === undefined;
 
-module.exports = {
+module.exports.typesLib = {
     isArray,
     isObj,
     isString,

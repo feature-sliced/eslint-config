@@ -1,7 +1,7 @@
 const { layersLib } = require("../../utils");
 
 const FS_SEGMENTS_REG = layersLib.FS_SEGMENTS.join("|");
-const FS_LAYERS_NOT_SHARED_REG = layersLib.getUpperLayers("shared").join("|");
+const FS_SLICED_LAYERS_REG = layersLib.getUpperLayers("shared").join("|");
 
 module.exports = {
     plugins: ["import"],
@@ -15,14 +15,14 @@ module.exports = {
                      * 'entities/form/ui' // Fail
                      * 'entities/form' // Pass
                      */
-                    `**/*(${FS_LAYERS_NOT_SHARED_REG})/!(${FS_SEGMENTS_REG})`,
+                    `**/*(${FS_SLICED_LAYERS_REG})/!(${FS_SEGMENTS_REG})`,
 
                     /**
                      * Allow slices with structure grouping
                      * @example
                      * 'features/auth/form' // Pass
                      */
-                    `**/*(${FS_LAYERS_NOT_SHARED_REG})/!(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
+                    `**/*(${FS_SLICED_LAYERS_REG})/!(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
 
                     /**
                      * Allow not segments import in shared segments

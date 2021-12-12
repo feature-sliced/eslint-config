@@ -1,11 +1,11 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { setConfigParser } = require("../../utils");
+const { configLib } = require("../../utils");
 const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: setConfigParser(cfg),
+    baseConfig: configLib.setParser(cfg),
 });
 
 describe("Import order:", () => {

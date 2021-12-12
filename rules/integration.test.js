@@ -1,11 +1,11 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { mockImports } = require("../utils");
+const { configLib } = require("../utils");
 const cfg = require("../");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: mockImports(cfg),
+    baseConfig: configLib.mockImports(cfg),
 });
 
 describe("Integration tests:", () => {

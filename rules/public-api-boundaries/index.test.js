@@ -1,11 +1,13 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { setConfigParser, mockImports } = require("../../utils");
+const { configLib } = require("../../utils");
 const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: setConfigParser(mockImports(cfg)),
+    baseConfig: configLib.setParser(
+        configLib.mockImports(cfg)
+    ),
 });
 
 describe("PublicAPI import boundaries:", () => {
@@ -45,9 +47,10 @@ describe("PublicAPI import boundaries:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+});
 
-    // 🚀 `**/*(${FS_LAYERS_NOT_SHARED_REG})/!(${FS_SEGMENTS_REG})`
-    it("Should lint not segments import from slices without errors", async () => {
+describe("Allow not segments import from slices:", () => {
+    it("Not segments import from slices: should lint without errors", async () => {
         const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth";
         import { model } from "../model";
@@ -57,7 +60,7 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
-    it("Should lint not segments import from slices with errors", async () => {
+    it("Not segments import from slices: should lint with errors", async () => {
         const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/ui";
         import { Button } from "shared/button";
@@ -65,9 +68,10 @@ describe("PublicAPI import boundaries:", () => {
 
         assert.strictEqual(report[0].errorCount, 2);
     });
+});
 
-    // 🚀 `**/*(${FS_LAYERS_NOT_SHARED_REG})/!(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`
-    it("Should lint slices with structure grouping without errors", async () => {
+describe("Allow slices with structure grouping:", () => {
+    it("Slices with structure grouping: should lint with errors", async () => {
         const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/form";
         `, { filePath: "src/features/form/ui/index.js" });
@@ -75,7 +79,7 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
-    it("Should lint not segments import from slices with errors", async () => {
+    it("Slices with structure grouping: should lint without errors", async () => {
         const report = await eslint.lintText(`
         import { AuthForm } from "entities/auth/ui";
         import { Form } from "shared/button/form";
@@ -83,9 +87,10 @@ describe("PublicAPI import boundaries:", () => {
 
         assert.strictEqual(report[0].errorCount, 2);
     });
+});
 
-    // 🚀 `**/shared/*(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`
-    it("Should lint not segments import in shared segments without errors", async () => {
+describe("Allow not segments import in shared segments:", () => {
+    it("Not segments import in shared segments: should lint without errors", async () => {
         const report = await eslint.lintText(`
         import { Form } from "shared/ui/form";
         import { AuthAPI } from "shared/api/auth";
@@ -97,7 +102,7 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
-    it("Should lint not segments import in shared segments with errors", async () => {
+    it("Not segments import in shared segments: should lint with errors", async () => {
         const report = await eslint.lintText(`
         import { Hex } from "shared/api/ui";
         import { Form } from "shared/ui/lib";
@@ -108,7 +113,7 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 4);
     });
 
-    it("Should lint import in shared segments from shared dir without errors", async () => {
+    it("Not segments import in shared segments: should lint without errors", async () => {
         const report = await eslint.lintText(`
         import { FancyLabel } from "../../label";
         import { model } from "../model";
@@ -116,9 +121,10 @@ describe("PublicAPI import boundaries:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+});
 
-    // 🚀 `**/shared/*(${FS_SEGMENTS_REG})`
-    it("Should lint import from segments in shared without errors", async () => {
+describe("Import from segments in shared:", () => {
+    it("Import from segments in shared: should lint without errors", async () => {
         const report = await eslint.lintText(`
         import { AuthAPI } from "shared/api";
         import { FancyLabel } from 'shared/ui';
@@ -129,7 +135,7 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
-    it("Should lint import from segments in shared with errors", async () => {
+    it("Import from segments in shared: should lint with errors", async () => {
         const report = await eslint.lintText(`
         import { AuthAPI } from "shared/auth";
         import { FancyLabel } from 'shared/label';

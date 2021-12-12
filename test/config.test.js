@@ -1,18 +1,18 @@
 const assert = require("assert");
-const { utils } = require("../utils");
+const { typesLib } = require("../utils");
 const cfg = require("../");
 
 describe("config is valid", () => {
     it("Valid parerOptions should presented in global config.", () => {
-        assert.ok(utils.isObj(cfg.parserOptions));
+        assert.ok(typesLib.isObj(cfg.parserOptions));
         Object.entries(cfg.parserOptions).forEach(([key, value]) => {
-            assert.ok(utils.isString(key));
-            assert.ok(utils.isString(value));
+            assert.ok(typesLib.isString(key));
+            assert.ok(typesLib.isString(value));
         });
     });
 
     it("Global config should extends other config.", () => {
-        assert.ok(utils.isArray(cfg.extends));
+        assert.ok(typesLib.isArray(cfg.extends));
     });
 
     it("All extended configs should be presented.", () => {
@@ -25,20 +25,20 @@ describe("config is valid", () => {
     it("All extended configs plugins should be presented as Array's", () => {
         cfg.extends.forEach((configPath) => {
             const config = require(configPath);
-            assert.ok(utils.isArray(config.plugins));
+            assert.ok(typesLib.isArray(config.plugins));
         });
     });
 
     it("All extended configs rules should be with name and value", () => {
         cfg.extends.forEach((configPath) => {
             const config = require(configPath);
-            assert.ok(utils.isObj(config.rules));
+            assert.ok(typesLib.isObj(config.rules));
             Object.entries(config.rules).forEach(([ruleName, ruleOptions]) => {
-                assert.ok(utils.isString(ruleName));
+                assert.ok(typesLib.isString(ruleName));
                 assert.ok(
-                    utils.isNumber(ruleOptions) ||
-                    utils.isArray(ruleOptions) ||
-                    utils.isObj(ruleOptions),
+                    typesLib.isNumber(ruleOptions) ||
+                    typesLib.isArray(ruleOptions) ||
+                    typesLib.isObj(ruleOptions),
                 );
             });
         });

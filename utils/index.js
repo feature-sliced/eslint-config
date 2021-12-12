@@ -1,10 +1,9 @@
-const { mockImports, setConfigParser } = require("./config");
+const { configLib } = require("./config");
 const { layersLib } = require("./layers");
-const utils = require("./tools");
+const { typesLib } = require("./types");
 
 module.exports = {
-    mockImports,
-    setConfigParser,
+    configLib,
     layersLib,
-    utils,
+    typesLib,
 };
