@@ -1,14 +1,14 @@
 const path = require("path");
 
-const mockImports = (config, extension = 'js') => {
-    return  {
+const mockImports = (config, extension = "js") => {
+    return {
         ...config,
         settings: {
             ...config.settings,
-            'import/resolver': {
-                [path.resolve(__dirname, './mock-resolver.js')]: {
-                    extension
-                }
+            "import/resolver": {
+                [path.resolve(__dirname, "./mock-resolver.js")]: {
+                    extension,
+                },
             },
         }
     }
@@ -24,4 +24,11 @@ function setParser (config, version = "2015") {
     };
 }
 
-module.exports.configLib = { mockImports, setParser };
+function addTSParser (config) {
+    return {
+        ...config,
+        parser: "@typescript-eslint/parser",
+    };
+}
+
+module.exports.configLib = { mockImports, setParser, addTSParser };
