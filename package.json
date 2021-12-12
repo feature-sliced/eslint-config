@@ -25,7 +25,7 @@
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish",
     "clean": "git clean -fxd",
-    "test": "mocha **/**/**.test.js"
+    "test": "mocha \"./{,!(node_modules)/**/}*.test.js\""
   },
   "peerDependencies": {
     "eslint": ">=6",
