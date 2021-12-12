@@ -24,11 +24,11 @@ function setParser (config, version = "2015") {
     };
 }
 
-function addTSParser (config) {
+function setTSParser (config) {
     return {
         ...config,
         parser: "@typescript-eslint/parser",
     };
 }
 
-module.exports.configLib = { mockImports, setParser, addTSParser };
+module.exports.configLib = { mockImports, setParser, setTSParser };

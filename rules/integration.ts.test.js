@@ -5,7 +5,7 @@ const cfg = require("../");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig:  configLib.addTSParser(
+    baseConfig:  configLib.setTSParser(
         configLib.mockImports(cfg, "ts")
     ),
 });
