@@ -1,11 +1,13 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
-const { setConfigParser, mockImports } = require("../../utils/config");
+const { configLib } = require("../../utils");
 const cfg = require("./");
 
 const eslint = new ESLint({
     useEslintrc: false,
-    baseConfig: setConfigParser(mockImports(cfg)),
+    baseConfig: configLib.setParser(
+        configLib.mockImports(cfg)
+    ),
 });
 
 describe("Import boundaries between slices and layers", () => {

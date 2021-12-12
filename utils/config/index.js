@@ -14,7 +14,7 @@ const mockImports = (config, extension = 'js') => {
     }
 }
 
-function setConfigParser (config, version = "2015") {
+function setParser (config, version = "2015") {
     return {
         ...config,
         parserOptions: {
@@ -24,4 +24,4 @@ function setConfigParser (config, version = "2015") {
     };
 }
 
-module.exports = { mockImports, setConfigParser };
+module.exports.configLib = { mockImports, setParser };
