@@ -6,8 +6,9 @@ module.exports = {
         "sourceType": "module",
     },
     extends: [
-        path.resolve(__dirname, "./rules/public-api-boundaries"),
-        path.resolve(__dirname, "./rules/layers-slices-boundaries"),
-        path.resolve(__dirname, "./rules/import-order")
-    ],
+        "./rules/public-api-boundaries",
+        "./rules/layers-boundaries",
+        "./rules/slices-boundaries",
+        "./rules/import-order",
+    ].map(require.resolve),
 };

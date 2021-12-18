@@ -45,7 +45,7 @@ describe("Import boundaries between slices and layers", () => {
         ];
 
         const report = await eslint.lintText(wrongImports.join("\n"), {
-            filePath: "features/auth-form/index.js",
+            filePath: "src/features/auth-form/index.js",
         });
 
         assert.strictEqual(report[0].errorCount, wrongImports.length);
