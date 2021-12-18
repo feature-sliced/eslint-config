@@ -29,7 +29,7 @@ module.exports = {
             2,
             {
                 "default": "disallow",
-                "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/concepts/app-splitting#group-slices ",
+                "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
                 "rules": getSlicesRules(),
             },
         ],

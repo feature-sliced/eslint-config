@@ -28,7 +28,7 @@ module.exports = {
         "boundaries/element-types": [
             2,
             {
-                "default": "allow",
+                "default": "disallow",
                 "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
                 "rules": getLayersRules(),
             },
