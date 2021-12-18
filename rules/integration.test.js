@@ -24,6 +24,7 @@ describe("Integration tests:", () => {
         `, {
             filePath: "src/widgets/mock/index.js",
         });
+        console.log(report[0]);
 
         assert.strictEqual(report[0].errorCount, 11);
     });
