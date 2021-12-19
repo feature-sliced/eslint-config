@@ -1,17 +1,14 @@
 const { layersLib } = require("../../utils");
 
-const withSlicePrefix = (slice) => `slice:${slice}`;
-
 const getSlicesRules = () =>
     layersLib.FS_LAYERS.map((layer) => ({
-        from: withSlicePrefix(layer),
-        allow: layersLib.FS_LAYERS.filter(item => item !== layer).
-            map(item => withSlicePrefix(item)),
+        from: layer,
+        disallow: layer,
     }));
 
 const getSlicesBoundariesElements = () =>
     layersLib.FS_LAYERS.map((layer) => ({
-        type: withSlicePrefix(layer),
+        type: layer,
         pattern: `${layer}`,
         mode: "folder",
         capture: ["slices"],
@@ -28,8 +25,8 @@ module.exports = {
         "boundaries/element-types": [
             2,
             {
-                "default": "disallow",
-                "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+                "default": "allow",
+                "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/concepts/app-splitting#group-slices ",
                 "rules": getSlicesRules(),
             },
         ],
