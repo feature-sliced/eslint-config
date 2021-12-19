@@ -1,7 +1,6 @@
 const { layersLib } = require("../../utils");
 
 const getLayersRules = () =>
-
     layersLib.FS_LAYERS.map((layer) => ({
         from: layer,
         disallow: layersLib.getUpperLayers(layer),
