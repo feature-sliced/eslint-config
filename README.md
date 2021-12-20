@@ -113,7 +113,7 @@ import { Button } from "shared/ui";
     npm install --save-dev @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
 
-3. Add config to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+3. Add config ( for **recommended** presets ) to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
 
     ```json
     {
@@ -121,7 +121,27 @@ import { Button } from "shared/ui";
     }
     ```
 
-> Further, you can override / disable some rules if needed.
+## Customization
+You can partially use the rules
+
+#### Note:
+Don't use main config (`@feature-sliced`) in customization to avoid rules conflicts.
+
+#### Example:
+```json
+    {
+        "extends": [
+          "@feature-sliced/eslint-config/rules/import-order",
+          "@feature-sliced/eslint-config/rules/public-api-boundaries",
+          "@feature-sliced/eslint-config/rules/layers-slices-boundaries"
+        ]
+    }
+```
+
+#### Available rules
+- [import-order](./rules/import-order/index.md)
+- [public-api-boundaries](./rules/public-api-boundaries/index.md)
+- [layers-slices-boundaries](./rules/layers-slices-boundaries/index.md)
 
 ## Usage with TypeScript
 
