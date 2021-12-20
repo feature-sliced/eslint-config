@@ -7,7 +7,7 @@ module.exports = {
     },
     extends: [
         "./rules/public-api-boundaries",
-        "./rules/slices-and-layers-boundaries",
+        "./rules/layers-slices-boundaries",
         "./rules/import-order",
     ].map(require.resolve),
 };
