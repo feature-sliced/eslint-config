@@ -24,7 +24,6 @@
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish",
-    "prettier:fix": "prettier --write **/*.js",
     "clean": "git clean -fxd",
     "test": "mocha \"*(test|rules)/**/*.test.js\""
   },
@@ -43,7 +42,6 @@
     "eslint-plugin-boundaries": "^2.6.0",
     "eslint-plugin-import": "^2.25.3",
     "mocha": "^8.2.1",
-    "prettier": "^2.5.1",
     "typescript": "^4.5.3"
   },
   "dependencies": {}
