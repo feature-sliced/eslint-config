@@ -7,19 +7,17 @@
 [![npm](https://img.shields.io/npm/v/@feature-sliced/eslint-config?style=flat-square)][npm]
 [![npm](https://img.shields.io/npm/dw/@feature-sliced/eslint-config?style=flat-square)][npm]
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@feature-sliced/eslint-config?style=flat-square)][npm]
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ffeature-sliced%2Feslint-plugin&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/feature-sliced/eslint-config/Test%20current%20build?label=tests&style=flat-square)](https://github.com/feature-sliced/eslint-config/actions)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feature-sliced/eslint-config?style=flat-square)](https://github.com/feature-sliced/eslint-config/commits)
 
 <img src="https://avatars.githubusercontent.com/u/60469024?s=120&v=4" align="right">
 
 Linting of [FeatureSliced](https://github.com/feature-sliced/documentation) concepts *by existing eslint-plugins*
 
-- Control [**Isolation**](#)
-- Control [**Decomposition**](#)
-- Control [**Public API**](#)
-- Control [**Layered dependencies**](#)
-- Control [**Naming**](#)
+- Control [**Isolation**](https://feature-sliced.design/docs/concepts/low-coupling)
+- Control [**Decomposition**](https://feature-sliced.design/docs/concepts/app-splitting)
+- Control [**Public API**](https://feature-sliced.design/docs/concepts/public-api)
+- Control [**Layers & Scopes**](https://feature-sliced.design/docs/reference/layers)
+- Control [**Naming**](https://feature-sliced.design/docs/concepts/naming-adaptability)
 
 <!--
 Uncomment if will be needed
@@ -31,9 +29,11 @@ Uncomment if will be needed
 * [Also](#also)
 -->
 
+<!--
 ## Overview
 
 > See [included rules](/index.js)
+-->
 
 <!--
 This config help you
@@ -99,21 +99,30 @@ import { Button } from "shared/ui";
 
 -->
 
-## Get started
+## Rules
+- [`import-order`](./rules/import-order/index.md)
+- [`public-api-boundaries`](./rules/public-api-boundaries/index.md)
+- [`layers-slices-boundaries`](./rules/layers-slices-boundaries/index.md)
 
-1. You'll first need to install [ESLint](http://eslint.org) (with default plugins):
+## Get Started
+
+1. You'll first need to install [ESLint](http://eslint.org):
 
     ```sh
-    npm install --save-dev eslint
+    $ npm install --save-dev eslint
+    # or by yarn
+    $ yarn add -D eslint
     ```
 
 2. Next, install `@feature-sliced/eslint-config` and dependencies:
 
     ```sh
-    npm install --save-dev @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    $ npm install --save-dev @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    # or by yarn
+    $ yarn add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
 
-3. Add config ( for **recommended** presets ) to the `extends` section of your eslint configuration file. You can omit the `eslint-plugin` suffix:
+3. Add config (for **recommended** rules) to the `extends` section of your `.eslintrc` configuration file. You can omit the `eslint-config` postfix:
 
     ```json
     {
@@ -124,55 +133,48 @@ import { Button } from "shared/ui";
 ## Customization
 You can partially use the rules
 
-#### Note:
-Don't use main config (`@feature-sliced`) in customization to avoid rules conflicts.
-
-#### Example:
-```json
-    {
-        "extends": [
-          "@feature-sliced/eslint-config/rules/import-order",
-          "@feature-sliced/eslint-config/rules/public-api-boundaries",
-          "@feature-sliced/eslint-config/rules/layers-slices-boundaries"
-        ]
-    }
-```
-
-#### Available rules
-- [import-order](./rules/import-order/index.md)
-- [public-api-boundaries](./rules/public-api-boundaries/index.md)
-- [layers-slices-boundaries](./rules/layers-slices-boundaries/index.md)
-
-## Usage with TypeScript
-
-This plugin can be used also in TypeScript projects using @typescript-eslint/eslint-plugin. Follow next steps to configure it:
-
-Install dependencies:
-
-```shell
-npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
-```
-or:
-```shell
-yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
-```
-
-Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc.json` config file:
 ```json
 {
-  "parser": "@typescript-eslint/parser",
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
-    }
-  }
+  "extends": [
+    "@feature-sliced/eslint-config/rules/import-order",
+    "@feature-sliced/eslint-config/rules/public-api-boundaries",
+    "@feature-sliced/eslint-config/rules/layers-slices-boundaries"
+  ]
 }
 ```
 
+> **WARN:** Don't use main config (`@feature-sliced`) in customization to avoid rules conflicts.
 
-## Also
+## TypeScript
+
+This plugin can be used also in TypeScript projects using `@typescript-eslint/eslint-plugin`. Follow next steps to configure it:
+
+1. Install dependencies:
+
+   ```sh
+   $ npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+   # or by yarn
+   $ yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+   ```
+
+
+2. Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc` config file:
+
+   ```json
+   {
+     "parser": "@typescript-eslint/parser",
+     "settings": {
+       "import/resolver": {
+         "typescript": {
+           "alwaysTryTypes": true
+         }
+       }
+     }
+   }
+   ```
+
+
+## See also
 
 - [FAQ](./FAQ.md)
 - [Releases & Changelog](https://github.com/feature-sliced/eslint-config/releases)
