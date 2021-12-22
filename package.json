@@ -4,9 +4,8 @@
   "description": "🍰 Lint feature-sliced concepts by existing eslint plugins",
   "main": "index.js",
   "files": [
-    "rules/import-order/index.js",
-    "rules/layers-slices-boundaries/index.js",
-    "rules/public-api-boundaries/index.js",
+    "rules/**/index.js",
+    "utils/**",
     "index.js"
   ],
   "repository": "https://github.com/feature-sliced/eslint-config.git",
