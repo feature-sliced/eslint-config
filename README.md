@@ -30,9 +30,10 @@ Uncomment if will be needed
 -->
 
 ## Rules
-- [`import-order`](./rules/import-order/index.md)
-- [`public-api-boundaries`](./rules/public-api-boundaries/index.md)
-- [`layers-slices-boundaries`](./rules/layers-slices-boundaries/index.md)
+
+- [`import-order`](./rules/import-order)
+- [`public-api-boundaries`](./rules/public-api-boundaries)
+- [`layers-slices-boundaries`](./rules/layers-slices-boundaries)
 
 ## Get Started
 
@@ -61,6 +62,7 @@ Uncomment if will be needed
     ```
 
 ## Customization
+
 You can partially use the rules
 
 ```json
@@ -87,7 +89,6 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
    $ yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
    ```
 
-
 2. Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc` config file:
 
    ```json
@@ -102,7 +103,6 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
      }
    }
    ```
-
 
 ## See also
 
