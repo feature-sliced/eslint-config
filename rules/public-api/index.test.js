@@ -1,7 +1,7 @@
 const { ESLint } = require("eslint");
 const assert = require("assert");
 const { configLib } = require("../../utils");
-const cfg = require("./");
+const cfg = require(".");
 
 const eslint = new ESLint({
     useEslintrc: false,
