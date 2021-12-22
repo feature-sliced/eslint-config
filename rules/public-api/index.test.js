@@ -20,9 +20,10 @@ describe("PublicAPI import boundaries:", () => {
         import { saveOrder } from "entities/order/model/actions";
         import { orderModel } from "entities/order/model";
         import { TicketCard } from "@app/entities/ticket/ui";
+        import { Ticket } from "@app/entities/ticket/ui.tsx";
         `,
             { filePath: "src/app/ui/index.js" });
-        assert.strictEqual(report[0].errorCount, 7);
+        assert.strictEqual(report[0].errorCount, 8);
     });
 
     it("Should lint PublicAPI boundaries without errors.", async () => {
