@@ -39,7 +39,7 @@ Uncomment if will be needed
 1. You'll first need to install [ESLint](http://eslint.org):
 
     ```sh
-    $ npm install --save-dev eslint
+    $ npm install -D eslint
     # or by yarn
     $ yarn add -D eslint
     ```
@@ -47,7 +47,7 @@ Uncomment if will be needed
 2. Next, install `@feature-sliced/eslint-config` and dependencies:
 
     ```sh
-    $ npm install --save-dev @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    $ npm install -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     # or by yarn
     $ yarn add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
@@ -82,7 +82,7 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
 1. Install dependencies:
 
    ```sh
-   $ npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+   $ npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
    # or by yarn
    $ yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
    ```
