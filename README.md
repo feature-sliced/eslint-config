@@ -32,8 +32,8 @@ Uncomment if will be needed
 ## Rules
 
 - [`import-order`](./rules/import-order)
-- [`public-api-boundaries`](./rules/public-api-boundaries)
-- [`layers-slices-boundaries`](./rules/layers-slices-boundaries)
+- [`public-api`](./rules/public-api)
+- [`layers-slices`](./rules/layers-slices)
 
 ## Get Started
 
@@ -69,8 +69,8 @@ You can partially use the rules
 {
   "extends": [
     "@feature-sliced/eslint-config/rules/import-order",
-    "@feature-sliced/eslint-config/rules/public-api-boundaries",
-    "@feature-sliced/eslint-config/rules/layers-slices-boundaries"
+    "@feature-sliced/eslint-config/rules/public-api",
+    "@feature-sliced/eslint-config/rules/layers-slices"
   ]
 }
 ```

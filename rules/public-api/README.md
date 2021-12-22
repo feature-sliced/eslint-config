@@ -1,9 +1,9 @@
-# @feature-sliced/public-api-boundaries
+# @feature-sliced/public-api
 
 #### Reference: [PublicAPI](https://feature-sliced.design/docs/concepts/public-api)
 
 #### Usage:
-Add `"@feature-sliced/eslint-config/rules/public-api-boundaries"` to you `extends` section in ESLint config.
+Add `"@feature-sliced/eslint-config/rules/public-api"` to you `extends` section in ESLint config.
 
 ```js
 // 👎 Fail
