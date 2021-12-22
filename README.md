@@ -29,76 +29,6 @@ Uncomment if will be needed
 * [Also](#also)
 -->
 
-<!--
-## Overview
-
-> See [included rules](/index.js)
--->
-
-<!--
-This config help you
-
-<details>
-<summary>to <b>restrict imports</b> (not private paths, only public API)</summary>
-
-```ts
-// Fail
-import { IssuesPage } from "pages/issues/ui";
-import { addToCart } from "features/add-to-cart/model/actions"
-import { Button } from "shared/ui/button/button";
-
-// Pass
-import { Issues } from "pages/issues";
-import { addToCartModel } from "features/add-to-cart"
-import { Button } from "shared/ui/button";
-```
-
-</details>
-<details>
-<summary>to <b>order imports</b> (app > pages > features > entities > shared)</summary>
-
-```ts
-// Fail
-import { getSmth } from "./lib";
-import axios from "axios";
-import { data } from "../fixtures";
-import { Button } from "shared/ui";
-import { LoginForm } from "features/login-form";
-import { debounce } from "shared/lib";
-
-// Pass
-import axios from "axios"; // 1) external libs
-import { LoginForm } from "features/login-form"; // 2) features
-import { Button } from "shared/ui"; // 3) shared/**
-import { debounce } from "shared/lib";
-import { data } from "../fixtures"; // 4) parent
-import { getSmth } from "./lib"; // 5) sibling
-```
-
-</details>
-<details>
-<summary>to <b>use only absolute imports</b> (relative - only for module internal using)</summary>
-
-> **NOTE:** Be sure, that your tsconfig allows you to use absolute imports
->
-> - `baseUrl: "./src"`
->
-```ts
-// Fail
-import Routing from "../../pages"
-import { LoginForm } from "../features/login-form";
-import { Button } from "../shared/ui";
-
-// Pass
-import Routing from "pages"
-import { LoginForm } from "features/login-form";
-import { Button } from "shared/ui";
-```
-
-</details>
-
--->
-
 ## Rules
 - [`import-order`](./rules/import-order/index.md)
 - [`public-api-boundaries`](./rules/public-api-boundaries/index.md)
@@ -143,7 +73,7 @@ You can partially use the rules
 }
 ```
 
-> **WARN:** Don't use main config (`@feature-sliced`) in customization to avoid rules conflicts.
+> **WARN:** Don't use main config (`"@feature-sliced"`) in customization to avoid rules conflicts.
 
 ## TypeScript
 
