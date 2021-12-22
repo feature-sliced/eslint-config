@@ -122,7 +122,7 @@ import { Button } from "shared/ui";
     $ yarn add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
 
-3. Add config (for **recommended** rules) to the `extends` section of your `.eslintrc` configuration file. You can omit the `eslint-config` postfix:
+3. Add config to the `extends` section of your `.eslintrc` configuration file (for **recommended** rules). You can omit the `eslint-config` postfix:
 
     ```json
     {
