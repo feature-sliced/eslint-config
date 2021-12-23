@@ -1,8 +1,8 @@
-# Description
+## Description
 <!-- 1. Description of your PR -->
-# References
+## References
 <!-- 2. References to issue, PR or discussions  -->
-# Checks
+## Checklist
 - [ ] Description added
 - [ ] Self-reviewed
 - [ ] CI pass
