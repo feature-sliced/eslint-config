@@ -34,6 +34,8 @@ Uncomment if will be needed
 - [`import-order`](./rules/import-order)
 - [`public-api`](./rules/public-api)
 - [`layers-slices`](./rules/layers-slices)
+- [`layers`](./rules/layers)
+- [`slices`](./rules/slices)
 
 ## Get Started
 
