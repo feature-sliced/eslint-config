@@ -3,7 +3,7 @@
 #### Reference: [Cross-communication](https://feature-sliced.design/docs/concepts/cross-communication)
 
 #### Usage:
-Add `"@feature-sliced/eslint-config/rules/layers-slices"` to you `extends` section in ESLint config.
+Add `"@feature-sliced/eslint-config/rules/slices"` to you `extends` section in ESLint config.
 
 ```js
 // 👎 Fail
