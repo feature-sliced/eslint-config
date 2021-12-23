@@ -1,7 +1,10 @@
 const { layersLib } = require("../../utils");
 
-const FS_SEGMENTS_REG = layersLib.FS_SEGMENTS.join("|");
 const FS_SLICED_LAYERS_REG = layersLib.getUpperLayers("shared").join("|");
+const FS_SEGMENTS_REG = [
+    ...layersLib.FS_SEGMENTS,
+    ...layersLib.FS_SEGMENTS.map((seg) => `${seg}.*`),
+].join('|');
 
 module.exports = {
     plugins: ["import"],
