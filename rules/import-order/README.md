@@ -1,6 +1,9 @@
 # @feature-sliced/import-order
 
-Reference: [Layers](https://feature-sliced.design/docs/reference/layers)
+#### Reference: [Layers](https://feature-sliced.design/docs/reference/layers)
+
+#### Usage:
+Add `"@feature-sliced/eslint-config/rules/import-order"` to you `extends` section in ESLint config.
 
 ```js
 // 👎 Fail

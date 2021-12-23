@@ -1,6 +1,9 @@
-# @feature-sliced/layers-slices-boundaries
+# @feature-sliced/layers-slices
 
-Reference: [Cross-communication](https://feature-sliced.design/docs/concepts/cross-communication)
+#### Reference: [Cross-communication](https://feature-sliced.design/docs/concepts/cross-communication)
+
+#### Usage:
+Add `"@feature-sliced/eslint-config/rules/layers-slices"` to you `extends` section in ESLint config.
 
 ```js
 // 👎 Fail
