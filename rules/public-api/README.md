@@ -25,3 +25,22 @@ import { TicketCard } from "@/entities/ticket";
 import { AuthForm } from "features/auth/form"
 import { Button } from "shared/ui";
 ```
+
+#### Segments PublicAPI
+
+```js
+// 👎 Fail
+/** @path features/smth/index.ts */
+export { SubmitButton } from "./ui/button";
+export { SmthForm } from "./ui/form";
+export * from "./model/actions";
+export { selectSmthById } from "./model/selectors";
+
+// 👍 Pass
+/** @path features/smth/index.ts */
+export { SubmitButton, SmthForm } from "./ui";
+export * from "./model";
+export * as smthModel from "./model";
+export { selectSmthById, ... } from "./model";
+```
+
