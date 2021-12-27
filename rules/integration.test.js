@@ -80,6 +80,8 @@ describe("Integration tests:", () => {
     it("Global config should pass with global node_modules", async () => {
         const report = await eslint.lintText(`
         import { orderModel } from "home/work/npm/node_modules/packages/custom/ci/index.js";
+        import { useDelay } from "home/work/npm/node_modules/packages/reduxium/use-delay/index.js";
+        import { Something } from "home/work/npm/node_modules/packages/fancy-ui-kiy/some/index.js";
         `, { filePath: "src/features/profile/ui/index.js" });
 
         assert.strictEqual(report[0].errorCount, 0);
