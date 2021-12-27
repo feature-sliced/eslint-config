@@ -1,6 +1,6 @@
 {
   "name": "@feature-sliced/eslint-config",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0-alpha.1",
   "description": "🍰 Lint feature-sliced concepts by existing eslint plugins",
   "main": "index.js",
   "files": [
