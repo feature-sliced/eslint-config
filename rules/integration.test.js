@@ -76,4 +76,12 @@ describe("Integration tests:", () => {
 
         assert.strictEqual(report[0].errorCount, 1);
     });
+
+    it("Global config should pass with global node_modules", async () => {
+        const report = await eslint.lintText(`
+        import { orderModel } from "home/work/npm/node_modules/packages/custom/ci/index.js";
+        `, { filePath: "src/features/profile/ui/index.js" });
+
+        assert.strictEqual(report[0].errorCount, 0);
+    });
 });
