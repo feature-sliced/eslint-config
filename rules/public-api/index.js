@@ -40,6 +40,9 @@ module.exports = {
                      * 'shared/ui' // Pass
                      */
                     `**/shared/*(${FS_SEGMENTS_REG})`,
+
+                    /** allow global modules */
+                    `**/node_modules/**`
                 ],
             }],
     },
