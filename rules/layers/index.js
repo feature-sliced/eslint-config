@@ -3,15 +3,15 @@ const { layersLib } = require("../../utils");
 const getLayersRules = () =>
     layersLib.FS_LAYERS.map((layer) => ({
         from: layer,
-        allow: layersLib.getLowerLayers(layer),
+        disallow: layersLib.getUpperLayers(layer),
     }));
 
-const getAllBoundariesElements = () =>
+const getLayersBoundariesElements = () =>
     layersLib.FS_LAYERS.map((layer) => ({
         type: layer,
-        pattern: `${layer}/*`,
+        pattern: `${layer}/**`,
         mode: "folder",
-        capture: ["slices"],
+        capture: ["layers"],
     }));
 
 module.exports = {
@@ -19,13 +19,13 @@ module.exports = {
     extends: ["plugin:boundaries/recommended"],
     ignorePatterns: [".eslintrc.js"],
     settings: {
-        "boundaries/elements": getAllBoundariesElements(),
+        "boundaries/elements": getLayersBoundariesElements(),
     },
     rules: {
         "boundaries/element-types": [
             2,
             {
-                "default": "disallow",
+                "default": "allow",
                 "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
                 "rules": getLayersRules(),
             },

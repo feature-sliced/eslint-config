@@ -10,9 +10,9 @@ const mockImports = (config, extension = "js") => {
                     extension,
                 },
             },
-        }
-    }
-}
+        },
+    };
+};
 
 function setParser (config, version = "2015") {
     return {
@@ -31,4 +31,8 @@ function setTSParser (config) {
     };
 }
 
-module.exports.configLib = { mockImports, setParser, setTSParser };
+module.exports.configLib = {
+    mockImports,
+    setParser,
+    setTSParser,
+};
