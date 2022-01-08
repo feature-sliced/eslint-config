@@ -36,4 +36,16 @@ describe("Import boundaries between layers", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
+    it("should lint without errors when import from shared.", async () => {
+        const validCodeSnippet = [
+            `import { API_TOKEN } from "shared/config"`,
+            `import { Form } from "shared/ui";`,
+        ].join("\n");
+
+        const report = await eslint.lintText(validCodeSnippet, {
+            filePath: "src/shared/ui/button.js",
+        });
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
 });
