@@ -12,6 +12,8 @@ describe("Import order:", () => {
 
     it("should lint with errors.", async () => {
         const report = await eslint.lintText(`
+        import { Cart } from "@/entities/cart"; // 6 - Alias
+        import { Input } from "~/shared/ui"; // 7 - Alias
         import { getSmth } from "./lib"; // 1
         import axios from "axios";
         import { data } from "../fixtures"; // 2
@@ -22,7 +24,7 @@ describe("Import order:", () => {
         import { debounce } from "shared/lib/fp";
         `);
 
-        assert.strictEqual(report[0].errorCount, 5);
+        assert.strictEqual(report[0].errorCount, 7);
     });
 
     it("should lint without errors.", async () => {
@@ -31,6 +33,8 @@ describe("Import order:", () => {
         import { Header } from "widgets/header";             // 2.1) Layers: widgets
         import { LoginForm } from "features/login-form";     // 2.2) Layers: features
         import { authModel } from "entities/auth";           // 2.3) Layers: entities
+        import { Cart } from "@/entities/cart";              // Layers: entities - Alias
+        import { Input } from "~/shared/ui";                 // Layers: shared - Alias
         import { Button } from "shared/ui";                  // 2.4) Layers: shared
         import { debounce } from "shared/lib/fp";            // 2.4) Layers: shared
         import { data } from "../fixtures";                  // 3) parent

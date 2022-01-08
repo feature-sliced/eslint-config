@@ -10,7 +10,7 @@ module.exports = {
             {
                 pathGroups: layersLib.FS_LAYERS.map(
                     (layer) => ({
-                        pattern: `${layer}/**` ,
+                        pattern: `**/${layer}/**` ,
                         group: "internal",
                         position: "after",
                     }),
