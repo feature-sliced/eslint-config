@@ -1,4 +1,4 @@
-const { patchMessage } = require("./helpers");
+const { patchMessage } = require("./messages");
 
 module.exports = {
     processors: {
