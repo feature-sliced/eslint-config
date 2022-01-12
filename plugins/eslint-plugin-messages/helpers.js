@@ -1,9 +1,10 @@
 // TODO: https://gist.github.com/Krakazybik/53cebb2c763305be13e31042d59a7c72#file-gistfile1-js-L31
 
 const getRuleMessage = (msg) => {
+    console.log(`[DEBUG] MES ${msg.ruleId}`, msg);
+
     switch (msg.ruleId) {
         case 'import/order':
-            console.log("MES io", msg)
             return {
                 ruleId: 'feature-sliced/import-order',
                 message: 'Broken order of imports | https://git.io/JymjI',
