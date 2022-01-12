@@ -63,19 +63,27 @@ Uncomment if will be needed
 
 ## Customization
 
-You can partially use the rules
+1. You can partially use the rules
 
-```json
-{
-  "extends": [
-    "@feature-sliced/eslint-config/rules/import-order",
-    "@feature-sliced/eslint-config/rules/public-api",
-    "@feature-sliced/eslint-config/rules/layers-slices"
-  ]
-}
-```
+   > **WARN:** Don't use main config (`"@feature-sliced"`) in customization to avoid rules conflicts.
 
-> **WARN:** Don't use main config (`"@feature-sliced"`) in customization to avoid rules conflicts.
+   ```json
+   {
+     "extends": [
+       "@feature-sliced/eslint-config/rules/import-order",
+       "@feature-sliced/eslint-config/rules/public-api",
+       "@feature-sliced/eslint-config/rules/layers-slices"
+     ]
+   }
+   ```
+
+2. You can use [advanced FeatureSliced-specific messages processing](https://www.npmjs.com/package/@feature-sliced/eslint-plugin-messages)
+
+   ```diff
+   # (feature-sliced/public-api)
+   - 'Reaching to "features/search/ui" is not allowed.'
+   + 'Violated usage of modules Public API | https://git.io/Jymjf'
+    ```
 
 ## TypeScript
 
