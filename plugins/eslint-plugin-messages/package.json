@@ -1,6 +1,6 @@
 {
   "name": "@feature-sliced/eslint-plugin-messages",
-  "version": "0.0.0-concept.1",
+  "version": "0.0.0-concept.2",
   "description": "🍰 Custom messages processor",
   "main": "index.js",
   "repository": "https://github.com/feature-sliced/eslint-config.git",

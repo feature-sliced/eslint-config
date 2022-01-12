@@ -1,8 +1,6 @@
 // TODO: https://gist.github.com/Krakazybik/53cebb2c763305be13e31042d59a7c72#file-gistfile1-js-L31
 
 const getRuleMessage = (msg) => {
-    console.log(`[DEBUG] MES ${msg.ruleId}`, msg);
-
     switch (msg.ruleId) {
         case 'import/order': {
             return {
@@ -17,7 +15,6 @@ const getRuleMessage = (msg) => {
             }
         }
         case 'boundaries/element-types': {
-            const layerMsg = getMessageLayerName(msg.message);
             const { groups } = msg.message.match(/(?<from>"\S+").+(?<to>"\S+")/i);
             const from = groups?.from || '';
             const to = groups?.to || '';
