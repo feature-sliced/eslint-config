@@ -5,6 +5,5 @@
   "main": "index.js",
   "repository": "https://github.com/feature-sliced/eslint-config.git",
   "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
-  "license": "MIT",
-  "private": false
+  "license": "MIT"
 }
