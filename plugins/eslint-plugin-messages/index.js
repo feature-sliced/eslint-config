@@ -1,4 +1,4 @@
-const { replaceMessage } = require("./helpers");
+const { patchMessage } = require("./helpers");
 
 module.exports = {
     processors: {
@@ -7,7 +7,7 @@ module.exports = {
 
                 console.log(messages);
                 return messages[0].map((message) => {
-                    return replaceMessage(message);
+                    return patchMessage(message);
                 });
             },
             supportsAutofix: true,
