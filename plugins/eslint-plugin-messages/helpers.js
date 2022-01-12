@@ -4,17 +4,19 @@ const getRuleMessage = (msg) => {
     console.log(`[DEBUG] MES ${msg.ruleId}`, msg);
 
     switch (msg.ruleId) {
-        case 'import/order':
+        case 'import/order': {
             return {
                 ruleId: 'feature-sliced/import-order',
                 message: 'Broken order of imports | https://git.io/JymjI',
-            },
-        case 'import/no-internal-modules':
+            }
+        }
+        case 'import/no-internal-modules': {
             return {
                 ruleId: 'feature-sliced/public-api',
                 message: 'Violated usage of modules Public API | https://git.io/Jymjf',
-            },
-        case 'boundaries/element-types':
+            }
+        }
+        case 'boundaries/element-types': {
             const layerMsg = getMessageLayerName(msg.message);
             const { groups } = msg.message.match(/(?<from>"\S+").+(?<to>"\S+")/i);
             const from = groups?.from || '';
@@ -22,7 +24,8 @@ const getRuleMessage = (msg) => {
             return {
                 ruleId: 'feature-sliced/layers-slices',
                 message: `Violated isolation between layers or slices: ${from} => ${to} | https://git.io/Jymh2`,
-            },
+            }
+        }
     }
 }
 
