@@ -5,13 +5,13 @@ const getRuleMessage = (msg) => {
         case 'import/order': {
             return {
                 ruleId: 'feature-sliced/import-order',
-                message: 'Broken order of imports | <https://git.io/JymjI>',
+                message: 'Broken order of imports | https://git.io/JymjI',
             }
         }
         case 'import/no-internal-modules': {
             return {
                 ruleId: 'feature-sliced/public-api',
-                message: 'Violated usage of modules Public API | [https://git.io/Jymjf](https://git.io/Jymjf)',
+                message: 'Violated usage of modules Public API | https://git.io/Jymjf',
             }
         }
         case 'boundaries/element-types': {
