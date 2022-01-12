@@ -6,16 +6,17 @@
 
 Custom messages processing for [@feature-sliced/eslint-config](https://www.npmjs.com/package/@feature-sliced/eslint-config)
 
-```js
-// Before
-> '"widgets" is not allowed to import "widgets" | See rules: https://feature-sliced.design/docs/reference/layers/overview'
-> 'Reaching to "features/search/ui" is not allowed.'
-> 'entities/auth/model` import should occur before import of `shared/config'
-// After
-> 'Violated isolation between layers or slices: "widgets" => "widgets" | https://git.io/Jymh2'
-> 'Violated usage of modules Public API | https://git.io/Jymjf'
-> 'Broken order of imports | https://git.io/JymjI'
-```
+> **Before:**
+>
+> - *'"widgets" is not allowed to import "widgets" | See rules: <https://feature-sliced.design/docs/reference/layers/overview>'*
+> - *'Reaching to "features/search/ui" is not allowed.'*
+> - *'"entities/auth/model" import should occur before import of "shared/config"'*
+>
+> **After:**
+>
+> - *'Violated isolation between layers or slices: "widgets" => "widgets" | <https://git.io/Jymh2>'*
+> - *'Violated usage of modules Public API | <https://git.io/Jymjf>'*
+> - *'Broken order of imports | <https://git.io/JymjI>'*
 
 ## Get Started
 
