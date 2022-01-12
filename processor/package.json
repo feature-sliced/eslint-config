@@ -1,6 +1,6 @@
 {
   "name": "@feature-sliced/eslint-plugin-messages",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0-alpha.1",
   "description": "🍰 Custom messages processor",
   "keywords": [
     "eslint",
