@@ -8,7 +8,7 @@ Custom messages processing for [@feature-sliced/eslint-config](https://www.npmjs
 
 - Methodology specific messages
 - Only important details
-- With documentation reference
+- With documentation references
 
 ## Get Started
 
