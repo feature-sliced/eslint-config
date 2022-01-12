@@ -1,0 +1,10 @@
+{
+  "name": "@feature-sliced/eslint-config-processor",
+  "version": "0.0.0-concept.0",
+  "description": "🍰 Custom messages processor",
+  "main": "index.js",
+  "repository": "https://github.com/feature-sliced/eslint-config.git",
+  "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
