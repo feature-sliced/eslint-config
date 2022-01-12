@@ -2,6 +2,15 @@
   "name": "@feature-sliced/eslint-plugin-messages",
   "version": "0.1.0-alpha",
   "description": "🍰 Custom messages processor",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "feature-sliced",
+    "feature-slices",
+    "feature-driven",
+    "feature-based"
+  ],
   "main": "index.js",
   "repository": "https://github.com/feature-sliced/eslint-config.git",
   "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
