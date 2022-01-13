@@ -87,7 +87,7 @@ Uncomment if will be needed
 
 3. You can use *warnings* instead of *errors* for specific rules
 
-   ```json
+   ```js
    // feature-sliced/import-order
    "import/order": "warn" // ~ 1,
    // feature-sliced/public-api
