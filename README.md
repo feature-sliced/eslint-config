@@ -85,6 +85,17 @@ Uncomment if will be needed
    + 'Violated usage of modules Public API | https://git.io/Jymjf'
     ```
 
+3. You can use *warnings* instead of *errors* for specific rules
+
+   ```json
+   // feature-sliced/import-order
+   "import/order": "warn" // ~ 1,
+   // feature-sliced/public-api
+   "import/no-internal-modules": "warn" // ~ 1,
+   // feature-sliced/layers-slices
+   "boundaries/element-types": "warn" // ~ 1,
+   ```
+
 ## TypeScript
 
 This plugin can be used also in TypeScript projects using `@typescript-eslint/eslint-plugin`. Follow next steps to configure it:
