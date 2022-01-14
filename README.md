@@ -1,6 +1,6 @@
 # [@feature-sliced/eslint-config](https://www.npmjs.com/package/@feature-sliced/eslint-config)
 
-> `WIP:` At the moment at alpha testing - [use carefully](https://github.com/feature-sliced/eslint-config/discussions/55)
+> `WIP:` At the moment at beta-testing - [use carefully](https://github.com/feature-sliced/eslint-config/discussions/75)
 
 [npm]: https://www.npmjs.com/package/@feature-sliced/eslint-config
 

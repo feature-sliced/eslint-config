@@ -1,6 +1,6 @@
 # [@feature-sliced/eslint-plugin-messages](https://www.npmjs.com/package/@feature-sliced/eslint-plugin-messages)
 
-> `WIP:` At the moment at alpha testing - [use carefully](https://github.com/feature-sliced/eslint-config/discussions/55)
+> `WIP:` At the moment at beta-testing - [use carefully](https://github.com/feature-sliced/eslint-config/discussions/75)
 
 <img src="https://avatars.githubusercontent.com/u/60469024?s=120&v=4" align="right">
 
