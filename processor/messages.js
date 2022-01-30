@@ -4,13 +4,11 @@ const getRuleMessage = (msg) => {
     switch (msg.ruleId) {
         case 'import/order': {
             return {
-                ruleId: 'feature-sliced/import-order',
                 message: 'Broken order of imports | https://git.io/JymjI',
             }
         }
         case 'import/no-internal-modules': {
             return {
-                ruleId: 'feature-sliced/public-api',
                 message: 'Violated usage of modules Public API | https://git.io/Jymjf',
             }
         }
@@ -19,7 +17,6 @@ const getRuleMessage = (msg) => {
             const from = groups?.from || '';
             const to = groups?.to || '';
             return {
-                ruleId: 'feature-sliced/layers-slices',
                 message: `Violated isolation between layers or slices: ${from} => ${to} | https://git.io/Jymh2`,
             }
         }
