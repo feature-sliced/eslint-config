@@ -145,5 +145,14 @@ describe("PublicAPI import boundaries:", () => {
 
             assert.strictEqual(report[0].errorCount, 4);
         });
+
+        it("should lint shared aliases without errors", async () => {
+            const report = await eslint.lintText(`
+            import { routeNames } from '@/shared/api/router';
+            import { fetchRules } from '@shared/api/rules';
+            `, { filePath: "src/pages/main/ui/index.js" });
+
+            assert.strictEqual(report[0].errorCount, 0);
+        });
     });
 });
