@@ -22,23 +22,48 @@ describe("Import order:", () => {
         import { LoginForm } from "features/login-form"; // 4
         import { Header } from "widgets/header"; // 5
         import { debounce } from "shared/lib/fp";
+        import { One } from "@entities/one";
+        import { Two } from "~entities/two"; 
         `);
 
-        assert.strictEqual(report[0].errorCount, 7);
+        assert.strictEqual(report[0].errorCount, 8);
     });
 
     it("should lint without errors.", async () => {
         const report = await eslint.lintText(`
         import axios from "axios";                           // 1) external libs
+        import { Zero } from "@widget/zero";                 // Layers: widget - Alias
         import { Header } from "widgets/header";             // 2.1) Layers: widgets
         import { LoginForm } from "features/login-form";     // 2.2) Layers: features
         import { authModel } from "entities/auth";           // 2.3) Layers: entities
+        import { One } from "@entities/one";                 // Layers: entities - Alias
+        import { Two } from "@entities/two";                 // Layers: entities - Alias
         import { Cart } from "@/entities/cart";              // Layers: entities - Alias
         import { Input } from "~/shared/ui";                 // Layers: shared - Alias
         import { Button } from "shared/ui";                  // 2.4) Layers: shared
         import { debounce } from "shared/lib/fp";            // 2.4) Layers: shared
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
+        `);
+
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("aliased layers should lint with errors.", async () => {
+        const report = await eslint.lintText(`
+        import { Third } from '@shared/third';
+        import { Second } from '@entities/second';
+        import { First } from '@features/first';
+        `);
+
+        assert.strictEqual(report[0].errorCount, 2);
+    });
+
+    it("aliased layers should lint without errors.", async () => {
+        const report = await eslint.lintText(`
+        import { First } from '@features/first';
+        import { Second } from '@entities/second';
+        import { Third } from '@shared/third';
         `);
 
         assert.strictEqual(report[0].errorCount, 0);
