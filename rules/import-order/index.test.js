@@ -43,4 +43,24 @@ describe("Import order:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+
+    it("aliased layers should lint with errors.", async () => {
+        const report = await eslint.lintText(`
+        import { Third } from '@shared/third';
+        import { Second } from '@entities/second';
+        import { First } from '@features/first';
+        `);
+
+        assert.strictEqual(report[0].errorCount, 2);
+    });
+
+    it("aliased layers should lint without errors.", async () => {
+        const report = await eslint.lintText(`
+        import { First } from '@features/first';
+        import { Second } from '@entities/second';
+        import { Third } from '@shared/third';
+        `);
+
+        assert.strictEqual(report[0].errorCount, 0);
+    });
 });
