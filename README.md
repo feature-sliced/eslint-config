@@ -123,6 +123,18 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
    }
    ```
 
+## Experimental features:
+`import-order` with spaces beetwen groups you can add with:
+```
+   {
+     "extends": [
+       // ... other rules
+       "@feature-sliced/eslint-config/rules/import-order/experimental",
+       // ... other rules
+     ]
+   }
+```
+
 ## See also
 
 - [FAQ](./FAQ.md)

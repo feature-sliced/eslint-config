@@ -31,21 +31,43 @@ describe("Import order:", () => {
 
     it("should lint without errors.", async () => {
         const report = await eslint.lintText(`
+        // warn: specific order in mixed alias ~/layer => ~layer => layer 
         import axios from "axios";                           // 1) external libs
-        import { Zero } from "@widget/zero";                 // Layers: widget - Alias
         import { Header } from "widgets/header";             // 2.1) Layers: widgets
+        import { Zero } from "widgets/zero";                 // Layers: widget 
         import { LoginForm } from "features/login-form";     // 2.2) Layers: features
         import { authModel } from "entities/auth";           // 2.3) Layers: entities
-        import { One } from "@entities/one";                 // Layers: entities - Alias
-        import { Two } from "@entities/two";                 // Layers: entities - Alias
-        import { Cart } from "@/entities/cart";              // Layers: entities - Alias
-        import { Input } from "~/shared/ui";                 // Layers: shared - Alias
-        import { Button } from "shared/ui";                  // 2.4) Layers: shared
+        import { Cart } from "entities/cart";                // Layers: entities 
+        import { One } from "entities/one";                  // Layers: entities 
+        import { Two } from "entities/two";                  // Layers: entities
         import { debounce } from "shared/lib/fp";            // 2.4) Layers: shared
+        import { Button } from "shared/ui";                  // 2.4) Layers: shared
+        import { Input } from "shared/ui";                   // Layers: shared - Alias
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
         `);
+        assert.strictEqual(report[0].errorCount, 0);
+    });
 
+
+    it("should lint without errors.", async () => {
+        const report = await eslint.lintText(`
+        // warn: specific order in mixed alias ~/layer => ~layer => layer
+        // not used in real, but test aliases support 
+        import axios from "axios";                           // 1) external libs
+        import { Zero } from "@widgets/zero";                 // Layers: widget - Alias
+        import { Header } from "widgets/header";             // 2.1) Layers: widgets
+        import { LoginForm } from "features/login-form";     // 2.2) Layers: features
+        import { Cart } from "@/entities/cart";              // Layers: entities - Alias
+        import { One } from "@entities/one";                 // Layers: entities - Alias
+        import { Two } from "@entities/two";                 // Layers: entities - Alias
+        import { authModel } from "entities/auth";           // 2.3) Layers: entities
+        import { debounce } from "shared/lib/fp";            // 2.4) Layers: shared
+        import { Button } from "shared/ui";                  // 2.4) Layers: shared
+        import { Input } from "~/shared/ui";                 // Layers: shared - Alias
+        import { data } from "../fixtures";                  // 3) parent
+        import { getSmth } from "./lib";                     // 4) sibling
+        `);
         assert.strictEqual(report[0].errorCount, 0);
     });
 
@@ -68,4 +90,33 @@ describe("Import order:", () => {
 
         assert.strictEqual(report[0].errorCount, 0);
     });
+
+    describe("Alphabetic sort feature:", () => {
+
+        it("should be alphabetic", async () => {
+
+            const report = await eslint.lintText(`
+            import { Apple } from 'features/apple';
+            import { Bee } from 'features/bee';
+            import { Cord } from 'features/cord';
+            import { Dream } from 'features/dream';
+            `);
+
+            assert.strictEqual(report[0].errorCount, 0);
+        });
+
+        it("should be alphabetic error", async () => {
+
+            const report = await eslint.lintText(`
+            import { Dream } from 'features/dream';
+            import { Cord } from 'features/cord';
+            import { Bee } from 'features/bee';
+            import { Apple } from 'features/apple';
+            `);
+
+            assert.strictEqual(report[0].errorCount, 3);
+        });
+
+    })
+
 });
