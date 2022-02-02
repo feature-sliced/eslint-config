@@ -33,7 +33,7 @@ import { getSmth } from "./lib";                     // 4) sibling
 **With reversed order ("from abstract to specific") and spaces between layers groups**
 [(why experimental?)](https://github.com/feature-sliced/eslint-config/issues/85)
 
-Add `"@feature-sliced/eslint-config/rules/import-order/experimental"` to your `extends` section in ESLint config. (for `^0.1.0-beta.3` versions)
+Add `"@feature-sliced/eslint-config/rules/import-order/experimental"` to your `extends` section in ESLint config. (for `^0.1.0-beta.4` versions)
 
 ```js
 import axios from "axios";                           // 1) external libs
