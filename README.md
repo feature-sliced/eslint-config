@@ -96,9 +96,9 @@ Uncomment if will be needed
    "boundaries/element-types": "warn" // ~ 1,
    ```
 
-4. `EXPERIMENTAL:` You can use [`import-order/experimental`](./rules/import-order#Experimental) for formatting with spaces between groups and reversed order of layers
+4. [`EXPERIMENTAL:`](https://github.com/feature-sliced/eslint-config/issues/85) You can use [`import-order/experimental`](./rules/import-order#Experimental) for formatting with spaces between groups and reversed order of layers
 
-    ```json
+    ```js
     {
       "extends": [
         // ... Other rules or config
