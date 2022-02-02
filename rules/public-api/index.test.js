@@ -40,18 +40,6 @@ describe("PublicAPI import boundaries:", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
-    it("Should lint PublicAPI boundaries without errors with specified naming.", async () => {
-        const report = await eslint.lintText(`
-        export { Sidebar } from './ui/Sidebar/Sidebar';
-        `, { filePath: "src/widget/sidebar/index.js" });
-
-        console.log(report[0]);
-
-        assert.strictEqual(report[0].errorCount, 0);
-    });
-
-
-
     it("Should lint extra PublicAPI boundaries cases without errors.", async () => {
         const report = await eslint.lintText(`
         import { AuthForm } from "features/auth/form";
