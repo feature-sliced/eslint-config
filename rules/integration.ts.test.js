@@ -43,8 +43,8 @@ describe("TypeScript integration tests:", () => {
         import { LoginForm } from "features/login-form";
         import { Phone } from "features/login-form/phone";
         import { Article } from "entities/article";
-        import { Button } from "shared/ui/button";
         import { LoginAPI } from "shared/api";
+        import { Button } from "shared/ui/button";
         import { model } from "../model";
         import { styles } from "./styles.module.scss";
         

@@ -1,4 +1,5 @@
 const { layersLib } = require("../../utils");
+const REVERSED_FS_LAYERS = [...layersLib.FS_LAYERS].reverse();
 
 module.exports = {
     plugins: [
@@ -12,15 +13,18 @@ module.exports = {
                     order: 'asc',
                     caseInsensitive: true,
                 },
-                pathGroups: layersLib.FS_LAYERS.map(
+                pathGroupsExcludedImportTypes: ["builtin"],
+                groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+
+                // experimental features
+                'newlines-between': 'always',
+                pathGroups: REVERSED_FS_LAYERS.map(
                     (layer) => ({
                         pattern: `**/?(*)${layer}/**` ,
                         group: "internal",
                         position: "after",
                     }),
                 ),
-                pathGroupsExcludedImportTypes: ["builtin"],
-                groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
             },
         ],
     },
