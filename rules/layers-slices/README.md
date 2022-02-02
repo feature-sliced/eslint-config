@@ -4,7 +4,7 @@
 
 ## Usage
 
-Add `"@feature-sliced/eslint-config/rules/layers-slices"` to you `extends` section in ESLint config.
+Add `"@feature-sliced/eslint-config/rules/layers-slices"` to your `extends` section in ESLint config.
 
 ```js
 // 👎 Fail
