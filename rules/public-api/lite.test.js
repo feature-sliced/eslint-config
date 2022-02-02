@@ -195,9 +195,9 @@ describe("PublicAPI import boundaries:", () => {
         describe("Exclusive Segments Public API for shared layer:", () => {
             it("Should lint with errors.", async () => {
                 const report = await eslint.lintText(`
-            import { Button } from "shared/ui/button/button";
-            import { Date } from "shared/lib/date/date";
-            `,
+                import { Button } from "shared/ui/button/button";
+                import { Date } from "shared/lib/date/date";
+                `,
                     { filePath: "src/features/smth/index.ts" });
                 assert.strictEqual(report[0].errorCount, 2);
             });
