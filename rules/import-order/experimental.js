@@ -13,6 +13,10 @@ module.exports = {
                     order: 'asc',
                     caseInsensitive: true,
                 },
+                pathGroupsExcludedImportTypes: ["builtin"],
+                groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+
+                // experimental features
                 'newlines-between': 'always',
                 pathGroups: REVERSED_FS_LAYERS.map(
                     (layer) => ({
@@ -21,8 +25,6 @@ module.exports = {
                         position: "after",
                     }),
                 ),
-                pathGroupsExcludedImportTypes: ["builtin"],
-                groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
             },
         ],
     },

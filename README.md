@@ -95,6 +95,18 @@ Uncomment if will be needed
    // feature-sliced/layers-slices
    "boundaries/element-types": "warn" // ~ 1,
    ```
+_Experimental features:_  
+`import-order` with spaces between groups and with reversed order you can add with:
+```
+   {
+     "extends": [
+       "@feature-sliced",
+       "@feature-sliced/eslint-config/rules/import-order/experimental",
+       // basic config, then experimental feature
+     ]
+   }
+```
+
 
 ## TypeScript
 
@@ -122,18 +134,6 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
      }
    }
    ```
-
-## Experimental features:
-`import-order` with spaces beetwen groups you can add with:
-```
-   {
-     "extends": [
-       // ... other rules
-       "@feature-sliced/eslint-config/rules/import-order/experimental",
-       // ... other rules
-     ]
-   }
-```
 
 ## See also
 
