@@ -44,7 +44,7 @@ module.exports = {
                     /** allow global modules */
                     `**/node_modules/**`,
 
-                    `\./**`
+                    `./**`
                 ],
             }],
     },
