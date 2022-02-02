@@ -2,7 +2,8 @@
 
 #### Reference: [PublicAPI](https://feature-sliced.design/docs/concepts/public-api)
 
-#### Usage:
+## Usage
+
 Add `"@feature-sliced/eslint-config/rules/public-api"` to you `extends` section in ESLint config.
 
 ```js
@@ -26,7 +27,7 @@ import { AuthForm } from "features/auth/form"
 import { Button } from "shared/ui";
 ```
 
-#### Segments PublicAPI
+## Segments PublicAPI
 
 ```js
 // 👎 Fail
@@ -43,4 +44,3 @@ export * from "./model";
 export * as smthModel from "./model";
 export { selectSmthById, ... } from "./model";
 ```
-
