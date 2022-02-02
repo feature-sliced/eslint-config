@@ -42,7 +42,7 @@ describe("Import order:", () => {
         import { Two } from "entities/two";                  // 2.4) Layers: entities
         import { debounce } from "shared/lib/fp";            // 2.5) Layers: shared
         import { Button } from "shared/ui";                  // 2.5) Layers: shared
-        import { Input } from "shared/ui";                   // 2.5) Layers: shared - Alias
+        import { Input } from "shared/ui";                   // 2.5) Layers: shared
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
         `);
