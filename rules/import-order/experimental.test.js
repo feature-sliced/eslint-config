@@ -12,18 +12,18 @@ describe("Import order experimental:", () => {
 
     it("should lint with errors.", async () => {
         const report = await eslint.lintText(`
-        import { Cart } from "@/entities/cart"; // 6 - Alias
-        import { Input } from "~/shared/ui"; // 7 - Alias
-        import { getSmth } from "./lib"; // 1
+        import { Cart } from "@/entities/cart";
+        import { Input } from "~/shared/ui";
+        import { getSmth } from "./lib";
         import axios from "axios";
-        import { data } from "../fixtures"; // 2
-        import { authModel } from "entities/auth"; 
-        import { Button } from "shared/ui"; // 3
-        import { LoginForm } from "features/login-form"; // 4
-        import { Header } from "widgets/header"; // 5
+        import { data } from "../fixtures";
+        import { authModel } from "entities/auth";
+        import { Button } from "shared/ui";
+        import { LoginForm } from "features/login-form";
+        import { Header } from "widgets/header";
         import { debounce } from "shared/lib/fp";
         import { One } from "@entities/one";
-        import { Two } from "~entities/two"; 
+        import { Two } from "~entities/two";
         `);
 
         assert.strictEqual(report[0].errorCount, 18);
@@ -147,7 +147,8 @@ describe("Import order experimental:", () => {
     });
 
     it("should be with spaces between layers errors", async () => {
-        const report = await eslint.lintText(`import React from 'react';
+        const report = await eslint.lintText(`
+        import React from 'react';
         import { Dream } from 'shared/dream';
         import { Cord } from 'entities/cord';
         import { Bee } from 'features/bee';
