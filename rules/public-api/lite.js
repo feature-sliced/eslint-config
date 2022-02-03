@@ -44,6 +44,11 @@ module.exports = {
                     /** allow global modules */
                     `**/node_modules/**`,
 
+                    /**
+                     *  Used for allow import local modules
+                     * @example
+                     * './model/something' // Pass
+                     */
                     `./**`
                 ],
             }],

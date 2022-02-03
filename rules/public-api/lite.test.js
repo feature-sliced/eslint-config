@@ -10,6 +10,44 @@ const eslint = new ESLint({
     ),
 });
 
+describe("Lite PublicAPI:", () => {
+    it("local segments should be ignored in Lite config.", async () => {
+        const report = await eslint.lintText(`
+        export { SubmitButton } from "./ui/button";
+        export { SmthForm } from "./ui/form";
+        export * from "./model/actions";
+        export { selectSmthById } from "./model/selectors";
+        `,
+        { filePath: "src/features/smth/index.ts" });
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("should lint with errors.", async () => {
+        const report = await eslint.lintText(`
+        import { Button } from "../shared/ui/button/button";
+        import { Date } from "../shared/lib/date/date";
+        `,
+        {filePath: "src/features/index.ts"});
+        assert.strictEqual(report[0].errorCount, 2);
+    });
+
+    it("should lint without errors when local import in shared layer.", async () => {
+        const report = await eslint.lintText(`
+        import { Button } from "./button/button";
+        `,
+        {filePath: "src/shared/ui/index.ts"});
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("should lint with error when layer import in shared layer.", async () => {
+        const report = await eslint.lintText(`
+        import { Button } from "shared/ui/button/button";
+        `,
+            {filePath: "src/shared/ui/index.ts"});
+        assert.strictEqual(report[0].errorCount, 1);
+    });
+})
+
 describe("PublicAPI import boundaries:", () => {
     it("Should lint PublicAPI boundaries with errors.", async () => {
         const report = await eslint.lintText(`
@@ -168,20 +206,6 @@ describe("PublicAPI import boundaries:", () => {
     });
 
     describe("Segment PublicAPI:", () => {
-        /*
-            Lite config test
-        */
-        it("local segments should be ignored in Lite config.", async () => {
-            const report = await eslint.lintText(`
-            export { SubmitButton } from "./ui/button";
-            export { SmthForm } from "./ui/form";
-            export * from "./model/actions";
-            export { selectSmthById } from "./model/selectors";
-            `,
-                { filePath: "src/features/smth/index.ts" });
-            assert.strictEqual(report[0].errorCount, 0);
-        });
-
         it("Should lint Segment PublicAPI boundaries without errors.", async () => {
             const report = await eslint.lintText(`
             export { SubmitButton, SmthForm } from "./ui";
