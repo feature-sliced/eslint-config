@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "rules/**/experimental.js",
+    "rules/**/lite.js",
     "rules/**/index.js",
     "utils/**",
     "index.js"
