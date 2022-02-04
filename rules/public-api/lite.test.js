@@ -48,6 +48,23 @@ describe("Lite PublicAPI:", () => {
     });
 })
 
+describe("Allow publicAPI cheats:", () => {
+    it("with cheats should ling without errors", async () => {
+        const report = await eslint.lintText(`
+        import { Issues } from "pages/_issues/ui";
+        import { IssueDetails } from "widgets/_issue-details/ui/details";
+        import { AuthForm } from "features/_auth-form/ui/form";
+        import { Button } from "shared/ui/_button/button";
+        import { saveOrder } from "entities/order/_model/actions";
+        import { orderModel } from "entities/order/_model";
+        import { TicketCard } from "@src/entities/_ticket/ui";
+        import { Ticket } from "@src/entities/_ticket/ui.tsx";
+        `,
+            { filePath: "src/app/ui/index.js" });
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+})
+
 describe("PublicAPI import boundaries:", () => {
     it("Should lint PublicAPI boundaries with errors.", async () => {
         const report = await eslint.lintText(`

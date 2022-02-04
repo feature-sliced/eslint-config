@@ -45,11 +45,17 @@ module.exports = {
                     `**/node_modules/**`,
 
                     /**
+                     * IDDQD
+                     */
+                    `**/_*/**`,
+
+                    /**
                      *  Used for allow import local modules
                      * @example
                      * './model/something' // Pass
                      */
                     `./**`
+
                 ],
             }],
     },
