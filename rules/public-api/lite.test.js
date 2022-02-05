@@ -48,21 +48,26 @@ describe("Lite PublicAPI:", () => {
     });
 })
 
-describe("Allow publicAPI cheats:", () => {
-    it("with cheats should ling without errors", async () => {
-        const report = await eslint.lintText(`
-        import { Issues } from "pages/_issues/ui";
-        import { IssueDetails } from "widgets/_issue-details/ui/details";
-        import { AuthForm } from "features/_auth-form/ui/form";
-        import { Button } from "shared/ui/_button/button";
-        import { saveOrder } from "entities/order/_model/actions";
-        import { orderModel } from "entities/order/_model";
-        import { TicketCard } from "@src/entities/_ticket/ui";
-        import { Ticket } from "@src/entities/_ticket/ui.tsx";
+describe("Allow publicAPI for shared segments with _prefix:", () => {
+  it("with _prefix should lint without errors", async () => {
+    const report = await eslint.lintText(`
+          import { One } from "shared/_route/one";
+          import { Two } from "@shared/_note/two";
+          import { Four } from "shared/_note/three/four";
+          `,
+      { filePath: "src/app/ui/index.js" });
+    assert.strictEqual(report[0].errorCount, 0);
+  });
+
+  it("without prefix should lint with errors", async () => {
+    const report = await eslint.lintText(`
+        import { One } from "shared/route/one";
+        import { Two } from "@shared/note/two";
+        import { Four } from "shared/note/three/four";
         `,
-            { filePath: "src/app/ui/index.js" });
-        assert.strictEqual(report[0].errorCount, 0);
-    });
+      { filePath: "src/app/ui/index.js" });
+    assert.strictEqual(report[0].errorCount, 3);
+  });
 })
 
 describe("PublicAPI import boundaries:", () => {

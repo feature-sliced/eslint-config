@@ -32,22 +32,22 @@ module.exports = {
                      * @example
                      * 'shared/ui/button' // Pass
                      */
-                    `**/*shared/*(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
+                    `**/?(*)shared/*(${FS_SEGMENTS_REG})/!(${FS_SEGMENTS_REG})`,
 
                     /**
                      * Allow import from segments in shared
                      * @example
                      * 'shared/ui' // Pass
                      */
-                    `**/*shared/*(${FS_SEGMENTS_REG})`,
+                    `**/?(*)shared/*(${FS_SEGMENTS_REG})`,
 
                     /** allow global modules */
                     `**/node_modules/**`,
 
                     /**
-                     * IDDQD
+                     * allow custom shared segments with _prefix
                      */
-                    `**/_*/**`,
+                    `**/?(*)shared/_*/**`,
 
                     /**
                      *  Used for allow import local modules

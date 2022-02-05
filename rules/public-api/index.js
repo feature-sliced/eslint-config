@@ -45,9 +45,9 @@ module.exports = {
                     `**/node_modules/**`,
 
                     /**
-                     * IDDQD
+                     * allow custom shared segments with _prefix
                      */
-                    `**/_*/**`
+                    `**/*shared/_*/**`
                 ],
             }],
     },
