@@ -12,21 +12,21 @@ const eslint = new ESLint({
 
 describe("Allow publicAPI for shared segments with _prefix:", () => {
     it("with _prefix should lint without errors", async () => {
-          const report = await eslint.lintText(`
-          import { One } from "shared/_route/one";
-          import { Two } from "@shared/_note/two";
-          `,
-          { filePath: "src/app/ui/index.js" });
-          assert.strictEqual(report[0].errorCount, 0);
+        const report = await eslint.lintText(`
+        import { One } from "shared/_route/one";
+        import { Two } from "@shared/_note/two";
+        `,
+            {filePath: "src/app/ui/index.js"});
+        assert.strictEqual(report[0].errorCount, 0);
     });
 
     it("import inner module with _prefix should lint with errors", async () => {
-      const report = await eslint.lintText(`
-            import { Five } from "@shared/_note/two/five";
-            import { Four } from "shared/_note/three/four";
-            `,
-        { filePath: "src/app/ui/index.js" });
-      assert.strictEqual(report[0].errorCount, 2);
+        const report = await eslint.lintText(`
+        import { Five } from "@shared/_note/two/five";
+        import { Four } from "shared/_note/three/four";
+        `,
+            {filePath: "src/app/ui/index.js"});
+        assert.strictEqual(report[0].errorCount, 2);
     });
 
     it("without prefix should lint with errors", async () => {
@@ -34,10 +34,10 @@ describe("Allow publicAPI for shared segments with _prefix:", () => {
         import { One } from "shared/route/one";
         import { Two } from "@shared/note/two";
         `,
-        { filePath: "src/app/ui/index.js" });
+            {filePath: "src/app/ui/index.js"});
         assert.strictEqual(report[0].errorCount, 2);
     });
-})
+});
 
 describe("PublicAPI import boundaries:", () => {
     it("Should lint PublicAPI boundaries with errors.", async () => {

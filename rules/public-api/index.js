@@ -47,7 +47,7 @@ module.exports = {
                     /**
                      * allow custom shared segments with _prefix
                      */
-                    `**/*shared/_*/*`,
+                    `**/*shared/_*/*`
                 ],
             }],
     },
