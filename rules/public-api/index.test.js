@@ -15,20 +15,27 @@ describe("Allow publicAPI for shared segments with _prefix:", () => {
           const report = await eslint.lintText(`
           import { One } from "shared/_route/one";
           import { Two } from "@shared/_note/two";
-          import { Four } from "shared/_note/three/four";
           `,
           { filePath: "src/app/ui/index.js" });
           assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("import inner module with _prefix should lint with errors", async () => {
+      const report = await eslint.lintText(`
+            import { Five } from "@shared/_note/two/five";
+            import { Four } from "shared/_note/three/four";
+            `,
+        { filePath: "src/app/ui/index.js" });
+      assert.strictEqual(report[0].errorCount, 2);
     });
 
     it("without prefix should lint with errors", async () => {
         const report = await eslint.lintText(`
         import { One } from "shared/route/one";
         import { Two } from "@shared/note/two";
-        import { Four } from "shared/note/three/four";
         `,
         { filePath: "src/app/ui/index.js" });
-        assert.strictEqual(report[0].errorCount, 3);
+        assert.strictEqual(report[0].errorCount, 2);
     });
 })
 
