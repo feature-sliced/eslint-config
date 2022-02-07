@@ -36,6 +36,7 @@ describe("Import order:", () => {
         import { Header } from "widgets/header";             // 2.1) Layers: widgets
         import { Zero } from "widgets/zero";                 // 2.1) Layers: widget 
         import { LoginForm } from "features/login-form";     // 2.2) Layers: features
+        import { globalEntities } from "entities";           // 2.4) Layers: entities
         import { authModel } from "entities/auth";           // 2.4) Layers: entities
         import { Cart } from "entities/cart";                // 2.4) Layers: entities 
         import { One } from "entities/one";                  // 2.4) Layers: entities 
@@ -46,6 +47,9 @@ describe("Import order:", () => {
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
         `);
+
+        console.log(report[0]);
+
         assert.strictEqual(report[0].errorCount, 0);
     });
 
@@ -68,6 +72,9 @@ describe("Import order:", () => {
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
         `);
+
+
+
         assert.strictEqual(report[0].errorCount, 0);
     });
 

@@ -37,6 +37,7 @@ describe("Import order experimental:", () => {
         import { model } from "shared/model";
         import { Button } from "shared/ui";
         
+        import { globalEntities } from "entities";
         import { authModel } from "entities/auth";
         import { Cart } from "entities/cart";
         import { One } from "entities/one";
