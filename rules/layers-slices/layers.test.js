@@ -12,6 +12,18 @@ const eslint = new ESLint({
 
 describe("Import boundaries between layers", () => {
 
+    describe("IDDQD boundaries", () => {
+        it("should lint without errors in GodMode", async () => {
+            const report = await eslint.lintText(`
+            import { Routes } from "pages/_route";
+            import { Config } from "processes/_config";
+            `,
+                {filePath: "src/entities/ui/index.js"});
+
+            assert.strictEqual(report[0].errorCount, 0);
+        });
+    })
+
     it("should lint with cross-import errors.", async () => {
         const wrongImports = [
             `import { getRoute } from "pages/auth";`,

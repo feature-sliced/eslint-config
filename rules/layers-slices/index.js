@@ -15,7 +15,7 @@ const sharedLayerRule = {
 const getLayersBoundariesElements = () =>
     layersLib.FS_LAYERS.map((layer) => ({
         type: layer,
-        pattern: `${layer}/*`,
+        pattern: `${layer}/!(_*){,/*}`,
         mode: "folder",
         capture: ["slices"],
     }));
