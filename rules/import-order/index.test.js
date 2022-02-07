@@ -48,8 +48,6 @@ describe("Import order:", () => {
         import { getSmth } from "./lib";                     // 4) sibling
         `);
 
-        console.log(report[0]);
-
         assert.strictEqual(report[0].errorCount, 0);
     });
 
@@ -72,8 +70,6 @@ describe("Import order:", () => {
         import { data } from "../fixtures";                  // 3) parent
         import { getSmth } from "./lib";                     // 4) sibling
         `);
-
-
 
         assert.strictEqual(report[0].errorCount, 0);
     });
