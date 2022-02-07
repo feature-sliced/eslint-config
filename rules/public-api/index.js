@@ -42,7 +42,13 @@ module.exports = {
                     `**/*shared/*(${FS_SEGMENTS_REG})`,
 
                     /** allow global modules */
-                    `**/node_modules/**`
+                    `**/node_modules/**`,
+
+                    /**
+                     * allow custom shared segments with _prefix
+                     */
+                    `**/*shared/_*`,
+                    `**/*shared/_*/*`
                 ],
             }],
     },

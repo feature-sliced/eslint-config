@@ -45,11 +45,18 @@ module.exports = {
                     `**/node_modules/**`,
 
                     /**
+                     * allow custom shared segments with _prefix
+                     */
+                    `**/*shared/_*`,
+                    `**/*shared/_*/*`,
+
+                    /**
                      *  Used for allow import local modules
                      * @example
                      * './model/something' // Pass
                      */
                     `./**`
+
                 ],
             }],
     },
