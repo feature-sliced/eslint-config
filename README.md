@@ -63,48 +63,56 @@ Uncomment if will be needed
 
 ## Customization
 
-1. You can partially use the rules
+1. You can *partially use* the rules
 
    > **WARN:** Don't use main config (`"@feature-sliced"`) in customization to avoid rules conflicts.
 
-   ```json
-   {
-     "extends": [
-       "@feature-sliced/eslint-config/rules/import-order",
-       "@feature-sliced/eslint-config/rules/public-api",
-       "@feature-sliced/eslint-config/rules/layers-slices"
-     ]
-   }
+   ```js
+   "extends": [
+     "@feature-sliced/eslint-config/rules/import-order",
+     "@feature-sliced/eslint-config/rules/public-api",
+     "@feature-sliced/eslint-config/rules/layers-slices"
+   ]
    ```
 
-2. You can use [advanced FeatureSliced-specific messages processing](https://www.npmjs.com/package/@feature-sliced/eslint-plugin-messages)
+1. You can use *alternative experimental rules*
+    - Use [`import-order/experimental`](./rules/import-order#Experimental) for formatting with spaces between groups and reversed order of layers [(why?)](https://github.com/feature-sliced/eslint-config/issues/85)
+
+      ```js
+      "extends": [
+        // ... Other rules or config
+        "@feature-sliced/eslint-config/rules/import-order/experimental",
+      ]
+      ```
+
+    - Use [`public-api/lite`](./rules/public-api#Lite) for less strict PublicAPI boundaries [(why?)](https://github.com/feature-sliced/eslint-config/issues/90)
+
+        ```js
+        "extends": [
+          // ... Other rules or config
+          "@feature-sliced/eslint-config/rules/public-api/lite",
+        ]
+        ```
+
+1. You can use *warnings* instead of *errors* for specific rules
+
+   ```js
+   "rules": {
+      // feature-sliced/import-order
+      "import/order": "warn" // ~ 1,
+      // feature-sliced/public-api
+      "import/no-internal-modules": "warn" // ~ 1,
+      // feature-sliced/layers-slices
+      "boundaries/element-types": "warn" // ~ 1,
+   }
+   ```
+  
+1. You can use *[advanced FSD-specific messages processing](https://www.npmjs.com/package/@feature-sliced/eslint-plugin-messages)*
 
    ```diff
    # (feature-sliced/public-api)
    - 'Reaching to "features/search/ui" is not allowed.'
    + 'Violated usage of modules Public API | https://git.io/Jymjf'
-    ```
-
-3. You can use *warnings* instead of *errors* for specific rules
-
-   ```js
-   // feature-sliced/import-order
-   "import/order": "warn" // ~ 1,
-   // feature-sliced/public-api
-   "import/no-internal-modules": "warn" // ~ 1,
-   // feature-sliced/layers-slices
-   "boundaries/element-types": "warn" // ~ 1,
-   ```
-
-4. [`EXPERIMENTAL:`](https://github.com/feature-sliced/eslint-config/issues/85) You can use [`import-order/experimental`](./rules/import-order#Experimental) for formatting with spaces between groups and reversed order of layers
-
-    ```js
-    {
-      "extends": [
-        // ... Other rules or config
-        "@feature-sliced/eslint-config/rules/import-order/experimental",
-      ]
-    }
     ```
 
 ## TypeScript
@@ -140,4 +148,4 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
 - [Releases & Changelog](https://github.com/feature-sliced/eslint-config/releases)
 - [**How can I help?**](./CONTRIBUTING.md)
   - ⭐ Rate us on GitHub
-  - 💫 Any assistance is important - from feedback to participation in the development of the methodology!
+  - 💫 **Any assistance is important** - from *feedback to participation in the development of the methodology*!
