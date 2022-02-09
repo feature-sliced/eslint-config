@@ -58,12 +58,14 @@ describe("Import order:", () => {
         // not used in real, but test aliases support 
         import axios from "axios";                           // 1) external libs
         import { Zero } from "@widgets/zero";                // 2.1) Layers: widget - Alias
+        import { Widgets } from "widgets";                   // 2.1) Layers: widgets
         import { Header } from "widgets/header";             // 2.1) Layers: widgets
         import { LoginForm } from "features/login-form";     // 2.2) Layers: features
         import { Cart } from "@/entities/cart";              // 2.3) Layers: entities - Alias
         import { One } from "@entities/one";                 // 2.3) Layers: entities - Alias
         import { Two } from "@entities/two";                 // 2.3) Layers: entities - Alias
         import { authModel } from "entities/auth";           // 2.3) Layers: entities
+        import { Shared } from "shared";                     // 2.4) Layers: shared
         import { debounce } from "shared/lib/fp";            // 2.4) Layers: shared
         import { Button } from "shared/ui";                  // 2.4) Layers: shared
         import { Input } from "~/shared/ui";                 // 2.4) Layers: shared - Alias
@@ -86,9 +88,59 @@ describe("Import order:", () => {
 
     it("aliased layers should lint without errors.", async () => {
         const report = await eslint.lintText(`
+        import { Widgets } from "@widgets";
         import { First } from '@features/first';
         import { Second } from '@entities/second';
         import { Third } from '@shared/third';
+        `);
+
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("~aliased should lint without errors.", async () => {
+        const report = await eslint.lintText(`
+        import axios from "axios";
+        
+        import { debounce } from "~shared/lib/fp";            
+        import { model } from "~shared/model";
+        import { Button } from "~shared/ui";
+        
+        import { authModel } from "~entities/auth";
+        import { Cart } from "~entities/cart";
+        import { One } from "~entities/one";
+        import { Two } from "~entities/two";
+        
+        import { LoginForm } from "~features/login-form";
+        
+        import { Widgets } from "~widgets";
+        import { Header } from "~widgets/header";
+        import { Zero } from "~widgets/zero";
+        
+        import { data } from "../fixtures";
+        
+        import { getSmth } from "./lib";
+        `);
+
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+
+    it("~/aliased should lint without errors.", async () => {
+        const report = await eslint.lintText(`
+        import axios from "axios";
+        import { Widgets } from "~/widgets";
+        import { Header } from "~/widgets/header";
+        import { Zero } from "~/widgets/zero";
+        import { LoginForm } from "~/features/login-form";        
+        import { authModel } from "~/entities/auth";
+        import { Cart } from "~/entities/cart";
+        import { One } from "~/entities/one";
+        import { Two } from "~/entities/two";        
+        import { debounce } from "~/shared/lib/fp";            
+        import { model } from "~/shared/model";
+        import { Button } from "~/shared/ui";
+        import { data } from "../fixtures";
+        import { getSmth } from "./lib";
         `);
 
         assert.strictEqual(report[0].errorCount, 0);

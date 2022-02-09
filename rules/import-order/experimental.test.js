@@ -33,6 +33,7 @@ describe("Import order experimental:", () => {
         const report = await eslint.lintText(`
         import axios from "axios";
         
+        import { Shared } from "shared";
         import { debounce } from "shared/lib/fp";            
         import { model } from "shared/model";
         import { Button } from "shared/ui";
@@ -45,6 +46,7 @@ describe("Import order experimental:", () => {
         
         import { LoginForm } from "features/login-form";
         
+        import { Widgets } from "widgets";
         import { Header } from "widgets/header";
         import { Zero } from "widgets/zero";
         
@@ -72,6 +74,7 @@ describe("Import order experimental:", () => {
         
         import { LoginForm } from "~features/login-form";
         
+        import { Widgets } from "~widgets";
         import { Header } from "~widgets/header";
         import { Zero } from "~widgets/zero";
         
@@ -99,6 +102,7 @@ describe("Import order experimental:", () => {
         
         import { LoginForm } from "~/features/login-form";
         
+        import { Widgets } from "~/widgets";
         import { Header } from "~/widgets/header";
         import { Zero } from "~/widgets/zero";
         
