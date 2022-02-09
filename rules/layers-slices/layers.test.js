@@ -13,14 +13,43 @@ const eslint = new ESLint({
 describe("Import boundaries between layers", () => {
 
     describe("IDDQD boundaries", () => {
-        it("should lint without errors in GodMode", async () => {
+
+        it("should lint without errors in GodMode for _computed entities", async () => {
             const report = await eslint.lintText(`
-            import { Routes } from "pages/_route";
-            import { Config } from "processes/_config";
+            import { userModel } from "entities/user";
+            import { postModel } from "../../Post";
             `,
-                {filePath: "src/entities/ui/index.js"});
+                {filePath: "src/entities/_computed/UserPost/model.js"});
 
             assert.strictEqual(report[0].errorCount, 0);
+        });
+
+        it("should lint with errors for computed entities", async () => {
+            const report = await eslint.lintText(`
+            import { userModel } from "entities/user";
+            `,
+                {filePath: "src/entities/computed/UserPost/model.js"});
+
+            assert.strictEqual(report[0].errorCount, 1);
+        });
+
+        it("should lint without errors in GodMode for pages", async () => {
+            const report = await eslint.lintText(`
+            import { FooPage } from "pages/foo";
+            import { BarPage } from "../bar";
+            `,
+                {filePath: "src/pages/_router/private.routes.js"});
+
+            assert.strictEqual(report[0].errorCount, 0);
+        });
+
+        it("should lint without errors without GodMode for pages", async () => {
+            const report = await eslint.lintText(`
+            import { FooPage } from "pages/foo";
+            `,
+                {filePath: "src/pages/router/private.routes.js"});
+
+            assert.strictEqual(report[0].errorCount, 1);
         });
     })
 
