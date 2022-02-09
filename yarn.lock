@@ -437,10 +437,10 @@ eslint-module-utils@2.7.1, eslint-module-utils@^2.7.1:
     find-up "^2.1.0"
     pkg-dir "^2.0.0"
 
-eslint-plugin-boundaries@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-boundaries/-/eslint-plugin-boundaries-2.6.0.tgz"
-  integrity sha512-HYm3FaSYPfz5YoyYGBIzruQBom3N+BeY0udBicwtRzmXbmqbED8kWOHuiKIbxZZdLFmG2APIksw9VTGzGNbrsQ==
+eslint-plugin-boundaries@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-boundaries/-/eslint-plugin-boundaries-2.8.0.tgz#040dd273abde7598ef636bbc5f387617a8994216"
+  integrity sha512-DB/fToOOIiAEhMOPa8/HkrYYxsa6fvXB0wr/W+cseQboGPUM74NOO36SxwzR62oK7pSJeOAQ6QjPZZ/+o02H/Q==
   dependencies:
     chalk "4.1.2"
     eslint-import-resolver-node "0.3.6"
