@@ -100,24 +100,18 @@ describe("Import order:", () => {
     it("~aliased should lint without errors.", async () => {
         const report = await eslint.lintText(`
         import axios from "axios";
-        
-        import { debounce } from "~shared/lib/fp";            
-        import { model } from "~shared/model";
-        import { Button } from "~shared/ui";
-        
+        import { Widgets } from "~widgets";
+        import { Header } from "~widgets/header";
+        import { Zero } from "~widgets/zero";        
+        import { LoginForm } from "~features/login-form";        
         import { authModel } from "~entities/auth";
         import { Cart } from "~entities/cart";
         import { One } from "~entities/one";
-        import { Two } from "~entities/two";
-        
-        import { LoginForm } from "~features/login-form";
-        
-        import { Widgets } from "~widgets";
-        import { Header } from "~widgets/header";
-        import { Zero } from "~widgets/zero";
-        
+        import { Two } from "~entities/two";        
+        import { debounce } from "~shared/lib/fp";            
+        import { model } from "~shared/model";
+        import { Button } from "~shared/ui";
         import { data } from "../fixtures";
-        
         import { getSmth } from "./lib";
         `);
 
