@@ -48,9 +48,9 @@ Uncomment if will be needed
 2. Next, install `@feature-sliced/eslint-config` and dependencies:
 
     ```sh
-    $ npm install -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    $ npm install -D @feature-sliced/eslint-config
     # or by yarn
-    $ yarn add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    $ yarn add -D @feature-sliced/eslint-config
     ```
 
 3. Add config to the `extends` section of your `.eslintrc` configuration file (for **recommended** rules). You can omit the `eslint-config` postfix:
@@ -134,9 +134,7 @@ This plugin can be used also in TypeScript projects using `@typescript-eslint/es
      "parser": "@typescript-eslint/parser",
      "settings": {
        "import/resolver": {
-         "typescript": {
-           "alwaysTryTypes": true
-         }
+         "typescript": {}
        }
      }
    }

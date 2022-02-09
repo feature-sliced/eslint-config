@@ -31,7 +31,7 @@
     "test": "mocha \"*(test|rules)/**/*.test.js\""
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0 || >=8.2.0",
+    "eslint": ">=7.4.0 || >=8.4.0",
     "eslint-plugin-import": ">=2.25.3",
     "eslint-plugin-boundaries": ">=2.8.0"
   },
