@@ -22,7 +22,7 @@ const getLayersBoundariesElements = () =>
 const getGodModeRules = () =>
     layersLib.FS_LAYERS.map((layer) => ({
         from: `gm_${layer}`,
-        allow: layer
+        allow: [layer, ...layersLib.getLowerLayers(layer)]
     }));
 
 const getGodModeElements = () =>

@@ -17,7 +17,7 @@ describe("Import boundaries between layers", () => {
         it("should lint without errors in GodMode for _computed entities", async () => {
             const report = await eslint.lintText(`
             import { userModel } from "entities/user";
-            import { postModel } from "../../Post";
+            import { getUser } from "shared/api/user-api";
             `,
                 {filePath: "src/entities/_computed/UserPost/model.js"});
 
@@ -36,12 +36,26 @@ describe("Import boundaries between layers", () => {
         it("should lint without errors in GodMode for pages", async () => {
             const report = await eslint.lintText(`
             import { FooPage } from "pages/foo";
+            import { BagFeature } from "features/bag";
+            import { format } from "shared/lib/format";
             import { BarPage } from "../bar";
             `,
                 {filePath: "src/pages/_router/private.routes.js"});
 
             assert.strictEqual(report[0].errorCount, 0);
         });
+
+        it("should lint with errors in GodMode for upper layers", async () => {
+            const report = await eslint.lintText(`
+            import { MainPage } from "pages/main";
+            import { UserFeature } from "features/user";
+            
+            `,
+                {filePath: "src/entities/_computed/UserPost/model.js"});
+
+            assert.strictEqual(report[0].errorCount, 2);
+        });
+
 
         it("should lint without errors without GodMode for pages", async () => {
             const report = await eslint.lintText(`
