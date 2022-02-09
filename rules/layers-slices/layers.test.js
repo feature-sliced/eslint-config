@@ -49,7 +49,6 @@ describe("Import boundaries between layers", () => {
             const report = await eslint.lintText(`
             import { MainPage } from "pages/main";
             import { UserFeature } from "features/user";
-            
             `,
                 {filePath: "src/entities/_computed/UserPost/model.js"});
 
