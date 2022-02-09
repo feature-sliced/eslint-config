@@ -56,7 +56,7 @@ describe("Import boundaries between layers", () => {
         });
 
 
-        it("should lint without errors without GodMode for pages", async () => {
+        it("should lint with errors without GodMode for pages", async () => {
             const report = await eslint.lintText(`
             import { FooPage } from "pages/foo";
             `,
