@@ -20,7 +20,7 @@ module.exports = {
                 'newlines-between': 'always',
                 pathGroups: REVERSED_FS_LAYERS.map(
                     (layer) => ({
-                        pattern: `**/?(*)${layer}/**` ,
+                        pattern: `**/?(*)${layer}{,/**}`,
                         group: "internal",
                         position: "after",
                     }),
