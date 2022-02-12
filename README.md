@@ -13,8 +13,7 @@
 
 Linting of [FeatureSliced](https://github.com/feature-sliced/documentation) concepts *by existing eslint-plugins*
 
-- Control [**Isolation**](https://feature-sliced.design/docs/concepts/low-coupling)
-- Control [**Decomposition**](https://feature-sliced.design/docs/concepts/app-splitting)
+- Control [**Isolation**](https://feature-sliced.design/docs/concepts/low-coupling) & [**Decomposition**](https://feature-sliced.design/docs/concepts/app-splitting)
 - Control [**Public API**](https://feature-sliced.design/docs/concepts/public-api)
 - Control [**Layers & Scopes**](https://feature-sliced.design/docs/reference/layers)
 - Control [**Naming**](https://feature-sliced.design/docs/concepts/naming-adaptability)
@@ -30,6 +29,8 @@ Uncomment if will be needed
 -->
 
 ## Rules
+
+Each rule has its own test cases and customization aspects
 
 - [`import-order`](./rules/import-order)
 - [`public-api`](./rules/public-api)
@@ -60,6 +61,37 @@ Uncomment if will be needed
         "extends": ["@feature-sliced"]
     }
     ```
+
+4. [For TypeScript only] Also setup TS-parser and TS-plugin
+    <details>
+    <summary>Details</summary>
+
+    > Needed for [eslint-plugin-boundaries](https://github.com/javierbrea/eslint-plugin-boundaries#usage-with-typescript)
+
+    **Install dependencies:**
+
+    ```sh
+    $ npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+    # or by yarn
+    $ yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
+    ```
+
+    **Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc` config file:**
+
+    ```json
+    {
+      "parser": "@typescript-eslint/parser",
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          }
+        }
+      }
+    }
+      ```
+
+    </details>
 
 ## Usage
 
@@ -102,7 +134,7 @@ Uncomment if will be needed
    "extends": [
      "@feature-sliced/eslint-config/rules/import-order",
      "@feature-sliced/eslint-config/rules/public-api",
-     "@feature-sliced/eslint-config/rules/layers-slices"
+     "@feature-sliced/eslint-config/rules/layers-slices",
    ]
    ```
 
@@ -145,33 +177,6 @@ Uncomment if will be needed
    - 'Reaching to "features/search/ui" is not allowed.'
    + 'Violated usage of modules Public API | https://git.io/Jymjf'
     ```
-
-## TypeScript
-
-This plugin can be used also in TypeScript projects using `@typescript-eslint/eslint-plugin`. Follow next steps to configure it:
-
-1. Install dependencies:
-
-   ```sh
-   $ npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
-   # or by yarn
-   $ yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
-   ```
-
-2. Configure `@typescript-eslint/parser` as parser and setup the `eslint-import-resolver-typescript` resolver in the `.eslintrc` config file:
-
-   ```json
-   {
-     "parser": "@typescript-eslint/parser",
-     "settings": {
-       "import/resolver": {
-         "typescript": {
-           "alwaysTryTypes": true
-         }
-       }
-     }
-   }
-   ```
 
 ## See also
 
