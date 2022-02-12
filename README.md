@@ -62,11 +62,9 @@ Each rule has its own test cases and customization aspects
     }
     ```
 
-4. [For TypeScript only] Also setup TS-parser and TS-plugin
+4. [[For TypeScript only]](https://github.com/javierbrea/eslint-plugin-boundaries#usage-with-typescript) Also setup TS-parser and TS-plugin
     <details>
     <summary>Details</summary>
-
-    > Needed for [eslint-plugin-boundaries](https://github.com/javierbrea/eslint-plugin-boundaries#usage-with-typescript)
 
     **Install dependencies:**
 
