@@ -62,7 +62,7 @@ Each rule has its own test cases and customization aspects
     }
     ```
 
-4. [[For TypeScript only]](https://github.com/javierbrea/eslint-plugin-boundaries#usage-with-typescript) Also setup TS-parser and TS-plugin
+4. `TYPESCRIPT-ONLY:` Also setup TS-parser and TS-plugin [(why?)](https://github.com/javierbrea/eslint-plugin-boundaries#usage-with-typescript)
     <details>
     <summary>Details</summary>
 
