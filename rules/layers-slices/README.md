@@ -21,3 +21,31 @@ import { Form, Button } from "shared/ui";
 import { getAuthCtx } from "entities/session";
 import { UserAvatar } from "entities/user";
 ```
+
+---
+
+> ⚠️ **DANGEROUS-mode**: Support service directories for slices by `_` prefix ([why?](https://github.com/feature-sliced/eslint-config/discussions/75#discussioncomment-2056223))
+>
+> Use carefully and at your own risk
+>
+> ```js
+> import { ... } from "../HomePage";
+> import { ... } from "../ProfilePage";
+>
+> // Imported into ...
+> @path "app/**"                   // 🟩 valid (upper layer)
+> @path "shared/router"            // 🟥 not valid (lower layer)
+> @path "pages/CartPage"           // 🟥 not valid (sibling slice)
+> @path "pages/router"             // 🟥 not valid (sibling slice)
+> @path "pages/_router"            // 🟩 again valid (as service directory/slice)
+> ```
+>
+> But still actual:
+>
+> ```js
+> @path "pages/_router"
+> import { ... } from "app"           // 🟥 not valid (lower layer)
+> 
+> @path "shared/lib"
+> import { ... } from "pages/_router" // 🟥 not valid (lower layer)
+> ```
