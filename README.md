@@ -111,7 +111,7 @@ Each rule has its own test cases and customization aspects
   import { ... } from "../entities/foo"; // relative imports
   ```
 
-- Case-agnostic
+- **Case**-agnostic
 
   ```js
   import { ... } from "entities/user-post";  // Support kebab-case (recommended)
