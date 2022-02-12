@@ -83,3 +83,18 @@ export { SmthForm } from "./ui/form";
 export * from "./model/actions";
 export { selectSmthById } from "./model/selectors";
 ```
+
+---
+
+> ⚠️ **DANGEROUS-mode**: Support custom segments at shared by `_` prefix ([why?](https://github.com/feature-sliced/eslint-config/discussions/75#discussioncomment-1972319))
+>
+> Use carefully and at your own risk
+>
+> ```js
+> import { ... } from "shared/lib"                 // 🟩 valid
+> import { ... } from "shared/library"             // 🟥 not valid
+>
+> import { ... } from "shared/_library"            // 🟩 again valid
+> import { ... } from "shared/_library/fp"         // 🟩 still valid
+> import { ... } from "shared/_library/fp/compose" // 🟥 don't be brash :)
+> ```
