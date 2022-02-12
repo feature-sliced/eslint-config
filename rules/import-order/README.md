@@ -28,6 +28,14 @@ import { data } from "../fixtures";                  // 3) parent
 import { getSmth } from "./lib";                     // 4) sibling
 ```
 
+> `WARN:` Rule supports layer-based imports, but [its recommended](../public-api) to prefer more specified imports
+>
+> ```js
+> import { ... } from "shared";                // Non-critical
+> import { ... } from "shared/ui";             // Better
+> import { ... } from "shared/ui/button";      // Perfect
+> ```
+
 ## Experimental
 
 **With reversed order ("from abstract to specific") and spaces between layers groups**
