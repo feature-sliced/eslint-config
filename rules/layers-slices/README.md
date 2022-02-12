@@ -49,3 +49,5 @@ import { UserAvatar } from "entities/user";
 > @path "shared/lib"
 > import { ... } from "pages/_router" // 🟥 not valid (lower layer)
 > ```
+>
+> <sup>*Only for @^0.1.0-beta.6*</sup>

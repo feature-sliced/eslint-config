@@ -51,7 +51,9 @@ export { selectSmthById } from "./model/selectors";
 
 **Without SegmentsAPI / InnerAPI restrictions** [(why experimental?)](https://github.com/feature-sliced/eslint-config/issues/90)
 
-Add `"@feature-sliced/eslint-config/rules/public-api/lite"` to your `extends` section in ESLint config. (for `^0.1.0-beta.5` versions)
+Add `"@feature-sliced/eslint-config/rules/public-api/lite"` to your `extends` section in ESLint config.
+
+<sup>*Only for @^0.1.0-beta.5*</sup>
 
 #### Slices PublicAPI
 
@@ -98,3 +100,5 @@ export { selectSmthById } from "./model/selectors";
 > import { ... } from "shared/_library/fp"         // 🟩 still valid
 > import { ... } from "shared/_library/fp/compose" // 🟥 don't be brash :)
 > ```
+>
+> <sup>*Only for @^0.1.0-beta.6*</sup>
