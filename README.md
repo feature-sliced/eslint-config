@@ -61,6 +61,37 @@ Uncomment if will be needed
     }
     ```
 
+## Usage
+
+- Support general **aliases**
+
+  ```js
+  import { Input } from "~/shared/ui/input";
+  import { Input } from "@/shared/ui/input";
+  import { Input } from "@shared/ui/input";
+  import { Input } from "$shared/ui/input";
+  // But not - import { Input } from "$UIKit/input";
+  ```
+
+- Support **relative** and **absolute** imports (but look at [recommendations](https://github.com/feature-sliced/eslint-config/issues/29))
+
+  ```js
+  import { ... } from "entities/foo";    // absolute imports
+  import { ... } from "@/entities/foo";  // aliased imports
+  import { ... } from "../entities/foo"; // relative imports
+  ```
+
+- Case-agnostic
+
+  ```js
+  import { ... } from "entities/user-post";  // Support kebab-case (recommended)
+  import { ... } from "entities/UserPost";   // Support PascalCase
+  import { ... } from "entities/userPost";   // Support camelCase
+  import { ... } from "entities/user_post";  // Support snake_case
+  ```
+
+- For exceptional cases, support ⚠️**DANGEROUS-mode**⚠️ (see more for [specific rule](#rules))
+
 ## Customization
 
 1. You can *partially use* the rules
