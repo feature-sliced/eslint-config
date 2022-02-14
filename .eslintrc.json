@@ -6,6 +6,5 @@
   ],
   "rules": {
     "no-undef": "off"
-  },
-  "parser": "@typescript-eslint/parser"
+  }
 }
