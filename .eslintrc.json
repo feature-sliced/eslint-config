@@ -1,9 +1,11 @@
 {
   "extends": [
+    "@eslint-kit/patch",
     "@eslint-kit/base",
     "@eslint-kit/prettier"
   ],
   "rules": {
     "no-undef": "off"
-  }
+  },
+  "parser": "@typescript-eslint/parser"
 }
