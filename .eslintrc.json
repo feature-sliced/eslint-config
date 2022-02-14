@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@eslint-kit/base",
+    "@eslint-kit/prettier"
+  ]
+}
