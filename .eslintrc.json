@@ -2,5 +2,8 @@
   "extends": [
     "@eslint-kit/base",
     "@eslint-kit/prettier"
-  ]
+  ],
+  "rules": {
+    "no-undef": "off"
+  }
 }
