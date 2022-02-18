@@ -45,7 +45,9 @@ function filterInstalledDeps(installDeps, existDeps) {
     );
 }
 
-async function bootstrap() {
+async function bootstrap(force = true) {
+    log.info("@feature-sliced/eslint-config/cli");
+
     const userPkgManager = getPkgManger();
     if (!userPkgManager) {
         return;
@@ -58,13 +60,17 @@ async function bootstrap() {
     log.info(`Found ${userPkgManager}. Start install missing dependencies.`);
 
     const runInstall = runCmdFactory(installCmd, userExec);
-    const installDeps = filterInstalledDeps(depsPackages, userDeps);
+    const installDeps = force ? depsPackages : filterInstalledDeps(depsPackages, userDeps);
 
     await installDependencies(runInstall, installDeps);
     await installDependencies(runInstall, basicPackages);
 
     if (isTypeScriptProject(userDeps)) {
-        await installDependencies(runInstall, typescriptDeps);
+        log.info(`Typescript project detected!`);
+        await installDependencies(
+            runInstall,
+            force ? typescriptDeps : filterInstalledDeps(typescriptDeps, userDeps),
+        );
     }
 }
 
