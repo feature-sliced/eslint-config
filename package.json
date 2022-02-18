@@ -28,8 +28,8 @@
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish",
     "prettier:fix": "prettier --write **/*.js",
-    "cli:run": "node cli.js",
-    "cli:dev": "nodemon cli.js",
+    "cli:run": "node cli/cli.js",
+    "cli:dev": "nodemon cli/cli.js",
     "clean": "git clean -fxd",
     "test": "mocha \"*(test|rules)/**/*.test.js\""
   },
@@ -44,6 +44,7 @@
     "@eslint-kit/eslint-config-base": "^5.0.2",
     "@eslint-kit/eslint-config-patch": "^1.0.0",
     "@eslint-kit/eslint-config-prettier": "^4.0.0",
+    "@feature-sliced/eslint-config": "^0.1.0-beta.6",
     "@typescript-eslint/parser": "^5.6.0",
     "eslint": "7.10.0",
     "eslint-import-resolver-node": "^0.3.6",
@@ -55,7 +56,8 @@
     "typescript": "^4.5.3"
   },
   "dependencies": {
-    "clear": "0.1.0",
-    "meow": "^8.1.2"
+    "lodash": "^4.17.21",
+    "meow": "^8.1.2",
+    "picocolors": "^1.0.0"
   }
 }
