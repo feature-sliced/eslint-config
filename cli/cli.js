@@ -45,6 +45,12 @@ function filterInstalledDeps(installDeps, existDeps) {
     );
 }
 
+function installCmdBuilder(userPkgManager) {
+    const installCmd = PkgMangers[userPkgManager].install;
+    const userExec = withPkgManager(exec, userPkgManager);
+    return runCmdFactory(installCmd, userExec);
+}
+
 async function bootstrap(force = true) {
     log.info("@feature-sliced/eslint-config/cli");
 
@@ -52,14 +58,11 @@ async function bootstrap(force = true) {
     if (!userPkgManager) {
         return;
     }
+    log.info(`Found ${userPkgManager}. Start install missing dependencies.`);
 
     const userDeps = _.merge(cli.pkg.dependencies, cli.pkg.devDependencies);
 
-    const installCmd = PkgMangers[userPkgManager].install;
-    const userExec = withPkgManager(exec, userPkgManager);
-    log.info(`Found ${userPkgManager}. Start install missing dependencies.`);
-
-    const runInstall = runCmdFactory(installCmd, userExec);
+    const runInstall = installCmdBuilder(userPkgManager);
     const installDeps = force ? depsPackages : filterInstalledDeps(depsPackages, userDeps);
 
     await installDependencies(runInstall, installDeps);
