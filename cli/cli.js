@@ -1,6 +1,7 @@
 const meow = require("meow");
 const { log } = require("./log");
 const { withPkgManager, getPkgManger, PkgMangers } = require("./packages");
+const { ui } = require("./ui");
 const _ = require("lodash");
 const { runCmdFactory, exec } = require("./run");
 
@@ -51,8 +52,14 @@ function installCmdBuilder(userPkgManager) {
     return runCmdFactory(installCmd, userExec);
 }
 
-async function bootstrap(force = true) {
+function getUserDeps(cli) {
+    return _.merge(cli.pkg.dependencies, cli.pkg.devDependencies);
+}
+
+function bootstrap({ withTs = true, force = true }) {
     log.info("@feature-sliced/eslint-config/cli");
+
+    const userDeps = getUserDeps(cli);
 
     const userPkgManager = getPkgManger();
     if (!userPkgManager) {
@@ -60,21 +67,19 @@ async function bootstrap(force = true) {
     }
     log.info(`Found ${userPkgManager}. Start install missing dependencies.`);
 
-    const userDeps = _.merge(cli.pkg.dependencies, cli.pkg.devDependencies);
-
     const runInstall = installCmdBuilder(userPkgManager);
     const installDeps = force ? depsPackages : filterInstalledDeps(depsPackages, userDeps);
 
-    await installDependencies(runInstall, installDeps);
-    await installDependencies(runInstall, basicPackages);
+    installDependencies(runInstall, installDeps);
+    installDependencies(runInstall, basicPackages);
 
-    if (isTypeScriptProject(userDeps)) {
+    if (withTs) {
         log.info(`Typescript project detected!`);
-        await installDependencies(
+        installDependencies(
             runInstall,
             force ? typescriptDeps : filterInstalledDeps(typescriptDeps, userDeps),
         );
     }
 }
 
-bootstrap();
+ui(bootstrap, isTypeScriptProject(getUserDeps(cli)));

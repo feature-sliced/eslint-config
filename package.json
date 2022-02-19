@@ -45,9 +45,11 @@
     "@eslint-kit/eslint-config-patch": "^1.0.0",
     "@eslint-kit/eslint-config-prettier": "^4.0.0",
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",
-    "@typescript-eslint/parser": "^5.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "eslint": "7.10.0",
     "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-boundaries": "2.8.0",
     "eslint-plugin-import": "2.25.4",
     "mocha": "^8.2.1",
@@ -58,6 +60,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "meow": "^8.1.2",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2"
   }
 }
