@@ -36,7 +36,7 @@ function getPkgManger() {
 }
 
 function withPkgManager(cmdExecutor, pkgManager) {
-    return async function () {
+    return function () {
         cmdExecutor.call(null, ...arguments, pkgManager);
     };
 }

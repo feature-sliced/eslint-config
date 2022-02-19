@@ -31,7 +31,7 @@ function isTypeScriptProject(userDeps) {
     }, false);
 }
 
-async function installDependencies(installFn, dependencies, dev = true) {
+function installDependencies(installFn, dependencies, dev = true) {
     Object.keys(dependencies).forEach((dep) => {
         const version = dependencies[dep] && `@${dependencies[dep]}`;
         installFn(`${dev && "-D "}${dep + version}`);
