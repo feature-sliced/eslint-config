@@ -7,8 +7,6 @@ const { runCmdFactory, exec } = require("./run");
 
 const cli = meow(null, {});
 
-const _DEBUG_ = true;
-
 const basicPackages = {
     "@feature-sliced/eslint-config": "latest",
 };
@@ -86,6 +84,8 @@ function bootstrap({ withTs = true, force = true }) {
             force ? typescriptDeps : filterInstalledDeps(typescriptDeps, userDeps),
         );
     }
+
+    log.info(`Done.`);
 }
 
 ui(bootstrap, isTypeScriptProject(getUserDeps(cli)));
