@@ -5,8 +5,8 @@
   "main": "dist/cli.js",
   "scripts": {
     "build": "rollup -c rollup.conf.js",
-    "cli:run": "node packages/cli/cli.js",
-    "cli:dev": "nodemon packages/cli/cli.js"
+    "cli:run": "node src/index.js",
+    "cli:dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
