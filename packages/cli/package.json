@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clear": "^0.1.0",
-    "lodash": "^4.17.21",
-    "meow": "8.1.2",
-    "picocolors": "^1.0.0",
-    "prompts": "^2.4.2"
+    "meow": "8.1.2"
   },
   "devDependencies": {
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2",
+    "clear": "^0.1.0",
+    "lodash": "^4.17.21",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
