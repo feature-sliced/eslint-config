@@ -7,8 +7,10 @@ const { runCmdFactory, exec } = require("./run");
 
 const cli = meow(null, {});
 
+const _DEBUG_ = true;
+
 const basicPackages = {
-    "@feature-sliced/eslint-config": "",
+    "@feature-sliced/eslint-config": "latest",
 };
 
 const depsPackages = {
@@ -17,9 +19,9 @@ const depsPackages = {
 };
 
 const typescriptDeps = {
-    "@typescript-eslint/eslint-plugin": "",
-    "@typescript-eslint/parser": "",
-    "eslint-import-resolver-typescript": "",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint-import-resolver-typescript": "latest",
 };
 
 function isTypeScriptProject(userDeps) {
@@ -32,10 +34,16 @@ function isTypeScriptProject(userDeps) {
 }
 
 function installDependencies(installFn, dependencies, dev = true) {
-    Object.keys(dependencies).forEach((dep) => {
-        const version = dependencies[dep] && `@${dependencies[dep]}`;
-        installFn(`${dev && "-D "}${dep + version}`);
-    });
+    const depsString = Object.keys(dependencies)
+        .map((dep) => {
+            const version = dependencies[dep] && `@${dependencies[dep]}`;
+            return dep + version;
+        })
+        .join(" ");
+
+    const installArgs = `${dev && "-D "}${depsString}`;
+
+    installFn(installArgs);
 }
 
 function filterInstalledDeps(installDeps, existDeps) {
@@ -70,11 +78,9 @@ function bootstrap({ withTs = true, force = true }) {
     const runInstall = installCmdBuilder(userPkgManager);
     const installDeps = force ? depsPackages : filterInstalledDeps(depsPackages, userDeps);
 
-    installDependencies(runInstall, installDeps);
-    installDependencies(runInstall, basicPackages);
+    installDependencies(runInstall, _.merge(installDeps, basicPackages));
 
     if (withTs) {
-        log.info(`Typescript project detected!`);
         installDependencies(
             runInstall,
             force ? typescriptDeps : filterInstalledDeps(typescriptDeps, userDeps),
