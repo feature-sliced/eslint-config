@@ -1,0 +1,27 @@
+{
+  "name": "@feature-sliced/eslint-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cli.js",
+  "scripts": {
+    "build": "rollup -c rollup.conf.js",
+    "cli:run": "node src/index.js",
+    "cli:dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "meow": "8.1.2"
+  },
+  "devDependencies": {
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2",
+    "clear": "^0.1.0",
+    "lodash": "^4.17.21",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup": "^2.67.3"
+  }
+}
