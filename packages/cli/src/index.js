@@ -12,8 +12,8 @@ const basicPackages = {
 };
 
 const depsPackages = {
-    "eslint-plugin-boundaries": "2.8.0",
-    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-boundaries": "^2.8.0",
+    "eslint-plugin-import": "^2.25.4",
 };
 
 const typescriptDeps = {
@@ -32,14 +32,12 @@ function isTypeScriptProject(userDeps) {
 }
 
 function installDependencies(installFn, dependencies, dev = true) {
-    const depsString = Object.keys(dependencies)
-        .map((dep) => {
-            const version = dependencies[dep] && `@${dependencies[dep]}`;
-            return dep + version;
-        })
-        .join(" ");
+    const depsString = Object.keys(dependencies).reduce((result, dep) => {
+        const version = dependencies[dep] && `@${dependencies[dep]}`;
+        return `${result} "${dep + version}"`;
+    }, "");
 
-    const installArgs = `${dev && "-D "}${depsString}`;
+    const installArgs = `${dev && "-D"}${depsString}`;
 
     installFn(installArgs);
 }
@@ -62,7 +60,7 @@ function getUserDeps(cli) {
     return _.merge(cli.pkg.dependencies, cli.pkg.devDependencies);
 }
 
-function bootstrap({ withTs = true, force = true }) {
+function bootstrap({ withTs = true, force = false }) {
     log.info("@feature-sliced/eslint-config/cli");
 
     const userDeps = getUserDeps(cli);
