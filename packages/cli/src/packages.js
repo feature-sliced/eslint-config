@@ -5,7 +5,7 @@ const { log } = require("./log");
 const PkgMangers = {
     npm: { lock: "package-lock.json", install: "install" },
     yarn: { lock: "yarn.lock", install: "add" },
-    pnpm: { lock: "pnpm.lock", install: "install" },
+    pnpm: { lock: "pnpm-lock.yaml", install: "install" },
 };
 
 function getPkgManger() {
