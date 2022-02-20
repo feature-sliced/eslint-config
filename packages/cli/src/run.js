@@ -1,5 +1,6 @@
 const { log } = require("./log");
 const { spawnSync } = require("child_process");
+const { PkgMangers, withPkgManager } = require("./packages");
 
 function runCmdFactory(cmd, executor) {
     return function (cmdArgs) {
@@ -24,4 +25,21 @@ function exec(cmd, pkgManager = null) {
     }
 }
 
-module.exports = { exec, runCmdFactory };
+function installCmdBuilder(userPkgManager) {
+    const installCmd = PkgMangers[userPkgManager].install;
+    const userExec = withPkgManager(exec, userPkgManager);
+    return runCmdFactory(installCmd, userExec);
+}
+
+function installDependencies(installFn, dependencies, dev = true) {
+    const depsString = Object.keys(dependencies).reduce((result, dep) => {
+        const version = dependencies[dep] && `@${dependencies[dep]}`;
+        return `${result} "${dep + version}"`;
+    }, "");
+
+    const installArgs = `${dev && "-D"}${depsString}`;
+
+    installFn(installArgs);
+}
+
+module.exports = { exec, installDependencies, installCmdBuilder };
