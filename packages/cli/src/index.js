@@ -23,12 +23,12 @@ const typescriptDeps = {
 };
 
 function isTypeScriptProject(userDeps) {
-    return Object.keys(userDeps).reduce((result, dep) => {
+    for (const dep of userDeps) {
         if (dep.includes("@types/") || dep.includes("typescript")) {
             return true;
         }
-        return result;
-    }, false);
+    }
+    return false;
 }
 
 function installDependencies(installFn, dependencies, dev = true) {
