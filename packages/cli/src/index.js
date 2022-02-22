@@ -8,16 +8,17 @@ const {
     typescriptPackages,
     filterInstalledDeps,
     getUserDeps,
+    isTypeScriptProject,
 } = require("./packages");
 const { ui } = require("./ui");
 const { log } = require("./log");
 
 const cli = meow(null, {});
+const userDeps = getUserDeps(cli);
+const isTS = isTypeScriptProject(userDeps);
 
 function bootstrap({ withTs = true, force = false }) {
     log.info("@feature-sliced/eslint-config/cli");
-
-    const userDeps = getUserDeps(cli);
 
     const userPkgManager = getPkgManger();
     if (!userPkgManager) {
@@ -40,4 +41,4 @@ function bootstrap({ withTs = true, force = false }) {
     log.info(`Done.`);
 }
 
-ui(bootstrap, isTypeScriptProject(getUserDeps(cli)));
+ui(bootstrap, isTS);
