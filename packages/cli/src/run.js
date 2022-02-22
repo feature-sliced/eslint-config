@@ -15,6 +15,7 @@ function exec(cmd, pkgManager = null) {
     }
 
     log.info(`Install ${cmd.slice(-1)}`);
+    if (process.env.DEBUG) return;
 
     try {
         const spawnResultBuffer = spawnSync(pkgManager, [...cmd], {
