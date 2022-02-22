@@ -32,14 +32,10 @@ function installCmdBuilder(userPkgManager) {
 }
 
 function installDependencies(installFn, dependencies, dev = true) {
-    const depsString = Object.keys(dependencies).reduce((result, dep) => {
+    Object.keys(dependencies).forEach((dep) => {
         const version = dependencies[dep] && `@${dependencies[dep]}`;
-        return `${result} "${dep + version}"`;
-    }, "");
-
-    const installArgs = `${dev && "-D"}${depsString}`;
-
-    installFn(installArgs);
+        installFn(`${dev && "-D "}${dep + version}`);
+    });
 }
 
 module.exports = { exec, installDependencies, installCmdBuilder };
