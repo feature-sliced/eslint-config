@@ -1,15 +1,28 @@
 {
   "name": "@feature-sliced/eslint-cli",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.0-concept",
+  "description": "🍰 CLI for eslint-config convenient usage",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "feature-sliced",
+    "feature-slices",
+    "feature-driven",
+    "feature-based"
+  ],
   "main": "dist/cli.js",
   "scripts": {
     "build": "rollup -c rollup.conf.js",
     "cli:run": "node src/index.js",
     "cli:dev": "nodemon src/index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/feature-sliced/eslint-config.git",
+  "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "meow": "8.1.2"
   },
