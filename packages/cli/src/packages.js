@@ -25,8 +25,11 @@ const PkgMangers = {
 };
 
 function isTypeScriptProject(userDeps) {
+    if (process.env.DEBUG) console.info("Detected user dependencies:", userDeps);
     for (const dep in userDeps) {
+        if (process.env.DEBUG) console.info("processed:", dep);
         if (dep.includes("@types/") || dep.includes("typescript")) {
+            if (process.env.DEBUG) console.info("Detected TS on:", dep);
             return true;
         }
     }

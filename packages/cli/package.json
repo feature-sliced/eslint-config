@@ -14,9 +14,9 @@
   "main": "dist/cli.js",
   "scripts": {
     "build": "rollup -c rollup.conf.js",
-    "test": "DEBUG=1 mocha tests/*.test.js",
+    "test": "DEBUG=2 mocha tests/*.test.js",
     "cli:run": "node src/index.js",
-    "cli:dev": "nodemon src/index.js"
+    "cli:dev": "DEBUG=1 node src/index.js"
   },
   "publishConfig": {
     "access": "public"
