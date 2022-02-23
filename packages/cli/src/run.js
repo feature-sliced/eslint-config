@@ -14,13 +14,11 @@ function exec(cmd, pkgManager = null) {
         return;
     }
 
-    log.info(`Install ${cmd.slice(-1)}`);
+    log.info(`> install ${cmd.slice(-1)}`);
     if (process.env.DEBUG) return;
 
     try {
-        const spawnResultBuffer = spawnSync(pkgManager, [...cmd], {
-            shell: true,
-        });
+        const spawnResultBuffer = spawnSync(pkgManager, [...cmd], { shell: true });
     } catch (error) {
         console.error(error);
     }
