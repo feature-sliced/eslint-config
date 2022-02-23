@@ -30,15 +30,13 @@ function bootstrap({ withTs, force = false }) {
 
     const runInstall = installCmdBuilder(userPkgManager);
     const installDeps = force ? depsPackages : filterInstalledDeps(depsPackages, userDeps);
-
-    installDependencies(runInstall, _.merge(installDeps, basicPackages));
+    let tsDeps = {};
 
     if (withTs) {
-        installDependencies(
-            runInstall,
-            force ? typescriptPackages : filterInstalledDeps(typescriptPackages, userDeps),
-        );
+        tsDeps = force ? typescriptPackages : filterInstalledDeps(typescriptPackages, userDeps);
     }
+
+    installDependencies(runInstall, _.merge(installDeps, basicPackages, tsDeps));
 
     log.info(`Done.`);
 }

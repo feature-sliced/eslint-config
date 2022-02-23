@@ -31,10 +31,14 @@ function installCmdBuilder(userPkgManager) {
 }
 
 function installDependencies(installFn, dependencies, dev = true) {
-    Object.keys(dependencies).forEach((dep) => {
+    const depsString = Object.keys(dependencies).reduce((result, dep) => {
         const version = dependencies[dep] && `@${dependencies[dep]}`;
-        installFn(`${dev && "-D "}${dep + version}`);
-    });
+        return `${result} "${dep + version}"`;
+    }, "");
+
+    const installArgs = `${dev && "-D"}${depsString}`;
+
+    return installFn(installArgs);
 }
 
 module.exports = { exec, installDependencies, installCmdBuilder };
