@@ -18,7 +18,10 @@ function exec(cmd, pkgManager = null) {
     if (process.env.DEBUG) return;
 
     try {
-        const spawnResultBuffer = spawnSync(pkgManager, [...cmd], { shell: true });
+        const spawnResultBuffer = spawnSync(pkgManager, [...cmd], {
+            shell: true,
+            stdio: ["ignore", process.stdout, process.stderr],
+        });
     } catch (error) {
         console.error(error);
     }
