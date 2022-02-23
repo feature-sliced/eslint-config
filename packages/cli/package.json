@@ -1,6 +1,6 @@
 {
   "name": "@feature-sliced/eslint-cli",
-  "version": "0.0.0-concept.1",
+  "version": "0.0.0-concept.2",
   "description": "🍰 CLI for eslint-config convenient usage",
   "keywords": [
     "eslint",
@@ -12,6 +12,9 @@
     "feature-based"
   ],
   "main": "dist/cli.js",
+  "bin": {
+    "@feature-sliced/eslint-cli": "bin.js"
+  },
   "scripts": {
     "build": "rollup -c rollup.conf.js",
     "test": "DEBUG=2 mocha tests/*.test.js",
