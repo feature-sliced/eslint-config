@@ -3,8 +3,7 @@ const { log } = require("./log");
 
 const HELLO_MESSAGE = "Welcome to @feature-sliced/eslint-config installer.";
 const INSTALL_MESSAGE = "Run installation?";
-const TYPESCRIPT_MESSAGE =
-    "Typescript detected in your project. Install additionally typescript dependencies?";
+const TYPESCRIPT_MESSAGE = "Typescript. Install additionally typescript dependencies?";
 
 const questions = [
     {

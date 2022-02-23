@@ -8,14 +8,12 @@ const {
     typescriptPackages,
     filterInstalledDeps,
     getUserDeps,
-    isTypeScriptProject,
 } = require("./packages");
 const { ui } = require("./ui");
 const { log } = require("./log");
 
 const cli = meow(null, {});
 const userDeps = getUserDeps(cli);
-const isTS = isTypeScriptProject(userDeps);
 
 function bootstrap({ withTs, force = false }) {
     if (process.env.DEBUG) console.info("Bootstraping with ts/force:", withTs, force);
@@ -41,4 +39,4 @@ function bootstrap({ withTs, force = false }) {
     log.info(`Done.`);
 }
 
-ui(bootstrap, isTS);
+ui(bootstrap, true);
