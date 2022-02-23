@@ -27,7 +27,7 @@ async function ui(install, typescript) {
 
     log.info(HELLO_MESSAGE);
 
-    if (process.env.DEBUG) {
+    if (process.env.DEBUG === "2") {
         install({ withTs: true, force: true });
         return;
     }
