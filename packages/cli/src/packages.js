@@ -8,6 +8,7 @@ const basicPackages = {
 };
 
 const depsPackages = {
+    "eslint": "^7.10.0",
     "eslint-plugin-boundaries": "^2.8.0",
     "eslint-plugin-import": "^2.25.4",
 };
