@@ -1,6 +1,6 @@
 {
   "name": "@feature-sliced/eslint-cli",
-  "version": "0.0.0-concept.2",
+  "version": "0.0.0-concept.3",
   "description": "🍰 CLI for eslint-config convenient usage",
   "keywords": [
     "eslint",
