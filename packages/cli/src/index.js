@@ -17,7 +17,7 @@ const cli = meow(null, {});
 const userDeps = getUserDeps(cli);
 const isTS = isTypeScriptProject(userDeps);
 
-function bootstrap({ withTs = true, force = false }) {
+function bootstrap({ withTs = false, force = false }) {
     log.info("@feature-sliced/eslint-config/cli");
 
     const userPkgManager = getPkgManger();

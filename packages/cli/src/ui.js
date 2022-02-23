@@ -27,6 +27,11 @@ async function ui(install, typescript) {
 
     log.info(HELLO_MESSAGE);
 
+    if (process.env.DEBUG) {
+        install({ withTs: true, force: true });
+        return;
+    }
+
     const answers = await prompts(usedQuestions);
     if (answers.install) {
         install({ withTs: answers.typescript });

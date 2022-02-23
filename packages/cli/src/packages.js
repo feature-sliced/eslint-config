@@ -25,7 +25,7 @@ const PkgMangers = {
 };
 
 function isTypeScriptProject(userDeps) {
-    for (const dep of Object.keys(userDeps)) {
+    for (const dep in userDeps) {
         if (dep.includes("@types/") || dep.includes("typescript")) {
             return true;
         }
