@@ -34,7 +34,7 @@ async function ui(install, typescript) {
 
     const answers = await prompts(usedQuestions);
     if (answers.install) {
-        install({ withTs: answers.typescript || typescript });
+        install({ withTs: answers.typescript });
     }
 }
 
