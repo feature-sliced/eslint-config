@@ -15,7 +15,7 @@ const { log } = require("./log");
 const cli = meow(null, {});
 const userDeps = getUserDeps(cli);
 
-function bootstrap({ withTs, force = false }) {
+function bootstrap({ withTs, force = true }) {
     if (process.env.DEBUG) console.info("Bootstraping with ts/force:", withTs, force);
 
     log.info("@feature-sliced/eslint-config/cli");
