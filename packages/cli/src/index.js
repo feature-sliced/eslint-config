@@ -1,4 +1,4 @@
-const meow = require("meow");
+const fs = require("fs");
 const _ = require("lodash");
 const { installCmdBuilder, installDependencies } = require("./run");
 const {
@@ -8,14 +8,16 @@ const {
     typescriptPackages,
     filterInstalledDeps,
     getUserDeps,
+    isTypeScriptProject,
 } = require("./packages");
 const { ui } = require("./ui");
 const { log } = require("./log");
 
-const cli = meow(null, {});
-const userDeps = getUserDeps(cli);
+const packageJsonRaw = fs.readFileSync("package.json");
+const packageInfo = JSON.parse(packageJsonRaw);
+const userDeps = getUserDeps(packageInfo);
 
-function bootstrap({ withTs, force = true }) {
+function bootstrap({ withTs, force = false }) {
     if (process.env.DEBUG) console.info("Bootstraping with ts/force:", withTs, force);
 
     log.info("@feature-sliced/eslint-config/cli");
@@ -39,4 +41,4 @@ function bootstrap({ withTs, force = true }) {
     log.info(`Done.`);
 }
 
-ui(bootstrap, true);
+ui(bootstrap, isTypeScriptProject(userDeps));

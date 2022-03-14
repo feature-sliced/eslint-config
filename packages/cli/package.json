@@ -25,7 +25,6 @@
   "author": "FeatureSliced core-team<feature.sliced@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "meow": "8.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",

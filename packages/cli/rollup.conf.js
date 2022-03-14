@@ -10,5 +10,4 @@ export default {
         format: "cjs",
     },
     plugins: [nodeResolve({ include: ["node_modules/**"] }), commonjs(), json(), terser()],
-    external: ["meow"],
 };

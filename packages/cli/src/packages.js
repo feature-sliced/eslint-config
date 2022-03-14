@@ -36,8 +36,8 @@ function isTypeScriptProject(userDeps) {
     return false;
 }
 
-function getUserDeps(cli) {
-    return _.merge(cli.pkg.dependencies, cli.pkg.devDependencies);
+function getUserDeps(packageInfo) {
+    return _.merge(packageInfo.dependencies, packageInfo.devDependencies);
 }
 
 function filterInstalledDeps(installDeps, existDeps) {
