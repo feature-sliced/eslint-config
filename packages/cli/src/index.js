@@ -1,4 +1,4 @@
-const meow = require("meow");
+const fs = require("fs");
 const _ = require("lodash");
 const { installCmdBuilder, installDependencies } = require("./run");
 const {
@@ -13,9 +13,9 @@ const {
 const { ui } = require("./ui");
 const { log } = require("./log");
 
-const cli = meow(null, {});
-const userDeps = getUserDeps(cli);
-const isTS = isTypeScriptProject(userDeps);
+const packageJsonRaw = fs.readFileSync("package.json");
+const packageInfo = JSON.parse(packageJsonRaw);
+const userDeps = getUserDeps(packageInfo);
 
 function bootstrap({ withTs, force = false }) {
     if (process.env.DEBUG) console.info("Bootstraping with ts/force:", withTs, force);
@@ -41,4 +41,4 @@ function bootstrap({ withTs, force = false }) {
     log.info(`Done.`);
 }
 
-ui(bootstrap, isTS);
+ui(bootstrap, isTypeScriptProject(userDeps));
