@@ -14,6 +14,7 @@ const FS_SEGMENTS = [
     "lib",
     "api",
     "config",
+    "assets"
 ];
 
 const getLowerLayers = (layer) => FS_LAYERS.slice(FS_LAYERS.indexOf(layer) + 1);
