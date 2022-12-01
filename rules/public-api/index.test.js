@@ -127,6 +127,7 @@ describe("PublicAPI import boundaries:", () => {
             import { AuthAPI } from "shared/api/auth";
             import { useGeo } from "shared/lib/hooks";
             import { styles } from "shared/ui/styles";
+            import { lockSound } from "shared/assets";
             import { CONNECT_ATTEMPTS } from "shared/config";
             `, { filePath: "src/features/form/ui/index.js" });
 
@@ -138,16 +139,18 @@ describe("PublicAPI import boundaries:", () => {
             import { Hex } from "shared/api/ui";
             import { Form } from "shared/ui/lib";
             import { AuthForm } from "shared/api/ui";
+            import { lockSound } from "shared/assets/ui";
             import { model } from "shared/ui/model";
             `, { filePath: "src/features/form/ui/index.js" });
 
-            assert.strictEqual(report[0].errorCount, 4);
+            assert.strictEqual(report[0].errorCount, 5);
         });
 
         it("should lint without errors", async () => {
             const report = await eslint.lintText(`
             import { FancyLabel } from "../../label";
             import { model } from "../model";
+            import { lockSound } from "../assets";
             `, { filePath: "src/shared/ui/button/index.js" });
 
             assert.strictEqual(report[0].errorCount, 0);
@@ -172,6 +175,7 @@ describe("PublicAPI import boundaries:", () => {
             import { FancyLabel } from 'shared/ui';
             import { convertToken } from 'shared/lib';
             import { CONNECT_ATTEMPTS } from "shared/config";
+            import { lockSound } from "shared/assets";
             `, { filePath: "src/pages/main/ui/index.js" });
 
             assert.strictEqual(report[0].errorCount, 0);
@@ -192,6 +196,7 @@ describe("PublicAPI import boundaries:", () => {
             const report = await eslint.lintText(`
             import { routeNames } from '@/shared/api/router';
             import { fetchRules } from '@shared/api/rules';
+            import { lockSound } from "shared/assets/sounds";
             `, { filePath: "src/pages/main/ui/index.js" });
 
             assert.strictEqual(report[0].errorCount, 0);
