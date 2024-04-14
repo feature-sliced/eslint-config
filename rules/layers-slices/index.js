@@ -6,10 +6,16 @@ const getNotSharedLayersRules = () =>
         allow: layersLib.getLowerLayers(layer),
     }));
 
-const sharedLayerRule = {
-    from: "shared",
-    allow: "shared",
-};
+const slicelessLayerRules = [
+    {
+        from: "shared",
+        allow: "shared",
+    },
+    {
+        from: "app",
+        allow: "app",
+    }
+];
 
 const getLayersBoundariesElements = () =>
     layersLib.FS_LAYERS.map((layer) => ({
@@ -46,7 +52,7 @@ module.exports = {
             {
                 "default": "disallow",
                 "message": "\"${file.type}\" is not allowed to import \"${dependency.type}\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
-                "rules": [...getNotSharedLayersRules(), sharedLayerRule, ...getGodModeRules()],
+                "rules": [...getNotSharedLayersRules(), ...slicelessLayerRules, ...getGodModeRules()],
             },
         ],
     },
