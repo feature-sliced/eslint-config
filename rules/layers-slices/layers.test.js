@@ -102,4 +102,26 @@ describe("Import boundaries between layers", () => {
         assert.strictEqual(report[0].errorCount, 0);
     });
 
+    it("should lint without errors when import from app.", async () => {
+        const validCodeSnippet = [
+            `import "app/styles/styles.css"`,
+            `import { withProviders } from "app/providers"`,
+        ].join("\n");
+
+        const report = await eslint.lintText(validCodeSnippet, {
+            filePath: "src/app/ui/app.tsx",
+        });
+        assert.strictEqual(report[0].errorCount, 0);
+    });
+
+    it("should lint with errors when import from app.", async () => {
+        const wrongImports = [
+            `import { withProviders } from "app/providers"`,
+        ];
+
+        const report = await eslint.lintText(wrongImports.join("\n"), {
+            filePath: "src/features/add-user/model.tsx",
+        });
+        assert.strictEqual(report[0].errorCount, wrongImports.length);
+    });
 });
