@@ -44,6 +44,8 @@ Each rule has its own test cases and customization aspects
     $ npm install -D eslint
     # or by yarn
     $ yarn add -D eslint
+    $ or by pnpm 
+    $ pnpm add -D eslint
     ```
 
 2. Next, install `@feature-sliced/eslint-config` and dependencies:
@@ -52,6 +54,8 @@ Each rule has its own test cases and customization aspects
     $ npm install -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     # or by yarn
     $ yarn add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
+    # or by pnpm 
+    $ pnpm add -D @feature-sliced/eslint-config eslint-plugin-import eslint-plugin-boundaries
     ```
 
 3. Add config to the `extends` section of your `.eslintrc` configuration file (for **recommended** rules). You can omit the `eslint-config` postfix:
